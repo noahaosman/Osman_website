@@ -1,0 +1,701 @@
+/* #region | Variables & typography --- */
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* font parameters: */
+/* Redifine font size if there's a big display */
+/* General Styles */
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  background: #282828;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  height: 100%;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ------ Typography ------ */
+h1,
+h2,
+h3 {
+  line-height: 1;
+  margin: 0;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+h2 {
+  font-size: 2.25rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+.hidden {
+  position: absolute;
+  left: 500vw;
+}
+
+.dummy-em {
+  height: 1em;
+}
+
+/* #endregion */
+/* #region | Introduction ------------- */
+.intro {
+  background-color: #282828;
+  background-image: url(../img/webvort_longwide.jpg);
+  background-size: 750px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  height: 75%;
+  max-height: 1100px;
+  min-height: 600px;
+  margin: 0;
+  z-index: 0;
+}
+
+.intro .nameplate_container {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  margin-top: 10em;
+  padding: 0 2em;
+}
+
+.intro .nameplate_container .intro__title {
+  background: #689775;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 600;
+  color: #282828;
+  margin-bottom: 0.1em;
+  text-align: center;
+}
+
+.intro .nameplate_container .intro__subtitle {
+  -ms-flex-item-align: start;
+      -ms-grid-row-align: start;
+      align-self: start;
+  font-size: 1.25rem;
+  font-family: "Source Code Pro", monospace;
+  font-weight: 300;
+  color: #fafaf1;
+  text-align: right;
+  margin-bottom: 1em;
+  position: relative;
+  right: 1em;
+}
+
+.intro .nameplate_container .intro__img {
+  -webkit-box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
+          box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
+  border-radius: 50%;
+  width: 400px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 750px) {
+  .intro {
+    background-size: 100%;
+    background-position: 50% 0;
+  }
+  .intro .nameplate_container {
+    display: -ms-grid;
+    display: grid;
+    width: -webkit-min-content;
+    width: -moz-min-content;
+    width: min-content;
+    margin-left: auto;
+    margin-right: auto;
+        grid-template-areas: "title img" "subtitle img";
+    -ms-grid-columns: max-content min-content;
+        grid-template-columns: -webkit-max-content -webkit-min-content;
+        grid-template-columns: max-content min-content;
+    grid-column-gap: 7em;
+  }
+  .intro .nameplate_container .intro__title {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: title;
+    -ms-flex-item-align: start;
+        -ms-grid-row-align: start;
+        align-self: start;
+    grid-column: -1/1;
+    -ms-grid-row: 1;
+    grid-row: 1;
+    text-align: left;
+    margin-top: 1em;
+    width: calc(100% + 1em);
+    position: relative;
+    top: 1em;
+    padding-left: 0.25em;
+  }
+  .intro .nameplate_container .intro__subtitle {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    grid-area: subtitle;
+    -ms-grid-column: 1;
+    grid-column: 1/1;
+    text-align: right;
+    position: relative;
+    right: -3.5em;
+    top: -1.5em;
+  }
+  .intro .nameplate_container .intro__img {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 2;
+    grid-area: img;
+    min-width: 400px;
+    position: relative;
+  }
+}
+
+@media (min-width: 1350px) {
+  .intro {
+    background-size: 1350px;
+  }
+}
+
+/* #endregion */
+/* #region | About me ----------------- */
+.about-me {
+  width: 100%;
+  padding-top: 80px;
+  overflow: hidden;
+}
+
+.about-me .about-me__inner {
+  background-color: #fafaf1;
+  /* #region | blur the boundary line */
+  -webkit-box-shadow: 0px -2px 2px #282828, 0px -4px 4px #282828, 0px -8px 8px #282828, 0px -12px 12px #282828, 0px -20px 20px #282828, 0px -40px 40px #282828, inset 0px 2px 2px -2px #282828, inset 0px 4px 4px -4px #282828, inset 0px 8px 8px -8px #282828, inset 0px 12px 12px -12px #282828, inset 0px 20px 20px -20px #282828, inset 0px 40px 40px -40px #282828;
+          box-shadow: 0px -2px 2px #282828, 0px -4px 4px #282828, 0px -8px 8px #282828, 0px -12px 12px #282828, 0px -20px 20px #282828, 0px -40px 40px #282828, inset 0px 2px 2px -2px #282828, inset 0px 4px 4px -4px #282828, inset 0px 8px 8px -8px #282828, inset 0px 12px 12px -12px #282828, inset 0px 20px 20px -20px #282828, inset 0px 40px 40px -40px #282828;
+  /* #endregion */
+  position: relative;
+  z-index: 3;
+}
+
+.about-me .about-me__inner .about-me__title {
+  color: #689775;
+  text-align: center;
+  padding-top: 1em;
+}
+
+.about-me .about-me__inner .about-me__title:after {
+  content: '';
+  display: block;
+  width: 115px;
+  height: 1px;
+  margin: 0.5em auto 1em;
+  background: #282828;
+  opacity: 0.5;
+}
+
+.about-me .about-me__inner .catagories .catagory {
+  text-align: center;
+}
+
+.about-me .about-me__inner .catagories .catagory .more-info {
+  background-color: #fafaf1;
+  padding: 0 15%;
+}
+
+.about-me .about-me__inner .catagories .catagory .more-info > * {
+  margin: 1em 0;
+}
+
+.about-me .about-me__inner .catagories .catagory .more-info .more-info__text {
+  -webkit-transition: opacity 0s;
+  transition: opacity 0s;
+  opacity: 0;
+}
+
+.about-me .about-me__inner .catagories .catagory .more-info .more-info__text.open {
+  color: #689775;
+  opacity: 1;
+}
+
+.about-me .about-me__inner .catagories .catagory .more-info:hover .more-info__text {
+  -webkit-transition: opacity .25s ease-in-out;
+  transition: opacity .25s ease-in-out;
+  opacity: 1;
+}
+
+.about-me .about-me__inner .catagories .catagory .dropdown-content {
+  border: 2px solid #282828;
+  z-index: -10;
+  height: 0px;
+  visibility: hidden;
+  -webkit-transition: z-index 0.1s step-end, visibility 1s step-end, height 1s ease-in-out;
+  transition: z-index 0.1s step-end, visibility 1s step-end, height 1s ease-in-out;
+  color: #fafaf1;
+  background-color: rgba(40, 40, 40, 0.85);
+  background-size: cover;
+  background-position: center center;
+  background-blend-mode: multiply;
+  position: relative;
+}
+
+.about-me .about-me__inner .catagories .catagory .dropdown-content .nav-list {
+  display: -ms-grid;
+  display: grid;
+  row-gap: 5px;
+  padding-top: 2em;
+}
+
+.about-me .about-me__inner .catagories .catagory .dropdown-content .nav-list .nav-item {
+  -ms-grid-column: 1;
+  grid-column: 1;
+  margin-top: -1em;
+  background-color: #fafaf1;
+  color: #282828;
+  border: 2px solid #282828;
+  border-left: none;
+  border-radius: 0 1em 1em 0;
+  font-size: 1rem;
+  font-weight: 300;
+  margin-right: auto;
+  margin-left: 0;
+  width: 7em;
+  height: 7em;
+  text-align: center;
+}
+
+.about-me .about-me__inner .catagories .catagory .dropdown-content .nav-list .tab_0, .about-me .about-me__inner .catagories .catagory .dropdown-content .nav-list .tab_2 {
+  z-index: -10;
+}
+
+.about-me .about-me__inner .catagories .catagory .dropdown-content .nav-list .tab_1 {
+  z-index: -9;
+}
+
+.about-me .about-me__inner .catagories .catagory .dropdown-content .tab_container {
+  background-color: #fafaf1;
+  color: #282828;
+  position: absolute;
+  top: 1em;
+  left: 9em;
+  width: calc(100% - 9em - 1em);
+  border-radius: 1em;
+  padding: 2em;
+  display: none;
+  max-height: calc(700px - 2em);
+}
+
+.about-me .about-me__inner .catagories .catagory .dropdown-content .tab_container.open {
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+  display: block;
+  overflow-x: hidden;
+}
+
+.about-me .about-me__inner .catagories .catagory .dropdown-content.open {
+  visibility: visible;
+  z-index: -3;
+  height: 700px;
+  -webkit-transition: z-index 1s step-end, height 1s ease-in-out;
+  transition: z-index 1s step-end, height 1s ease-in-out;
+  z-index: 3;
+}
+
+.about-me .about-me__inner .catagories .catagory .dropdown-content.open .nav-list {
+  visibility: visible;
+}
+
+.about-me .about-me__inner .catagories .catagory .dropdown-content.open .nav-item.tab_0, .about-me .about-me__inner .catagories .catagory .dropdown-content.open .nav-item.tab_2 {
+  z-index: 3;
+}
+
+.about-me .about-me__inner .catagories .catagory .dropdown-content.open .nav-item.tab_1 {
+  z-index: 4;
+}
+
+.about-me .about-me__inner .catagories .catagory .open > .nav-list > .nav-item.open, .about-me .about-me__inner .catagories .catagory .nav-list > .nav-item.open {
+  z-index: 5;
+  border: 3px solid #689775;
+  border-left: none;
+  font-size: calc( 1.05*1rem);
+  font-weight: 600;
+}
+
+.about-me .about-me__inner .catagories .catagory .tab_container.tab_0 {
+  width: calc( 50% - 9em);
+  min-width: 300px;
+  margin: 0;
+}
+
+.about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar {
+  position: relative;
+  top: 0;
+  text-align: left;
+  background-color: #282828;
+  color: #fafaf1;
+  font-weight: 600;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar + .bar {
+  margin-top: 2em;
+}
+
+.about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar:before {
+  content: attr(data-skill);
+  white-space: nowrap;
+  background-color: #689775;
+  display: inline-block;
+  padding: 5px 0 5px 10px;
+}
+
+.about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar .bar_border {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: calc(100% + 2*10px);
+  height: calc(1.6*1rem + 2*5px + 2*10px);
+  border: 10px solid #fafaf1;
+  border-radius: calc( 0.5*1.6*1rem + 2*10px);
+}
+
+.about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar.openTab:before {
+  -webkit-animation: load_fromTab 1.5s 0s cubic-bezier(0.35, 0.1, 0.4, 1);
+          animation: load_fromTab 1.5s 0s cubic-bezier(0.35, 0.1, 0.4, 1);
+}
+
+.about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar.openDropdown:before {
+  -webkit-animation: load_fromDropdown calc( 1.5s + 1s) 0s cubic-bezier(0.35, 0.1, 0.4, 1);
+          animation: load_fromDropdown calc( 1.5s + 1s) 0s cubic-bezier(0.35, 0.1, 0.4, 1);
+}
+
+.about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar.skill_level_1::before {
+  width: calc( 0.2*100%);
+}
+
+.about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar.skill_level_2::before {
+  width: calc( 0.4*100%);
+}
+
+.about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar.skill_level_3::before {
+  width: calc( 0.6*100%);
+}
+
+.about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar.skill_level_4::before {
+  width: calc( 0.8*100%);
+}
+
+.about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar.skill_level_5::before {
+  width: calc( 1.0*100%);
+}
+
+@-webkit-keyframes load_fromDropdown {
+  from {
+    width: 0%;
+  }
+  15% {
+    width: 0%;
+  }
+}
+
+@keyframes load_fromDropdown {
+  from {
+    width: 0%;
+  }
+  15% {
+    width: 0%;
+  }
+}
+
+@-webkit-keyframes load_fromTab {
+  from {
+    width: 0%;
+  }
+}
+
+@keyframes load_fromTab {
+  from {
+    width: 0%;
+  }
+}
+
+.about-me .about-me__inner .catagories .catagory .phys_dropdown {
+  background-image: url("../img/background_CompPhys.png");
+}
+
+.about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open {
+  /* #region  waterwheel sim styling */
+  /* #endregion */
+}
+
+.about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-description .waterwheel-pic {
+  width: 50%;
+  margin: 1em auto;
+}
+
+.about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-description .waterwheel-pic img {
+  margin: 0em auto 0.5em;
+  border: 2px solid #282828;
+  -webkit-box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
+          box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
+}
+
+.about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-description .waterwheel-pic figcaption {
+  font-size: calc( 0.85*1rem);
+}
+
+.about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-sim_container {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "input runButton playpause" "plot plot plot";
+  -ms-grid-columns: 50% 25% 25%;
+      grid-template-columns: 50% 25% 25%;
+  max-width: 400px;
+  min-width: 200px;
+  margin: 0 auto;
+}
+
+.about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-sim_container .input_container {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: input;
+  width: 100px;
+  margin: 0 auto 0.5em;
+  color: #282828;
+}
+
+.about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-sim_container .input_container .inp {
+  width: 80%;
+}
+
+.about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-sim_container input, .about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-sim_container textarea {
+  padding: 0.2em;
+  margin-bottom: 0em;
+  border-radius: 0.3em;
+  border: 1px solid gray;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-sim_container .button {
+  opacity: 0.5;
+  margin: auto;
+  margin-bottom: 0.5em;
+  width: 3em;
+  height: 3em;
+  padding: 2px 10px;
+  border-radius: 0.3em;
+  border: none;
+  font-weight: 600;
+  background: #91918d;
+  -webkit-box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), inset 0px 0.5px 0.5px rgba(255, 255, 255, 0.5), 0px 0px 0px 0.5px rgba(0, 0, 0, 0.12);
+          box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), inset 0px 0.5px 0.5px rgba(255, 255, 255, 0.5), 0px 0px 0px 0.5px rgba(0, 0, 0, 0.12);
+  color: #fafaf1;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+}
+
+.about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-sim_container .button.run {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: runButton;
+  margin-right: 0;
+}
+
+.about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-sim_container .button.pauseplay {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: playpause;
+  margin-left: 10px;
+}
+
+.about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-sim_container .button:not(.useable):hover {
+  cursor: not-allowed;
+}
+
+.about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-sim_container .button.useable:active {
+  background: #689775;
+}
+
+.about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-sim_container .button.useable {
+  opacity: 1;
+}
+
+.about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-sim_container .canvases {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: plot;
+}
+
+.about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-sim_container .canvases .canvas_1 {
+  width: 100%;
+  max-width: 400px;
+  min-width: 200px;
+  aspect-ratio: 1/1;
+  background-color: #282828;
+  display: block;
+  margin: 0 auto;
+  border: 2px #282828 solid;
+  border-bottom: none;
+}
+
+.about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-sim_container .canvases .canvas_2 {
+  width: 100%;
+  max-width: 400px;
+  min-width: 200px;
+  aspect-ratio: 4/1;
+  background-color: #282828;
+  border: 2px #282828 solid;
+  margin: auto;
+  bottom: 3px;
+}
+
+.about-me .about-me__inner .catagories .catagory .maker_dropdown {
+  background-image: url("../img/sodler.jpg");
+}
+
+.about-me .about-me__inner .catagories .catagory .web_dropdown {
+  background-image: url("../img/programming.jpg");
+}
+
+@media (min-width: 900px) {
+  .about-me > .about-me__inner .catagories {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 3em;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    -webkit-column-gap: 3em;
+            column-gap: 3em;
+  }
+  .about-me > .about-me__inner .catagories .catagory .more-info {
+    padding: 0;
+    min-width: calc(250px-4em);
+  }
+  .about-me > .about-me__inner .catagories .catagory .more-info .maker_title {
+    margin: 1.5em 0;
+  }
+  .about-me > .about-me__inner .catagories .catagory .more-info:after {
+    opacity: 0;
+  }
+  .about-me > .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open {
+    display: -ms-grid;
+    display: grid;
+        grid-template-areas: "description sim";
+    grid-column-gap: 2em;
+  }
+  .about-me > .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-description {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: description;
+  }
+  .about-me > .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-description .waterwheel-pic {
+    width: 60%;
+  }
+  .about-me > .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-sim_container {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+    grid-area: sim;
+    width: 350px;
+  }
+  .about-me > .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-sim_container .canvases .canvas_1, .about-me > .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-sim_container .canvases .canvas_2 {
+    width: 350px;
+  }
+}
+
+/* #endregion */
+/* #region | Footer ------------------- */
+.footer {
+  background-color: #fafaf1;
+  color: #689775;
+  text-align: center;
+  padding: 2.5em 0;
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+.footer:before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin-bottom: 1.5em;
+  background: #282828;
+  opacity: 0.5;
+}
+
+.footer .goodbye {
+  font-size: 2.25rem;
+  margin-bottom: 1.5em;
+  font-weight: 600;
+}
+
+.footer .footer__link:hover,
+.footer .social-list__link:hover {
+  opacity: 0.7;
+}
+
+.footer .footer__link:hover {
+  text-decoration: underline;
+}
+
+.footer .social-list {
+  list-style: none;
+  /* remove bullets*/
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* put next to eachother */
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 1em 0 0;
+  padding: 0;
+}
+
+.footer .social-list__item {
+  margin: 0 0.5em;
+}
+
+.footer .social-list__link {
+  padding: 0.5em;
+}
+
+.footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* #endregion */
+/*# sourceMappingURL=style.css.map */

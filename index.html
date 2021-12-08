@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+        <title>Noah Osman</title>
+        <link rel="stylesheet"
+        href = "https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+        <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+        <!-- <script src="https://kit.fontawesome.com/c492b9237f.js" crossorigin="anonymous"></script> -->
+
+        <!-- Update these w your own fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:300,600|Source+Sans+Pro:300,600&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="css/style.css">
+        <script src="js/jquery-3.5.1.min.js"></script> 
+        <script src="js/waterwheel.js"></script>
+    </head>
+
+    <body>
+
+        <!-- used in jquery to get size of an em unit -->
+        <div class="hidden dummy-em"></div>
+
+        <!--  Introduction -->
+        <section class="intro">
+            <div class="nameplate_container" id="nameplate">
+                <h1 class="intro__title">Noah Osman</h1>
+                <p class="intro__subtitle">I like to code stuff</p>
+                <img src="img/prof.jpg" alt="picture of Noah Osman smiling" class="intro__img">
+            </div>
+        </section>
+
+        <!-- About me -->
+        <section class="about-me">
+        <div class="about-me__inner">
+            <h1 class="about-me__title">Hi, I'm a ...</h1>
+            <div class="catagories">
+
+                <div class="catagory">
+                    <button id="phys_btn" class="more-info" onclick="openDropdown('phys')"> 
+                        <h2>computational<br>physicist</h2>
+                        <p class="catagory_blurb">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                            Quisque enim leo, dapibus vestibulum consequat a, eleifend 
+                            eu est. Proin efficitur interdum aliquet. Aliquam eu sem 
+                            mauris. Aenean vulputate ligula sit amet volutpat convallis.
+                            Donec sodales nec mi eu commodo.
+                        </p>
+                        <h3 class="phys more-info__text">more info<br><i id="phys_chevron" class="chevron fas fa-chevron-down"></i></h3>
+                    </button>
+                    <div id="phys_info" class="phys_dropdown dropdown-content">
+                        <div class="nav-list">
+                            <button class="nav-item phys tab_0" onclick="openTab('phys','0')">skills</button>
+                            <button class="nav-item phys tab_1" onclick="openTab('phys','1')">fluid-<br>structure<br>interaction</button>
+                            <button class="nav-item phys tab_2" onclick="openTab('phys','2')">Lorenz<br>chaotic<br>waterwheel</button>
+                        </div>
+                        <div id="phys_0" class="tab_container phys tab_0">
+                            <div class="bar skill_level_5" data-skill="Calculus"><div class="bar_border"></div></div>
+                            <div class="bar skill_level_4" data-skill="Linear Algebra"><div class="bar_border"></div></div>
+                            <div class="bar skill_level_4" data-skill="Data Analyis & Visualization"><div class="bar_border"></div></div>
+                            <div class="bar skill_level_5" data-skill="Matlab"><div class="bar_border"></div></div>
+                            <div class="bar skill_level_3" data-skill="Fortran"><div class="bar_border"></div></div>
+                        </div>
+                        <div id="phys_1" class="tab_container phys tab_1">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                Aliquam felis tellus, lobortis ac mollis sit amet, lacinia 
+                                et lorem. Proin porta ante et pellentesque tincidunt. 
+                                Phasellus dapibus lobortis metus non posuere. Pellentesque 
+                                ut pretium justo.</p>
+                        </div>
+                        <div id="phys_2" class="tab_container phys tab_2">
+                            <div class="waterwheel-description">
+                                <p>Proin porta ante et pellentesque tincidunt. 
+                                Phasellus dapibus lobortis metus non posuere. Pellentesque 
+                                ut pretium justo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                Aliquam felis tellus, lobortis ac mollis sit amet, lacinia 
+                                et lorem. Proin porta ante et pellentesque tincidunt. 
+                                Phasellus dapibus lobortis metus non posuere. Pellentesque 
+                                ut pretium justo.</p>
+                                <figure class="waterwheel-pic">
+                                    <img src="img/waterwheel.png" alt="experimental waterwheel at Illinois State University">
+                                    <figcaption>Waterwheel at Illinois State University (<a href="http://www.phy.ilstu.edu/research/chaotic_waterwheel.shtml">source</a>)</figcaption>
+                                </figure>
+                            </div>
+                            <div class="waterwheel-sim_container">
+                                    <div class="input_container">
+                                        <label class="inp-label"for="C0">Braking<br>coefficient:  </label>
+                                        <input class="inp" type="text" id="input--C0" name="C0" oninput="check_C0_input()">
+                                    </div>
+                                        <!-- <input type="button" class="button-12" value="Run Simulation" id="button--runsim" onclick="init();"> -->
+                                    <button class="button pauseplay" id="button--pausesim" onclick="pause_waterwheel();"><i class="fas fa-pause"></i></button>
+                                    <button class="button run" id="button--runsim" onclick="init();">Run</button>
+                                <div class="canvases">
+                                    <canvas class="canvas_1"></canvas>
+                                    <canvas class="canvas_2"></canvas>
+                                </div>
+                                <div style="display:none;">
+                                    <img class="faucet" id="faucet" src="img/faucet-solid.png" width="100" height="100">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="catagory">
+                    <button id="maker_btn" class="more-info" onclick="openDropdown('maker')"> 
+                        <h2 class="maker_title">maker</h2>
+                        <p class="catagory_blurb">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Donec porta nisl feugiat justo rutrum aliquet. Nullam justo 
+                        urna, dignissim vel justo a, malesuada interdum libero. 
+                        Morbi sit amet mauris commodo nisi mattis condimentum vitae 
+                        sed sapien.
+                        </p>
+                        <h3 class="maker more-info__text">more info<br><i id="maker_chevron" class="chevron fas fa-chevron-down"></i></h3>
+                    </button>
+                    <div id="maker_info" class="maker_dropdown dropdown-content">
+                        <div class="nav-list">
+                            <button class="nav-item maker tab_0" onclick="openTab('maker','0')">skills</button>
+                            <button class="nav-item maker tab_1" onclick="openTab('maker','1')">my projects</button>
+                        </div>
+                        <div id="maker_0" class="tab_container maker tab_0">
+                            <div class="bar skill_level_1" data-skill="TDD"><div class="bar_border"></div></div>
+                            <div class="bar skill_level_2" data-skill="Python"><div class="bar_border"></div></div>
+                            <div class="bar skill_level_3" data-skill="C#"><div class="bar_border"></div></div>
+                            <div class="bar skill_level_4" data-skill="CSS3"><div class="bar_border"></div></div>
+                            <div class="bar skill_level_5" data-skill="HTML5"><div class="bar_border"></div></div>
+                        </div>
+                        <div id="maker_1" class="tab_container maker tab_1">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                Aliquam felis tellus, lobortis ac mollis sit amet, lacinia 
+                                et lorem. Proin porta ante et pellentesque tincidunt. 
+                                Phasellus dapibus lobortis metus non posuere. Pellentesque 
+                                ut pretium justo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="catagory">
+                    <button id="web_btn" class="more-info" onclick="openDropdown('web')"> 
+                        <h2>web<br>developer</h2>
+                        <p class="catagory_blurb">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                        Aliquam felis tellus, lobortis ac mollis sit amet, lacinia 
+                        et lorem.
+                        </p>
+                        <h3 class="web more-info__text">more info<br><i id="web_chevron" class="chevron fas fa-chevron-down"></i></h3>
+                    </button>
+                    <div id="web_info" class="web_dropdown dropdown-content">
+                        <div class="nav-list">
+                            <button class="nav-item web tab_0" onclick="openTab('web','0')">skills</button>
+                        </div>
+                        <div id="web_0" class="tab_container web tab_0">
+                            <div class="bar skill_level_1" data-skill="TDD"><div class="bar_border"></div></div>
+                            <div class="bar skill_level_2" data-skill="Python"><div class="bar_border"></div></div>
+                            <div class="bar skill_level_3" data-skill="C#"><div class="bar_border"></div></div>
+                            <div class="bar skill_level_4" data-skill="CSS3"><div class="bar_border"></div></div>
+                            <div class="bar skill_level_5" data-skill="HTML5"><div class="bar_border"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </section>
+
+        <footer class="footer">
+            <p class="goodbye">let's get in touch!</p>
+            <a href="mailto:noahaosman@gmail.com" class="footer__link">noahaosman@gmail.com</a>
+            <ul class="social-list">
+                <li class="social-list__item"><a class="social-list__link" href="https://www.linkedin.com/in/noahaosman/"><i class="fab fa-linkedin"></i></a></li>
+                <li class="social-list__item"><a class="social-list__link" href="https://www.facebook.com/hieverybody.imdoctornick/"><i class="fab fa-facebook-square"></i></a></li>
+                <li class="social-list__item"><a class="social-list__link" href="https://github.com/Noaho2"><i class="fab fa-github-square"></i></a></li>
+                <li class="social-list__item"><a class="social-list__link" href="https://vimeo.com/user159124157"><i class="fab fa-vimeo"></i></a></li>
+            </ul>
+        </footer>
+        
+
+        <script src="js/index.js"></script>
+    </body>
+
+</html>
