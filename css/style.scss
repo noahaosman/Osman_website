@@ -47,6 +47,10 @@ $bs-light: 0px 0.5px 1px rgba(0, 0, 0, 0.1),
 
 /* General Styles */
 
+button:hover{
+    cursor: pointer;
+}
+
 html{
     scroll-behavior: smooth;
     height: 100%;
@@ -371,6 +375,7 @@ $expand_delay: 1s; // defines lenght of time to expand more info dropdowns
                     min-width: 300px;
                     margin: 0;
                     .bar{
+                        white-space: nowrap;
                         &+.bar{
                             margin-top: 2em;
                         }
@@ -381,13 +386,6 @@ $expand_delay: 1s; // defines lenght of time to expand more info dropdowns
                         color: $clr-light;
                         font-weight: $fw-bold;
                         text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
-                        &:before{
-                            content:  attr(data-skill);
-                            white-space:nowrap;
-                            background-color: $clr-accent;
-                            display: inline-block;
-                            padding: 5px 0 5px 10px;
-                        }
                         .bar_border{
                             position: absolute;
                             $border: 10px;
@@ -400,42 +398,114 @@ $expand_delay: 1s; // defines lenght of time to expand more info dropdowns
                             border: 10px solid $clr-light;
                             border-radius: calc( 0.5*1.6*#{$fs-body} + 2*#{$border});
                         }
-                        &.openTab:before{
-                            animation: load_fromTab 1.5s 0s cubic-bezier(.35,.1,.4,1);
+
+                        /* #region | skill bar animation stuff  */
+
+                        &:before{
+                            content:  attr(data-skill);
+                            white-space:nowrap;
+                            background-color: $clr-accent;
+                            display: inline-block;
+                            padding: 5px 0 5px 10px;
                         }
-                        &.openDropdown:before{
-                            animation: load_fromDropdown calc( 1.5s + #{$expand_delay} ) 0s cubic-bezier(.35,.1,.4,1);
+                        &:after{
+                            display: inline-block;
+                            opacity: 1;
                         }
                         &.skill_level_1::before{
-                            width: calc( 0.2*100%);
+                            width: calc( 0.1*100%);
+                        }
+                        &.skill_level_1::after{
+                            content: "10%";
+                            transform: translateX( 10px );
                         }
                         &.skill_level_2::before{
-                            width: calc( 0.4*100%);
+                            width: calc( 0.2*100%);
+                        }
+                        &.skill_level_2::after{
+                            content: "20%";
+                            transform: translateX( 10px );
                         }
                         &.skill_level_3::before{
-                            width: calc( 0.6*100%);
+                            width: calc( 0.3*100%);
+                        }
+                        &.skill_level_3::after{
+                            content: "30%";
+                            transform: translateX( 10px );
                         }
                         &.skill_level_4::before{
-                            width: calc( 0.8*100%);
+                            width: calc( 0.4*100%);
+                        }
+                        &.skill_level_4::after{
+                            content: "40%";
+                            transform: translateX( 10px );
                         }
                         &.skill_level_5::before{
+                            width: calc( 0.5*100%);
+                        }
+                        &.skill_level_5::after{
+                            content: "50%";
+                            transform: translateX( 10px );
+                        }
+                        &.skill_level_6::before{
+                            width: calc( 0.6*100%);
+                        }
+                        &.skill_level_6::after{
+                            content: "60%";
+                            transform: translateX( 10px );
+                        }
+                        &.skill_level_7::before{
+                            width: calc( 0.7*100%);
+                        }
+                        &.skill_level_7::after{
+                            content: "70%";
+                            transform: translateX( 10px );
+                        }
+                        &.skill_level_8::before{
+                            width: calc( 0.8*100%);
+                        }
+                        &.skill_level_8::after{
+                            content: "80%";
+                            transform: translateX( 10px );
+                        }
+                        &.skill_level_9::before{
+                            width: calc( 0.9*100%);
+                        }
+                        &.skill_level_9::after{
+                            content: "90%";
+                            transform: translateX(calc(-100% - 10px) );
+                        }
+                        &.skill_level_10::before{
                             width: calc( 1.0*100%);
+                        }
+                        &.skill_level_10::after{
+                            content: "100%";
+                            transform: translateX(calc(-100% - 10px) );
+                        }
+
+                        &.openTab:before{
+                            animation: load 1.5s 0s cubic-bezier(.35,.1,.4,1);
+                        }
+                        &.openDropdown:before{
+                            // animation: load_fromDropdown calc( 1.5s + #{$expand_delay} ) 0s cubic-bezier(.35,.1,.4,1);
+                            animation: load calc( 1.5s + #{$expand_delay} ) 0s cubic-bezier(.24,-0.4,.35,1);
+                        }
+                        &.openTab:after{
+                            animation: show_perc calc( 1.5s + 0.1s ) cubic-bezier(1,-0.59,.59,1);
+                        }
+                        &.openDropdown:after{
+                            animation: show_perc calc( 1.5s + #{$expand_delay} + 0.1s ) cubic-bezier(1,-0.59,.59,1);
                         }
                     }
                 }
-                @keyframes load_fromDropdown{
-                    from{
-                        width: 0%
-                    }
-                    15% {
-                      width: 0%
-                    }
+                @keyframes load{
+                    from{width: 0%}
                 }
-                @keyframes load_fromTab{
-                    from{
-                        width: 0%
-                    }
+                @keyframes show_perc{
+                    from{opacity: 0;}
+                    // to{opacity: 1;}
                 }
+                /* #endregion */
 
 
                 .phys_dropdown{

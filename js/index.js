@@ -140,12 +140,12 @@ function determine_maxBlurbLength() {
             // translate middle and right dropdowns to align left 
             $('.about-me > .about-me__inner .catagories .catagory:nth-child(' + (i + 1).toString() + ') > .dropdown-content')
                 .css({
-                    "transform" : "translateX( calc( -" + ((i) * width).toString() + "px - " + ((i) * 3).toString() + "em - "+leftMarg+" - 0*"+leftPad+" ) )",
-                    "width" : "calc(300% + 6em + 2*"+leftMarg+" - 0*"+leftPad+" )"
+                    "transform": "translateX( calc( -" + ((i) * width).toString() + "px - " + ((i) * 3).toString() + "em - " + leftMarg + " - 0*" + leftPad + " ) )",
+                    "width": "calc(300% + 6em + 2*" + leftMarg + " - 0*" + leftPad + " )"
                 });
 
-                console.log("translateX( calc( -" + ((i) * width).toString() + "px - " + ((i) * 3).toString() + "em - "+leftMarg+" ) )");
-                console.log("calc(300% + 6em + 2*"+leftMarg+" )");
+            console.log("translateX( calc( -" + ((i) * width).toString() + "px - " + ((i) * 3).toString() + "em - " + leftMarg + " ) )");
+            console.log("calc(300% + 6em + 2*" + leftMarg + " )");
         }
 
     } else {
@@ -157,13 +157,13 @@ function determine_maxBlurbLength() {
             // translate middle and right dropdowns to align left 
             $('.about-me > .about-me__inner .catagories .catagory:nth-child(' + (i + 1).toString() + ') > .dropdown-content')
                 .css({
-                    "transform" : "translateX( 0% )",
-                    "width" : "100%"
+                    "transform": "translateX( 0% )",
+                    "width": "100%"
                 });
         }
 
 
-        
+
         // $('.about-me > .about-me__inner .catagories .catagory:nth-child(2) > .dropdown-content')
         //     .css("transform", "translateX( 0% )");
         // $('.about-me > .about-me__inner .catagories .catagory:nth-child(3) > .dropdown-content')
@@ -179,7 +179,7 @@ function determine_maxBlurbLength() {
 
 function pause_waterwheel() {
 
-    if ( waterwheel_running & $('#button--pausesim').hasClass("useable") ){
+    if (waterwheel_running & $('#button--pausesim').hasClass("useable")) {
         $('#button--pausesim > .fas').toggleClass("fa-play");
         $('#button--pausesim > .fas').toggleClass("fa-pause");
     }
@@ -190,15 +190,15 @@ function pause_waterwheel() {
 
 
 // // Only show run button when input field is filled
-function check_C0_input(){
+function check_C0_input() {
 
     inp_val = $('#input--C0').val();
 
-    if( isNaN(inp_val) | inp_val=="" ){
+    if (isNaN(inp_val) | inp_val == "") {
         // $('#button--runsim').css("visibility","hidden")
         // $('#button--runsim').css("opacity","0.5");
         $('#button--runsim').removeClass("useable");
-    }else{
+    } else {
         // $('#button--runsim').css("visibility","visible")
         // $('#button--runsim').css("opacity","1");
         $('#button--runsim').addClass("useable");

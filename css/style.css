@@ -15,6 +15,10 @@
 /* font parameters: */
 /* Redifine font size if there's a big display */
 /* General Styles */
+button:hover {
+  cursor: pointer;
+}
+
 html {
   scroll-behavior: smooth;
   height: 100%;
@@ -218,6 +222,7 @@ h3 {
 
 .about-me .about-me__inner .catagories .catagory {
   text-align: center;
+  /* #endregion */
 }
 
 .about-me .about-me__inner .catagories .catagory .more-info {
@@ -350,6 +355,7 @@ h3 {
 }
 
 .about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar {
+  white-space: nowrap;
   position: relative;
   top: 0;
   text-align: left;
@@ -357,18 +363,11 @@ h3 {
   color: #fafaf1;
   font-weight: 600;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  /* #region | skill bar animation stuff  */
 }
 
 .about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar + .bar {
   margin-top: 2em;
-}
-
-.about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar:before {
-  content: attr(data-skill);
-  white-space: nowrap;
-  background-color: #689775;
-  display: inline-block;
-  padding: 5px 0 5px 10px;
 }
 
 .about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar .bar_border {
@@ -381,63 +380,160 @@ h3 {
   border-radius: calc( 0.5*1.6*1rem + 2*10px);
 }
 
-.about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar.openTab:before {
-  -webkit-animation: load_fromTab 1.5s 0s cubic-bezier(0.35, 0.1, 0.4, 1);
-          animation: load_fromTab 1.5s 0s cubic-bezier(0.35, 0.1, 0.4, 1);
+.about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar:before {
+  content: attr(data-skill);
+  white-space: nowrap;
+  background-color: #689775;
+  display: inline-block;
+  padding: 5px 0 5px 10px;
 }
 
-.about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar.openDropdown:before {
-  -webkit-animation: load_fromDropdown calc( 1.5s + 1s) 0s cubic-bezier(0.35, 0.1, 0.4, 1);
-          animation: load_fromDropdown calc( 1.5s + 1s) 0s cubic-bezier(0.35, 0.1, 0.4, 1);
+.about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar:after {
+  display: inline-block;
+  opacity: 1;
 }
 
 .about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar.skill_level_1::before {
-  width: calc( 0.2*100%);
+  width: calc( 0.1*100%);
+}
+
+.about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar.skill_level_1::after {
+  content: "10%";
+  -webkit-transform: translateX(10px);
+          transform: translateX(10px);
 }
 
 .about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar.skill_level_2::before {
-  width: calc( 0.4*100%);
+  width: calc( 0.2*100%);
+}
+
+.about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar.skill_level_2::after {
+  content: "20%";
+  -webkit-transform: translateX(10px);
+          transform: translateX(10px);
 }
 
 .about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar.skill_level_3::before {
-  width: calc( 0.6*100%);
+  width: calc( 0.3*100%);
+}
+
+.about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar.skill_level_3::after {
+  content: "30%";
+  -webkit-transform: translateX(10px);
+          transform: translateX(10px);
 }
 
 .about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar.skill_level_4::before {
-  width: calc( 0.8*100%);
+  width: calc( 0.4*100%);
+}
+
+.about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar.skill_level_4::after {
+  content: "40%";
+  -webkit-transform: translateX(10px);
+          transform: translateX(10px);
 }
 
 .about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar.skill_level_5::before {
+  width: calc( 0.5*100%);
+}
+
+.about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar.skill_level_5::after {
+  content: "50%";
+  -webkit-transform: translateX(10px);
+          transform: translateX(10px);
+}
+
+.about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar.skill_level_6::before {
+  width: calc( 0.6*100%);
+}
+
+.about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar.skill_level_6::after {
+  content: "60%";
+  -webkit-transform: translateX(10px);
+          transform: translateX(10px);
+}
+
+.about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar.skill_level_7::before {
+  width: calc( 0.7*100%);
+}
+
+.about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar.skill_level_7::after {
+  content: "70%";
+  -webkit-transform: translateX(10px);
+          transform: translateX(10px);
+}
+
+.about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar.skill_level_8::before {
+  width: calc( 0.8*100%);
+}
+
+.about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar.skill_level_8::after {
+  content: "80%";
+  -webkit-transform: translateX(10px);
+          transform: translateX(10px);
+}
+
+.about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar.skill_level_9::before {
+  width: calc( 0.9*100%);
+}
+
+.about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar.skill_level_9::after {
+  content: "90%";
+  -webkit-transform: translateX(calc(-100% - 10px));
+          transform: translateX(calc(-100% - 10px));
+}
+
+.about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar.skill_level_10::before {
   width: calc( 1.0*100%);
 }
 
-@-webkit-keyframes load_fromDropdown {
+.about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar.skill_level_10::after {
+  content: "100%";
+  -webkit-transform: translateX(calc(-100% - 10px));
+          transform: translateX(calc(-100% - 10px));
+}
+
+.about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar.openTab:before {
+  -webkit-animation: load 1.5s 0s cubic-bezier(0.35, 0.1, 0.4, 1);
+          animation: load 1.5s 0s cubic-bezier(0.35, 0.1, 0.4, 1);
+}
+
+.about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar.openDropdown:before {
+  -webkit-animation: load calc( 1.5s + 1s) 0s cubic-bezier(0.24, -0.4, 0.35, 1);
+          animation: load calc( 1.5s + 1s) 0s cubic-bezier(0.24, -0.4, 0.35, 1);
+}
+
+.about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar.openTab:after {
+  -webkit-animation: show_perc calc( 1.5s + 0.1s) cubic-bezier(1, -0.59, 0.59, 1);
+          animation: show_perc calc( 1.5s + 0.1s) cubic-bezier(1, -0.59, 0.59, 1);
+}
+
+.about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar.openDropdown:after {
+  -webkit-animation: show_perc calc( 1.5s + 1s + 0.1s) cubic-bezier(1, -0.59, 0.59, 1);
+          animation: show_perc calc( 1.5s + 1s + 0.1s) cubic-bezier(1, -0.59, 0.59, 1);
+}
+
+@-webkit-keyframes load {
   from {
-    width: 0%;
-  }
-  15% {
     width: 0%;
   }
 }
 
-@keyframes load_fromDropdown {
-  from {
-    width: 0%;
-  }
-  15% {
-    width: 0%;
-  }
-}
-
-@-webkit-keyframes load_fromTab {
+@keyframes load {
   from {
     width: 0%;
   }
 }
 
-@keyframes load_fromTab {
+@-webkit-keyframes show_perc {
   from {
-    width: 0%;
+    opacity: 0;
+  }
+}
+
+@keyframes show_perc {
+  from {
+    opacity: 0;
   }
 }
 
