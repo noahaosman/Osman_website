@@ -103,7 +103,7 @@ h3 {font-size: $fs-h3}
 
 .intro{
     background-color: $clr-dark;
-    background-image: url(../img/webvort_longwide.jpg);
+    background-image: url(../img/webvort_small.webp);
     background-size: 750px;
     background-repeat: no-repeat;
     background-position: 0 0;
@@ -272,24 +272,22 @@ $expand_delay: 1s; // defines lenght of time to expand more info dropdowns
                     }
                 }
                 .dropdown-content{    
-                    border:2px solid $clr-dark;
+                    border: none;
                     z-index: -10;
                     height: 0px;
                     visibility: hidden;
                     transition: 
-                        z-index 0.1s step-end,
-                        visibility $expand_delay step-end,
-                        height $expand_delay ease-in-out;
+                        // z-index 0.1s step-end,
+                        // visibility $expand_delay step-end,
+                        height $expand_delay step-end;
                     color: $clr-light;
-                    background-color: rgba(40, 40, 40,0.85);
-                    background-size: cover;
-                    background-position: center center;
-                    background-blend-mode: multiply;
+                    background-color: $clr-light;
+                    background-image: none;
                     position: relative;
                     .nav-list{
-                        // visibility: hidden;                    
-                        // transition: 
-                        //     visibility $expand_delay step-start;
+                        visibility: hidden;                    
+                        transition: 
+                            visibility $expand_delay step-start;
                         display: grid;
                         row-gap: 5px;
                         padding-top: 2em;
@@ -321,6 +319,7 @@ $expand_delay: 1s; // defines lenght of time to expand more info dropdowns
                         // }
                     }
                     .tab_container{
+                        visibility: hidden;
                         background-color: $clr-light;
                         color: $clr-dark;
                         position: absolute;
@@ -337,18 +336,54 @@ $expand_delay: 1s; // defines lenght of time to expand more info dropdowns
                         transform: translateX(0%);
                         display: block;
                         overflow-x: hidden;
-                        // overflow-y: scroll;
+                        overflow-y: hidden;
+                    }
+                }
+                .dropdown-content.slideclosed{
+                    &.phys_dropdown{
+                        background-image: url("../img/background_CompPhys.webp");
+                    }
+                    &.maker_dropdown{
+                        background-image: url("../img/sodler.webp");
+                    }
+                    &.web_dropdown{
+                        background-image: url("../img/programming.webp");
+                    }
+                    border:2px solid $clr-dark;
+                    border-top: none;
+                    border-bottom: none;
+                    background-color: rgba(40, 40, 40,0.85);
+                    background-size: cover;
+                    background-position: center center;
+                    background-blend-mode: multiply;
+                    visibility: visible;
+                    transition: 
+                    z-index 0.1s step-end,
+                    visibility $expand_delay step-end,
+                    height $expand_delay ease-in-out;
+                    .tab_container,
+                    .nav-list{
+                        visibility: visible;
                     }
                 }
                 .dropdown-content.open{
+                    border:2px solid $clr-dark;
+                    background-color: rgba(40, 40, 40,0.85);
+                    background-size: cover;
+                    background-position: center center;
+                    background-blend-mode: multiply;
                     visibility: visible;
-                    // transform: translateX(0%);
+                    overflow-y: hidden;
                     z-index: -3;
                     height: 700px;   
                     transition:
                         z-index $expand_delay step-end,
                         height $expand_delay ease-in-out;
                     z-index: 3;
+
+                    .tab_container{
+                        visibility: visible;
+                    }
 
                     .nav-list{
                         visibility: visible;
@@ -371,8 +406,9 @@ $expand_delay: 1s; // defines lenght of time to expand more info dropdowns
 
 
                 .tab_container.tab_0{
-                    width: calc( 50% - 9em );
-                    min-width: 300px;
+                    width: calc( 70% - 9em ); 
+                    min-width: 320px;
+                    max-width: 600px;
                     margin: 0;
                     .bar{
                         white-space: nowrap;
@@ -508,9 +544,10 @@ $expand_delay: 1s; // defines lenght of time to expand more info dropdowns
                 /* #endregion */
 
 
-                .phys_dropdown{
-                    background-image: url("../img/background_CompPhys.png");
+                .phys_dropdown.open{
+                    background-image: url("../img/background_CompPhys.webp");
                     .tab_container.phys.tab_2.open{
+                        overflow-y: scroll;
                         .waterwheel-description{
                             .waterwheel-pic{
                                 width:50%;
@@ -621,11 +658,11 @@ $expand_delay: 1s; // defines lenght of time to expand more info dropdowns
                         /* #endregion */
                     }
                 }
-                .maker_dropdown{
-                    background-image: url("../img/sodler.jpg");
+                .maker_dropdown.open{
+                    background-image: url("../img/sodler.webp");
                 }
-                .web_dropdown{
-                    background-image: url("../img/programming.jpg");
+                .web_dropdown.open{
+                    background-image: url("../img/programming.webp");
                 }
 
             }
@@ -722,7 +759,7 @@ $expand_delay: 1s; // defines lenght of time to expand more info dropdowns
     .goodbye{
         font-size: $fs-h2;
         margin-bottom: 1.5em;
-        font-weight: $fw-bold
+        font-weight: $fw-bold;
     }
 
     .footer__link:hover,

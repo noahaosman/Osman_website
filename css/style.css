@@ -70,7 +70,7 @@ h3 {
 /* #region | Introduction ------------- */
 .intro {
   background-color: #282828;
-  background-image: url(../img/webvort_longwide.jpg);
+  background-image: url(../img/webvort_small.webp);
   background-size: 750px;
   background-repeat: no-repeat;
   background-position: 0 0;
@@ -252,21 +252,22 @@ h3 {
 }
 
 .about-me .about-me__inner .catagories .catagory .dropdown-content {
-  border: 2px solid #282828;
+  border: none;
   z-index: -10;
   height: 0px;
   visibility: hidden;
-  -webkit-transition: z-index 0.1s step-end, visibility 1s step-end, height 1s ease-in-out;
-  transition: z-index 0.1s step-end, visibility 1s step-end, height 1s ease-in-out;
+  -webkit-transition: height 1s step-end;
+  transition: height 1s step-end;
   color: #fafaf1;
-  background-color: rgba(40, 40, 40, 0.85);
-  background-size: cover;
-  background-position: center center;
-  background-blend-mode: multiply;
+  background-color: #fafaf1;
+  background-image: none;
   position: relative;
 }
 
 .about-me .about-me__inner .catagories .catagory .dropdown-content .nav-list {
+  visibility: hidden;
+  -webkit-transition: visibility 1s step-start;
+  transition: visibility 1s step-start;
   display: -ms-grid;
   display: grid;
   row-gap: 5px;
@@ -300,6 +301,7 @@ h3 {
 }
 
 .about-me .about-me__inner .catagories .catagory .dropdown-content .tab_container {
+  visibility: hidden;
   background-color: #fafaf1;
   color: #282828;
   position: absolute;
@@ -317,15 +319,56 @@ h3 {
           transform: translateX(0%);
   display: block;
   overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.about-me .about-me__inner .catagories .catagory .dropdown-content.slideclosed {
+  border: 2px solid #282828;
+  border-top: none;
+  border-bottom: none;
+  background-color: rgba(40, 40, 40, 0.85);
+  background-size: cover;
+  background-position: center center;
+  background-blend-mode: multiply;
+  visibility: visible;
+  -webkit-transition: z-index 0.1s step-end, visibility 1s step-end, height 1s ease-in-out;
+  transition: z-index 0.1s step-end, visibility 1s step-end, height 1s ease-in-out;
+}
+
+.about-me .about-me__inner .catagories .catagory .dropdown-content.slideclosed.phys_dropdown {
+  background-image: url("../img/background_CompPhys.webp");
+}
+
+.about-me .about-me__inner .catagories .catagory .dropdown-content.slideclosed.maker_dropdown {
+  background-image: url("../img/sodler.webp");
+}
+
+.about-me .about-me__inner .catagories .catagory .dropdown-content.slideclosed.web_dropdown {
+  background-image: url("../img/programming.webp");
+}
+
+.about-me .about-me__inner .catagories .catagory .dropdown-content.slideclosed .tab_container,
+.about-me .about-me__inner .catagories .catagory .dropdown-content.slideclosed .nav-list {
+  visibility: visible;
 }
 
 .about-me .about-me__inner .catagories .catagory .dropdown-content.open {
+  border: 2px solid #282828;
+  background-color: rgba(40, 40, 40, 0.85);
+  background-size: cover;
+  background-position: center center;
+  background-blend-mode: multiply;
   visibility: visible;
+  overflow-y: hidden;
   z-index: -3;
   height: 700px;
   -webkit-transition: z-index 1s step-end, height 1s ease-in-out;
   transition: z-index 1s step-end, height 1s ease-in-out;
   z-index: 3;
+}
+
+.about-me .about-me__inner .catagories .catagory .dropdown-content.open .tab_container {
+  visibility: visible;
 }
 
 .about-me .about-me__inner .catagories .catagory .dropdown-content.open .nav-list {
@@ -349,8 +392,9 @@ h3 {
 }
 
 .about-me .about-me__inner .catagories .catagory .tab_container.tab_0 {
-  width: calc( 50% - 9em);
-  min-width: 300px;
+  width: calc( 70% - 9em);
+  min-width: 320px;
+  max-width: 600px;
   margin: 0;
 }
 
@@ -537,32 +581,33 @@ h3 {
   }
 }
 
-.about-me .about-me__inner .catagories .catagory .phys_dropdown {
-  background-image: url("../img/background_CompPhys.png");
+.about-me .about-me__inner .catagories .catagory .phys_dropdown.open {
+  background-image: url("../img/background_CompPhys.webp");
 }
 
-.about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open {
+.about-me .about-me__inner .catagories .catagory .phys_dropdown.open .tab_container.phys.tab_2.open {
+  overflow-y: scroll;
   /* #region  waterwheel sim styling */
   /* #endregion */
 }
 
-.about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-description .waterwheel-pic {
+.about-me .about-me__inner .catagories .catagory .phys_dropdown.open .tab_container.phys.tab_2.open .waterwheel-description .waterwheel-pic {
   width: 50%;
   margin: 1em auto;
 }
 
-.about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-description .waterwheel-pic img {
+.about-me .about-me__inner .catagories .catagory .phys_dropdown.open .tab_container.phys.tab_2.open .waterwheel-description .waterwheel-pic img {
   margin: 0em auto 0.5em;
   border: 2px solid #282828;
   -webkit-box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
           box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
 }
 
-.about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-description .waterwheel-pic figcaption {
+.about-me .about-me__inner .catagories .catagory .phys_dropdown.open .tab_container.phys.tab_2.open .waterwheel-description .waterwheel-pic figcaption {
   font-size: calc( 0.85*1rem);
 }
 
-.about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-sim_container {
+.about-me .about-me__inner .catagories .catagory .phys_dropdown.open .tab_container.phys.tab_2.open .waterwheel-sim_container {
   display: -ms-grid;
   display: grid;
       grid-template-areas: "input runButton playpause" "plot plot plot";
@@ -573,7 +618,7 @@ h3 {
   margin: 0 auto;
 }
 
-.about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-sim_container .input_container {
+.about-me .about-me__inner .catagories .catagory .phys_dropdown.open .tab_container.phys.tab_2.open .waterwheel-sim_container .input_container {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: input;
@@ -582,11 +627,11 @@ h3 {
   color: #282828;
 }
 
-.about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-sim_container .input_container .inp {
+.about-me .about-me__inner .catagories .catagory .phys_dropdown.open .tab_container.phys.tab_2.open .waterwheel-sim_container .input_container .inp {
   width: 80%;
 }
 
-.about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-sim_container input, .about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-sim_container textarea {
+.about-me .about-me__inner .catagories .catagory .phys_dropdown.open .tab_container.phys.tab_2.open .waterwheel-sim_container input, .about-me .about-me__inner .catagories .catagory .phys_dropdown.open .tab_container.phys.tab_2.open .waterwheel-sim_container textarea {
   padding: 0.2em;
   margin-bottom: 0em;
   border-radius: 0.3em;
@@ -595,7 +640,7 @@ h3 {
           box-sizing: border-box;
 }
 
-.about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-sim_container .button {
+.about-me .about-me__inner .catagories .catagory .phys_dropdown.open .tab_container.phys.tab_2.open .waterwheel-sim_container .button {
   opacity: 0.5;
   margin: auto;
   margin-bottom: 0.5em;
@@ -618,40 +663,40 @@ h3 {
       touch-action: manipulation;
 }
 
-.about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-sim_container .button.run {
+.about-me .about-me__inner .catagories .catagory .phys_dropdown.open .tab_container.phys.tab_2.open .waterwheel-sim_container .button.run {
   -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: runButton;
   margin-right: 0;
 }
 
-.about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-sim_container .button.pauseplay {
+.about-me .about-me__inner .catagories .catagory .phys_dropdown.open .tab_container.phys.tab_2.open .waterwheel-sim_container .button.pauseplay {
   -ms-grid-row: 1;
   -ms-grid-column: 3;
   grid-area: playpause;
   margin-left: 10px;
 }
 
-.about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-sim_container .button:not(.useable):hover {
+.about-me .about-me__inner .catagories .catagory .phys_dropdown.open .tab_container.phys.tab_2.open .waterwheel-sim_container .button:not(.useable):hover {
   cursor: not-allowed;
 }
 
-.about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-sim_container .button.useable:active {
+.about-me .about-me__inner .catagories .catagory .phys_dropdown.open .tab_container.phys.tab_2.open .waterwheel-sim_container .button.useable:active {
   background: #689775;
 }
 
-.about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-sim_container .button.useable {
+.about-me .about-me__inner .catagories .catagory .phys_dropdown.open .tab_container.phys.tab_2.open .waterwheel-sim_container .button.useable {
   opacity: 1;
 }
 
-.about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-sim_container .canvases {
+.about-me .about-me__inner .catagories .catagory .phys_dropdown.open .tab_container.phys.tab_2.open .waterwheel-sim_container .canvases {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: plot;
 }
 
-.about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-sim_container .canvases .canvas_1 {
+.about-me .about-me__inner .catagories .catagory .phys_dropdown.open .tab_container.phys.tab_2.open .waterwheel-sim_container .canvases .canvas_1 {
   width: 100%;
   max-width: 400px;
   min-width: 200px;
@@ -663,7 +708,7 @@ h3 {
   border-bottom: none;
 }
 
-.about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-sim_container .canvases .canvas_2 {
+.about-me .about-me__inner .catagories .catagory .phys_dropdown.open .tab_container.phys.tab_2.open .waterwheel-sim_container .canvases .canvas_2 {
   width: 100%;
   max-width: 400px;
   min-width: 200px;
@@ -674,12 +719,12 @@ h3 {
   bottom: 3px;
 }
 
-.about-me .about-me__inner .catagories .catagory .maker_dropdown {
-  background-image: url("../img/sodler.jpg");
+.about-me .about-me__inner .catagories .catagory .maker_dropdown.open {
+  background-image: url("../img/sodler.webp");
 }
 
-.about-me .about-me__inner .catagories .catagory .web_dropdown {
-  background-image: url("../img/programming.jpg");
+.about-me .about-me__inner .catagories .catagory .web_dropdown.open {
+  background-image: url("../img/programming.webp");
 }
 
 @media (min-width: 900px) {

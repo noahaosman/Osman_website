@@ -92,7 +92,9 @@ function init(){
             $('#button--pausesim > .fas').toggleClass("fa-play");
             $('#button--pausesim > .fas').toggleClass("fa-pause");
         }
+        $('#button--pausesim').prop('title', "pause simulation");
         $('#button--runsim').html('<i class="fas fa-undo"></i>');
+        $('#button--runsim').prop('title', "restart simulation");
     }else{
         alert("invalid input");
         waterwheel_running = false;
@@ -111,8 +113,14 @@ function init(){
 
 }
 
-
 function move() {
+
+    // break recursive animation if tab is closed
+    if( !($(".phys.tab_2").hasClass('open')) ){return;}
+
+    // break recursive animation if user presses pause button
+    if ( $('#button--pausesim > .fas').hasClass("fa-play") ){return;}
+
 
     if(!isNaN(wn0)){
         RAF_ID = requestAnimationFrame(move);
@@ -120,14 +128,6 @@ function move() {
         console.log("wn has exploded! Oh the humanity")
         return;
     }
-
-    // pause computation if tab is closed
-    if( !($(".phys.tab_2").hasClass('open')) ){return;}
-
-
-    // pause if user presses pause button
-    if ( $('#button--pausesim > .fas').hasClass("fa-play") ){return;}
-
 
     now = Date.now();
     delta = now - then;

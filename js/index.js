@@ -30,8 +30,12 @@ function openDropdown(catagory) {
     var buttonID = '#' + catagory + '_chevron';
 
     if (!($(dropdownID).hasClass("open"))) {
+
         // if hidden, expand
         // collapse all dropdowns
+        if ($(window).outerWidth()>900){
+            $('.dropdown-content').removeClass("slideclosed");
+        }
         $('.dropdown-content.open').removeClass("open");
         // flip all open chevrons to down
         $('.more-info__text.open').html('more info<br><i id="' + 'catagory' + '_chevron" class="chevron fas fa-chevron-down"></i>');
@@ -56,15 +60,10 @@ function openDropdown(catagory) {
             $('.tab_container.tab_0 .bar').addClass("openDropdown");
         }
 
-
-
-        // if we're on wide settings, make any other open 
-
-
-
     } else {
         // if open, collapse
         $(dropdownID).removeClass("open"); // collapse selected dropdown
+        $(dropdownID).addClass("slideclosed");
         // flip chevron 
         $('.more-info__text.' + catagory).html('more info<br><i id="' + 'catagory' + '_chevron" class="chevron fas fa-chevron-down"></i>');
         $('.more-info__text.' + catagory).removeClass('open');
@@ -118,7 +117,7 @@ $(window).resize(function () {
 function determine_maxBlurbLength() {
 
     var blurbs = $('.catagory_blurb');
-    if ($(window).width() > 900) {
+    if ($(window).outerWidth() > 900) {
 
         var max_height = 0;
 
@@ -134,8 +133,6 @@ function determine_maxBlurbLength() {
         var leftMarg = $('.catagories').css('marginLeft').toString();
         var leftPad = $('.catagories').css('paddingLeft').toString();
 
-        console.log(leftMarg);
-
         for (var i = 0; i < 3; i++) {
             // translate middle and right dropdowns to align left 
             $('.about-me > .about-me__inner .catagories .catagory:nth-child(' + (i + 1).toString() + ') > .dropdown-content')
@@ -143,9 +140,6 @@ function determine_maxBlurbLength() {
                     "transform": "translateX( calc( -" + ((i) * width).toString() + "px - " + ((i) * 3).toString() + "em - " + leftMarg + " - 0*" + leftPad + " ) )",
                     "width": "calc(300% + 6em + 2*" + leftMarg + " - 0*" + leftPad + " )"
                 });
-
-            console.log("translateX( calc( -" + ((i) * width).toString() + "px - " + ((i) * 3).toString() + "em - " + leftMarg + " ) )");
-            console.log("calc(300% + 6em + 2*" + leftMarg + " )");
         }
 
     } else {
@@ -179,10 +173,17 @@ function determine_maxBlurbLength() {
 
 function pause_waterwheel() {
 
-    if (waterwheel_running & $('#button--pausesim').hasClass("useable")) {
-        $('#button--pausesim > .fas').toggleClass("fa-play");
-        $('#button--pausesim > .fas').toggleClass("fa-pause");
-    }
+    if (waterwheel_running){
+        if ( $('#button--pausesim').hasClass("useable") ) {
+            $('#button--pausesim > .fas').toggleClass("fa-play");
+            $('#button--pausesim > .fas').toggleClass("fa-pause");
+            $('#button--pausesim').prop('title', "resume simulation");
+        }
+        if ( $('#button--pausesim > .fas').hasClass("fa-pause") ){
+            move();
+            $('#button--pausesim').prop('title', "pause simulation");
+        }
+    }   
 
 }
 
@@ -203,6 +204,7 @@ function check_C0_input() {
         // $('#button--runsim').css("opacity","1");
         $('#button--runsim').addClass("useable");
         $('#button--runsim').html('Run');
+        $('#button--runsim').prop('title', "start new simulation");
     }
 }
 /* #endregion */
