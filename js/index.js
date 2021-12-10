@@ -28,15 +28,24 @@ function openDropdown(catagory) {
 
     var dropdownID = '#' + catagory + '_info';
     var buttonID = '#' + catagory + '_chevron';
+    
+    pauseWithUpdate();
+
+    $('.dropdown-content').removeClass("holdClose");
 
     if (!($(dropdownID).hasClass("open"))) {
 
         // if hidden, expand
-        // collapse all dropdowns
-        if ($(window).outerWidth()>900){
-            $('.dropdown-content').removeClass("slideclosed");
+
+        // collapse all dropdowns, if wide screen disappear, else slide close
+        if ($(window).outerWidth() > 900) {
+            $('.dropdown-content').removeClass("slideClose");
+            $('.dropdown-content.open').addClass("holdClose");
+        }else{
+            $('.dropdown-content').addClass("slideClose");
         }
         $('.dropdown-content.open').removeClass("open");
+        
         // flip all open chevrons to down
         $('.more-info__text.open').html('more info<br><i id="' + 'catagory' + '_chevron" class="chevron fas fa-chevron-down"></i>');
         $('.more-info__text.open').removeClass('open');
@@ -54,20 +63,20 @@ function openDropdown(catagory) {
         // add open class to 0th nav-item button & tab container of selected dropdown
         $('.nav-item.' + catagory + '.tab_0').addClass('open');
         $('.tab_container.' + catagory + '.tab_0').addClass('open');
-        // $('.about-me .about-me__inner .catagories .catagory .tab_container.tab_0 .bar:before').css("animation", "load 2s 10s cubic-bezier(.35,.1,.6,1)")
-        if (!$('.tab_container.tab_0 .bar').hasClass("openDropdown")) {
-            $('.tab_container.tab_0 .bar').removeClass("openTab");
-            $('.tab_container.tab_0 .bar').addClass("openDropdown");
-        }
+
+        // clear skill bars, init for opened catagory
+        $('.tab_container.tab_0 .bar').removeClass("openDropdown");
+        $('.tab_container.tab_0.'+catagory+' .bar').addClass("openDropdown");
 
     } else {
         // if open, collapse
         $(dropdownID).removeClass("open"); // collapse selected dropdown
-        $(dropdownID).addClass("slideclosed");
+        $(dropdownID).addClass("slideClose");
         // flip chevron 
         $('.more-info__text.' + catagory).html('more info<br><i id="' + 'catagory' + '_chevron" class="chevron fas fa-chevron-down"></i>');
         $('.more-info__text.' + catagory).removeClass('open');
-        $('.tab_container.tab_0 .bar').removeClass("openTab");
+
+        // clear skill bars
         $('.tab_container.tab_0 .bar').removeClass("openDropdown");
     }
 }
@@ -78,6 +87,9 @@ function openTab(catagory, tab) {
 
     // only do stuff if selected tab is closed
     if (!($(tabID).hasClass("open"))) {
+
+        pauseWithUpdate();
+
         // remove open class from all nav-item button(s) & tab container(s) of selected dropdown
         $('.tab_container.' + catagory + '.open').removeClass('open');
         $('.nav-item.' + catagory + '.open').removeClass('open');
@@ -86,12 +98,6 @@ function openTab(catagory, tab) {
         $('.nav-item.' + catagory + '.tab_' + tab).addClass('open');
 
         if (catagory + tab == 'phys2' & !waterwheel_running) { init(); }
-
-        if (tab == '0' & !$('.tab_container.tab_0 .bar').hasClass("openTab")) {
-            $('.tab_container.tab_0 .bar').removeClass("openDropdown");
-            $('.tab_container.tab_0 .bar').addClass("openTab");
-        }
-
 
     }
 
@@ -170,6 +176,14 @@ function determine_maxBlurbLength() {
 
 
 /* #region  | waterwheel UI functions */
+
+function pauseWithUpdate(){
+    // if waterwheel tab was open & running, pause the simulation
+    if ( $('.tab_container.phys.tab_2').hasClass('open') & $('#button--pausesim > .fas').hasClass("fa-pause") ){
+        pause_waterwheel();
+    }
+}
+
 
 function pause_waterwheel() {
 

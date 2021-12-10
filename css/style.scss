@@ -1,4 +1,4 @@
-/* #region | Variables & typography --- */
+/* #region ⮑ | Variables & typography*/
 *,
 *::before,
 *::after{
@@ -47,6 +47,8 @@ $bs-light: 0px 0.5px 1px rgba(0, 0, 0, 0.1),
 
 /* General Styles */
 
+$expand_delay: 0.5s; // defines lenght of time to expand dropdown
+
 button:hover{
     cursor: pointer;
 }
@@ -63,10 +65,6 @@ body {
     line-height: 1.6;
     height: 100%;
 }
-
-// section{
-//     padding: 5em 2em;
-// }
 
 img{
     display: block; 
@@ -96,10 +94,10 @@ h3 {font-size: $fs-h3}
     height: 1em;
 }
 
-/* #endregion */
+/* #endregion__ | Variables & typography*/
 
 
-/* #region | Introduction ------------- */
+/* #region ⮑ | INTRODUCTION*/
 
 .intro{
     background-color: $clr-dark;
@@ -107,8 +105,8 @@ h3 {font-size: $fs-h3}
     background-size: 750px;
     background-repeat: no-repeat;
     background-position: 0 0;
-    height: 75%;
-    max-height: 1100px;
+    height: 100%;
+    // max-height: 1100px;
     min-height: 600px;
     margin: 0;
     z-index: 0;
@@ -127,10 +125,8 @@ h3 {font-size: $fs-h3}
             color: $clr-dark;
             margin-bottom: 0.1em;
             text-align: center;
-            // display: inline-block;
         }
         .intro__subtitle{
-            // background: $clr-dark;
             align-self: start;
             font-size: $fs-h3;
             font-family: $ff-secondary;
@@ -152,7 +148,6 @@ h3 {font-size: $fs-h3}
     }
     
 }
-
 
 @media (min-width: 750px){
     .intro{
@@ -196,27 +191,22 @@ h3 {font-size: $fs-h3}
         }
     }
 }
-
 @media (min-width: 1350px){
     .intro{
         background-size: 1350px; // stop background from growing too large
     }
 }
-/* #endregion */
+/* #endregion__ | INTRODUCTION*/
+ 
 
-
-/* #region | About me ----------------- */
-
-$expand_delay: 1s; // defines lenght of time to expand more info dropdowns
-
+/* #region ⮑ | ABOUT-ME */
 .about-me{
     width: 100%;
     padding-top: 80px;
     overflow: hidden;
-
     .about-me__inner{
         background-color: $clr-light;
-        /* #region | blur the boundary line */
+        /* #region ⮑ | blur the boundary line */
         box-shadow: 
             0px -2px  2px $clr-dark,
             0px -4px  4px $clr-dark, 
@@ -230,7 +220,7 @@ $expand_delay: 1s; // defines lenght of time to expand more info dropdowns
             inset 0px 12px 12px -12px $clr-dark, 
             inset 0px 20px 20px -20px $clr-dark,
             inset 0px 40px 40px -40px $clr-dark;
-        /* #endregion */
+        /* #endregion__ | blur the boundary line*/
         position: relative;
         z-index: 3;
         .about-me__title{
@@ -271,23 +261,49 @@ $expand_delay: 1s; // defines lenght of time to expand more info dropdowns
                         }
                     }
                 }
-                .dropdown-content{    
-                    border: none;
-                    z-index: -10;
+
+                @keyframes slideOpen{
+                    from{height: 0px}
+                    to{height: 700px}
+                }
+                @keyframes slideClosed{
+                    from{height: 700px}
+                    to{height: 0px}
+                }
+                .dropdown-content{
+
+                    animation: 0s step-start 0s 1 normal forwards running slideClosed;
+                    &.slideClose{
+                        animation: $expand_delay ease-in-out 0s 1 normal forwards running slideClosed;
+                    }
+                    &.holdClose{// holds page length while other dropdown expands 
+                        height: 700px;
+                        &, * {
+                            visibility: hidden;
+                        }
+                        animation: 0s ease-in-out $expand_delay 1 normal forwards running slideClosed;
+                    }
+                    &.open{
+                        animation: $expand_delay ease-in-out 0s 1 normal forwards running slideOpen;
+                    }
+
                     height: 0px;
-                    visibility: hidden;
-                    transition: 
-                        // z-index 0.1s step-end,
-                        // visibility $expand_delay step-end,
-                        height $expand_delay step-end;
+                    background-color: rgba(40, 40, 40,0.85);
+                    background-size: cover;
+                    background-position: center center;
+                    background-blend-mode: multiply;
+                    border: none;
                     color: $clr-light;
-                    background-color: $clr-light;
-                    background-image: none;
                     position: relative;
-                    .nav-list{
-                        visibility: hidden;                    
-                        transition: 
-                            visibility $expand_delay step-start;
+                    overflow-y: hidden;
+                    .nav-item.tab_0, .nav-item.tab_2{
+                        z-index: 3;
+                    }
+                    .nav-item.tab_1{
+                        z-index: 4;
+                    }
+                    .nav-list{               
+                        visibility: visible;
                         display: grid;
                         row-gap: 5px;
                         padding-top: 2em;
@@ -297,7 +313,7 @@ $expand_delay: 1s; // defines lenght of time to expand more info dropdowns
                             background-color: $clr-light;
                             color: $clr-dark;
                             border: 2px solid $clr-dark;
-                            border-left: none;
+                            border-left: 1px solid $clr-dark;
                             border-radius: 0 1em 1em 0;
                             font-size: $fs-body;
                             font-weight: $fw-reg;
@@ -306,17 +322,26 @@ $expand_delay: 1s; // defines lenght of time to expand more info dropdowns
                             width: 7em;
                             height:7em;
                             text-align: center;
-                        }           
+                            &.tab_0, &.tab_2{
+                                z-index: 3;
+                            }
+                            &.tab_1{
+                                z-index: 4;
+                            }
+                            &.open{
+                                z-index: 5;
+                                border: 3px solid $clr-accent;
+                                border-left: 1px solid $clr-dark;
+                                font-size: calc( 1.05*#{$fs-body} );
+                                font-weight: $fw-bold;
+                            }
+                        }        
                         .tab_0, .tab_2{
                             z-index: -10;
                         }
                         .tab_1{
                             z-index: -9;
-                        }       
-                        // .open{
-                        //     border: 2px solid red;//$clr-accent;
-                        //     z-index: -8;
-                        // }
+                        }
                     }
                     .tab_container{
                         visibility: hidden;
@@ -328,224 +353,150 @@ $expand_delay: 1s; // defines lenght of time to expand more info dropdowns
                         width: calc(100% - 9em - 1em);
                         border-radius: 1em;
                         padding: 2em;
-                        // transform: translateX(-10000px);
-                        display: none;
                         max-height: calc(700px - 2em);
-                    }
-                    .tab_container.open{
-                        transform: translateX(0%);
-                        display: block;
-                        overflow-x: hidden;
-                        overflow-y: hidden;
+
+                        &.open{
+                            visibility: visible;
+                            transform: translateX(0%);
+                            display: block;
+                            overflow-x: hidden;
+                            overflow-y: hidden;
+                        }
+
+                        /* #region ⮑  | DROPDOWN-CONTENT | closed | skill bar animation stuff  */
+                        &.tab_0{
+                            width: calc( 70% - 9em ); 
+                            min-width: 320px;
+                            max-width: 600px;
+                            margin: 0;
+                            .bar{
+                                white-space: nowrap;
+                                &+.bar{
+                                    margin-top: 2em;
+                                }
+                                position: relative;
+                                top: 0;
+                                text-align: left;
+                                background-color: $clr-dark;
+                                color: $clr-light;
+                                font-weight: $fw-bold;
+                                text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+                                .bar_border{
+                                    position: absolute;
+                                    $border: 10px;
+                                    $padding: 5px;
+                                    top: -$border;
+                                    left: -$border;
+                                    width: calc(100% + 2*#{$border});
+                                    height: calc(1.6*#{$fs-body} + 2*#{$padding} + 2*#{$border}); 
+                                    //height = line height * body fontsize + padding + border
+                                    border: 10px solid $clr-light;
+                                    border-radius: calc( 0.5*1.6*#{$fs-body} + 2*#{$border});
+                                }
+        
+                                &:before{
+                                    content:  attr(data-skill);
+                                    white-space:nowrap;
+                                    background-color: $clr-accent;
+                                    display: inline-block;
+                                    padding: 5px 0 5px 10px;
+                                }
+                                &:after{
+                                    display: inline-block;
+                                    opacity: 1;
+                                }
+                                &.skill_level_1::before{
+                                    width: calc( 0.1*100%);
+                                }
+                                &.skill_level_1::after{
+                                    content: "10%";
+                                    transform: translateX( 10px );
+                                }
+                                &.skill_level_2::before{
+                                    width: calc( 0.2*100%);
+                                }
+                                &.skill_level_2::after{
+                                    content: "20%";
+                                    transform: translateX( 10px );
+                                }
+                                &.skill_level_3::before{
+                                    width: calc( 0.3*100%);
+                                }
+                                &.skill_level_3::after{
+                                    content: "30%";
+                                    transform: translateX( 10px );
+                                }
+                                &.skill_level_4::before{
+                                    width: calc( 0.4*100%);
+                                }
+                                &.skill_level_4::after{
+                                    content: "40%";
+                                    transform: translateX( 10px );
+                                }
+                                &.skill_level_5::before{
+                                    width: calc( 0.5*100%);
+                                }
+                                &.skill_level_5::after{
+                                    content: "50%";
+                                    transform: translateX( 10px );
+                                }
+                                &.skill_level_6::before{
+                                    width: calc( 0.6*100%);
+                                }
+                                &.skill_level_6::after{
+                                    content: "60%";
+                                    transform: translateX( 10px );
+                                }
+                                &.skill_level_7::before{
+                                    width: calc( 0.7*100%);
+                                }
+                                &.skill_level_7::after{
+                                    content: "70%";
+                                    transform: translateX( 10px );
+                                }
+                                &.skill_level_8::before{
+                                    width: calc( 0.8*100%);
+                                }
+                                &.skill_level_8::after{
+                                    content: "80%";
+                                    transform: translateX( 10px );
+                                }
+                                &.skill_level_9::before{
+                                    width: calc( 0.9*100%);
+                                }
+                                &.skill_level_9::after{
+                                    content: "90%";
+                                    transform: translateX(calc(-100% - 10px) );
+                                }
+                                &.skill_level_10::before{
+                                    width: calc( 1.0*100%);
+                                }
+                                &.skill_level_10::after{
+                                    content: "100%";
+                                    transform: translateX(calc(-100% - 10px) );
+                                }
+                                &.openDropdown:before{
+                                    animation: load calc( 1.5s + 0.75*#{$expand_delay} ) 0s cubic-bezier(.24,-0.4,.35,1);
+                                }
+                                &.openDropdown:after{
+                                    animation: show_perc calc( 1.5s + 0.75*#{$expand_delay} + 0.1s ) cubic-bezier(1,-0.59,.59,1);
+                                }
+                            }
+                        }
+                        @keyframes load{
+                            from{width: 0%}
+                        }
+                        @keyframes show_perc{
+                            from{opacity: 0;}
+                        }
+                        /* #endregion__  | DROPDOWN-CONTENT | closed | skill bar animation stuff*/
+
                     }
                 }
-                .dropdown-content.slideclosed{
-                    &.phys_dropdown{
-                        background-image: url("../img/background_CompPhys.webp");
-                    }
-                    &.maker_dropdown{
-                        background-image: url("../img/sodler.webp");
-                    }
-                    &.web_dropdown{
-                        background-image: url("../img/programming.webp");
-                    }
-                    border:2px solid $clr-dark;
-                    border-top: none;
-                    border-bottom: none;
-                    background-color: rgba(40, 40, 40,0.85);
-                    background-size: cover;
-                    background-position: center center;
-                    background-blend-mode: multiply;
-                    visibility: visible;
-                    transition: 
-                    z-index 0.1s step-end,
-                    visibility $expand_delay step-end,
-                    height $expand_delay ease-in-out;
-                    .tab_container,
-                    .nav-list{
-                        visibility: visible;
-                    }
-                }
-                .dropdown-content.open{
-                    border:2px solid $clr-dark;
-                    background-color: rgba(40, 40, 40,0.85);
-                    background-size: cover;
-                    background-position: center center;
-                    background-blend-mode: multiply;
-                    visibility: visible;
-                    overflow-y: hidden;
-                    z-index: -3;
-                    height: 700px;   
-                    transition:
-                        z-index $expand_delay step-end,
-                        height $expand_delay ease-in-out;
-                    z-index: 3;
 
-                    .tab_container{
-                        visibility: visible;
-                    }
-
-                    .nav-list{
-                        visibility: visible;
-                    }
-
-                    .nav-item.tab_0, .nav-item.tab_2{
-                        z-index: 3;
-                    }
-                    .nav-item.tab_1{
-                        z-index: 4;
-                    }
-                }
-                .open > .nav-list > .nav-item.open, .nav-list > .nav-item.open{
-                    z-index: 5;
-                    border: 3px solid $clr-accent;
-                    border-left: none;
-                    font-size: calc( 1.05*#{$fs-body} );
-                    font-weight: $fw-bold;
-                }
-
-
-                .tab_container.tab_0{
-                    width: calc( 70% - 9em ); 
-                    min-width: 320px;
-                    max-width: 600px;
-                    margin: 0;
-                    .bar{
-                        white-space: nowrap;
-                        &+.bar{
-                            margin-top: 2em;
-                        }
-                        position: relative;
-                        top: 0;
-                        text-align: left;
-                        background-color: $clr-dark;
-                        color: $clr-light;
-                        font-weight: $fw-bold;
-                        text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
-                        .bar_border{
-                            position: absolute;
-                            $border: 10px;
-                            $padding: 5px;
-                            top: -$border;
-                            left: -$border;
-                            width: calc(100% + 2*#{$border});
-                            height: calc(1.6*#{$fs-body} + 2*#{$padding} + 2*#{$border}); 
-                            //height = line height * body fontsize + padding + border
-                            border: 10px solid $clr-light;
-                            border-radius: calc( 0.5*1.6*#{$fs-body} + 2*#{$border});
-                        }
-
-                        /* #region | skill bar animation stuff  */
-
-                        &:before{
-                            content:  attr(data-skill);
-                            white-space:nowrap;
-                            background-color: $clr-accent;
-                            display: inline-block;
-                            padding: 5px 0 5px 10px;
-                        }
-                        &:after{
-                            display: inline-block;
-                            opacity: 1;
-                        }
-                        &.skill_level_1::before{
-                            width: calc( 0.1*100%);
-                        }
-                        &.skill_level_1::after{
-                            content: "10%";
-                            transform: translateX( 10px );
-                        }
-                        &.skill_level_2::before{
-                            width: calc( 0.2*100%);
-                        }
-                        &.skill_level_2::after{
-                            content: "20%";
-                            transform: translateX( 10px );
-                        }
-                        &.skill_level_3::before{
-                            width: calc( 0.3*100%);
-                        }
-                        &.skill_level_3::after{
-                            content: "30%";
-                            transform: translateX( 10px );
-                        }
-                        &.skill_level_4::before{
-                            width: calc( 0.4*100%);
-                        }
-                        &.skill_level_4::after{
-                            content: "40%";
-                            transform: translateX( 10px );
-                        }
-                        &.skill_level_5::before{
-                            width: calc( 0.5*100%);
-                        }
-                        &.skill_level_5::after{
-                            content: "50%";
-                            transform: translateX( 10px );
-                        }
-                        &.skill_level_6::before{
-                            width: calc( 0.6*100%);
-                        }
-                        &.skill_level_6::after{
-                            content: "60%";
-                            transform: translateX( 10px );
-                        }
-                        &.skill_level_7::before{
-                            width: calc( 0.7*100%);
-                        }
-                        &.skill_level_7::after{
-                            content: "70%";
-                            transform: translateX( 10px );
-                        }
-                        &.skill_level_8::before{
-                            width: calc( 0.8*100%);
-                        }
-                        &.skill_level_8::after{
-                            content: "80%";
-                            transform: translateX( 10px );
-                        }
-                        &.skill_level_9::before{
-                            width: calc( 0.9*100%);
-                        }
-                        &.skill_level_9::after{
-                            content: "90%";
-                            transform: translateX(calc(-100% - 10px) );
-                        }
-                        &.skill_level_10::before{
-                            width: calc( 1.0*100%);
-                        }
-                        &.skill_level_10::after{
-                            content: "100%";
-                            transform: translateX(calc(-100% - 10px) );
-                        }
-
-                        &.openTab:before{
-                            animation: load 1.5s 0s cubic-bezier(.35,.1,.4,1);
-                        }
-                        &.openDropdown:before{
-                            // animation: load_fromDropdown calc( 1.5s + #{$expand_delay} ) 0s cubic-bezier(.35,.1,.4,1);
-                            animation: load calc( 1.5s + #{$expand_delay} ) 0s cubic-bezier(.24,-0.4,.35,1);
-                        }
-                        &.openTab:after{
-                            animation: show_perc calc( 1.5s + 0.1s ) cubic-bezier(1,-0.59,.59,1);
-                        }
-                        &.openDropdown:after{
-                            animation: show_perc calc( 1.5s + #{$expand_delay} + 0.1s ) cubic-bezier(1,-0.59,.59,1);
-                        }
-                    }
-                }
-                @keyframes load{
-                    from{width: 0%}
-                }
-                @keyframes show_perc{
-                    from{opacity: 0;}
-                    // to{opacity: 1;}
-                }
-                /* #endregion */
-
-
-                .phys_dropdown.open{
+                .phys_dropdown{
                     background-image: url("../img/background_CompPhys.webp");
+                    /* #region ⮑ | DROPDOWN | PHYS | TAB2 :: Chaotic waterwheel styling */
                     .tab_container.phys.tab_2.open{
                         overflow-y: scroll;
                         .waterwheel-description{
@@ -563,7 +514,7 @@ $expand_delay: 1s; // defines lenght of time to expand more info dropdowns
                             }
                         }
 
-                        /* #region  waterwheel sim styling */
+                        /* #region ⮑ | DROPDOWN | PHYS | TAB2 | waterwheel simulation */
                         .waterwheel-sim_container{
 
                             display: grid;
@@ -605,7 +556,7 @@ $expand_delay: 1s; // defines lenght of time to expand more info dropdowns
                                     margin-left: 10px;
                                 }
                                 margin-bottom: 0.5em;
-                                width: 3em;
+                                width: 3.5em;
                                 height: 3em;
                                 padding: 2px 10px;
                                 border-radius: 0.3em;
@@ -621,8 +572,6 @@ $expand_delay: 1s; // defines lenght of time to expand more info dropdowns
                                     cursor: not-allowed;
                                 }
                                 &.useable:active{
-                                    // background: linear-gradient(rgba(0, 0, 0, 0.4) 0 0);
-                                    // color: linear-gradient(rgba(0, 0, 0, 0.4) 0 0);
                                     background: $clr-accent;
                                 }
                                 &.useable{
@@ -655,90 +604,80 @@ $expand_delay: 1s; // defines lenght of time to expand more info dropdowns
                                 }
                             }
                         } 
-                        /* #endregion */
+                        /* #endregion__ | DROPDOWN | PHYS | TAB2 | waterwheel simulation */
                     }
+                    /* #endregion__ | DROPDOWN | PHYS | TAB2 */
                 }
-                .maker_dropdown.open{
+                .maker_dropdown{
                     background-image: url("../img/sodler.webp");
                 }
-                .web_dropdown.open{
+                .web_dropdown{
                     background-image: url("../img/programming.webp");
                 }
-
             }
-
         }
     }
 }
 
+/* #region ⮑ | ABOUT-ME | wide-screens */
 @media (min-width: 900px){
- 
-.about-me > .about-me__inner{
-    .catagories{
-        max-width: 1200px;    
-        margin-left: auto;
-        margin-right: auto;
-        padding: 0 3em;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        column-gap: 3em;
-        .catagory{
-            .more-info{
-                padding: 0;
-                min-width: calc(250px-4em);
-                .maker_title{
-                   margin: 1.5em 0;
-                }
-                &:after{
-                    opacity: 0;
-                } 
-            }
-
-            // .dropdown-content{
-                // width: calc(300% + 6em );
-                // transform: translateX(-100px);
-                // width: 100vw;
-            // }
-
-            .phys_dropdown{
-                .tab_container.phys.tab_2.open{
-                    display: grid;
-                    grid-template-areas: "description sim";
-                    grid-column-gap: 2em;
-                    .waterwheel-description{
-                        grid-area: description;
-                        .waterwheel-pic{
-                            width: 60%;
-                        }
+    .about-me > .about-me__inner{
+        .catagories{
+            max-width: 1200px;    
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 3em;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 3em;
+            .catagory{
+                .more-info{
+                    padding: 0;
+                    min-width: calc(250px-4em);
+                    .maker_title{
+                    margin: 1.5em 0;
                     }
-                    .waterwheel-sim_container{
-                        grid-area: sim;
-                        width: 350px;
-                        .canvases{
-                            .canvas_1, .canvas_2{
-                                width: 350px;
+                    &:after{
+                        opacity: 0;
+                    } 
+                }
+
+                .phys_dropdown{
+                    .tab_container.phys.tab_2.open{
+                        overflow-y: hidden;
+                        display: grid;
+                        grid-template-areas: "description sim";
+                        grid-column-gap: 2em;
+                        .waterwheel-description{
+                            grid-area: description;
+                            .waterwheel-pic{
+                                width: 60%;
+                            }
+                        }
+                        .waterwheel-sim_container{
+                            grid-area: sim;
+                            width: 350px;
+                            .canvases{
+                                .canvas_1, .canvas_2{
+                                    width: 350px;
+                                }
                             }
                         }
                     }
                 }
             }
+
         }
 
     }
 
 }
+/* #endregion__ | ABOUT-ME | wide-screens*/
 
-}
-
-
-
+/* #endregion__ | ABOUT-ME*/
 
 
-
-/* #endregion */
-
-
-/* #region | Footer ------------------- */
+/* #region ⮑ | Footer ------------------- */
 .footer{        
     &:before{
         content:'';
@@ -791,5 +730,5 @@ $expand_delay: 1s; // defines lenght of time to expand more info dropdowns
     }
 
 }
-/* #endregion */
+/* #endregion__ */
 
