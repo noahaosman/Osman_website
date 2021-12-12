@@ -298,6 +298,14 @@ h3 {
   color: #fafaf1;
   position: relative;
   overflow-y: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
 }
 
 .about-me .about-me__inner .catagories .catagory .dropdown-content.slideClose {
@@ -320,38 +328,31 @@ h3 {
           animation: 0.5s ease-in-out 0s 1 normal forwards running slideOpen;
 }
 
-.about-me .about-me__inner .catagories .catagory .dropdown-content .nav-item.tab_0, .about-me .about-me__inner .catagories .catagory .dropdown-content .nav-item.tab_2 {
-  z-index: 3;
-}
-
-.about-me .about-me__inner .catagories .catagory .dropdown-content .nav-item.tab_1 {
-  z-index: 4;
-}
-
 .about-me .about-me__inner .catagories .catagory .dropdown-content .nav-list {
-  visibility: visible;
-  display: -ms-grid;
-  display: grid;
-  row-gap: 5px;
-  padding-top: 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 .about-me .about-me__inner .catagories .catagory .dropdown-content .nav-list .nav-item {
-  -ms-grid-column: 1;
-  grid-column: 1;
-  margin-top: -1em;
+  position: relative;
   background-color: #fafaf1;
   color: #282828;
   border: 2px solid #282828;
-  border-left: 1px solid #282828;
-  border-radius: 0 1em 1em 0;
+  border-top: 1px solid #282828;
+  border-radius: 0em 0em 1em 1em;
   font-size: 1rem;
   font-weight: 300;
-  margin-right: auto;
-  margin-left: 0;
   width: 7em;
   height: 7em;
-  text-align: center;
+}
+
+.about-me .about-me__inner .catagories .catagory .dropdown-content .nav-list .nav-item + .nav-item {
+  margin-left: -0.8em;
 }
 
 .about-me .about-me__inner .catagories .catagory .dropdown-content .nav-list .nav-item.tab_0, .about-me .about-me__inner .catagories .catagory .dropdown-content .nav-list .nav-item.tab_2 {
@@ -365,17 +366,9 @@ h3 {
 .about-me .about-me__inner .catagories .catagory .dropdown-content .nav-list .nav-item.open {
   z-index: 5;
   border: 3px solid #689775;
-  border-left: 1px solid #282828;
+  border-top: 1px solid #282828;
   font-size: calc( 1.05*1rem);
   font-weight: 600;
-}
-
-.about-me .about-me__inner .catagories .catagory .dropdown-content .nav-list .tab_0, .about-me .about-me__inner .catagories .catagory .dropdown-content .nav-list .tab_2 {
-  z-index: -10;
-}
-
-.about-me .about-me__inner .catagories .catagory .dropdown-content .nav-list .tab_1 {
-  z-index: -9;
 }
 
 .about-me .about-me__inner .catagories .catagory .dropdown-content .tab_container {
@@ -383,9 +376,9 @@ h3 {
   background-color: #fafaf1;
   color: #282828;
   position: absolute;
-  top: 1em;
-  left: 9em;
+  top: 9em;
   width: calc(100% - 9em - 1em);
+  min-width: calc(340px - 2em);
   border-radius: 1em;
   padding: 2em;
   max-height: calc(700px - 2em);
@@ -397,7 +390,6 @@ h3 {
   visibility: visible;
   -webkit-transform: translateX(0%);
           transform: translateX(0%);
-  display: block;
   overflow-x: hidden;
   overflow-y: hidden;
 }
@@ -444,6 +436,7 @@ h3 {
 
 .about-me .about-me__inner .catagories .catagory .dropdown-content .tab_container.tab_0 .bar:after {
   display: inline-block;
+  position: relative;
   opacity: 1;
 }
 
@@ -453,8 +446,7 @@ h3 {
 
 .about-me .about-me__inner .catagories .catagory .dropdown-content .tab_container.tab_0 .bar.skill_level_1::after {
   content: "10%";
-  -webkit-transform: translateX(10px);
-          transform: translateX(10px);
+  left: 10px;
 }
 
 .about-me .about-me__inner .catagories .catagory .dropdown-content .tab_container.tab_0 .bar.skill_level_2::before {
@@ -463,8 +455,7 @@ h3 {
 
 .about-me .about-me__inner .catagories .catagory .dropdown-content .tab_container.tab_0 .bar.skill_level_2::after {
   content: "20%";
-  -webkit-transform: translateX(10px);
-          transform: translateX(10px);
+  left: 10px;
 }
 
 .about-me .about-me__inner .catagories .catagory .dropdown-content .tab_container.tab_0 .bar.skill_level_3::before {
@@ -473,8 +464,7 @@ h3 {
 
 .about-me .about-me__inner .catagories .catagory .dropdown-content .tab_container.tab_0 .bar.skill_level_3::after {
   content: "30%";
-  -webkit-transform: translateX(10px);
-          transform: translateX(10px);
+  left: 10px;
 }
 
 .about-me .about-me__inner .catagories .catagory .dropdown-content .tab_container.tab_0 .bar.skill_level_4::before {
@@ -483,8 +473,7 @@ h3 {
 
 .about-me .about-me__inner .catagories .catagory .dropdown-content .tab_container.tab_0 .bar.skill_level_4::after {
   content: "40%";
-  -webkit-transform: translateX(10px);
-          transform: translateX(10px);
+  left: 10px;
 }
 
 .about-me .about-me__inner .catagories .catagory .dropdown-content .tab_container.tab_0 .bar.skill_level_5::before {
@@ -493,8 +482,7 @@ h3 {
 
 .about-me .about-me__inner .catagories .catagory .dropdown-content .tab_container.tab_0 .bar.skill_level_5::after {
   content: "50%";
-  -webkit-transform: translateX(10px);
-          transform: translateX(10px);
+  left: 10px;
 }
 
 .about-me .about-me__inner .catagories .catagory .dropdown-content .tab_container.tab_0 .bar.skill_level_6::before {
@@ -503,8 +491,7 @@ h3 {
 
 .about-me .about-me__inner .catagories .catagory .dropdown-content .tab_container.tab_0 .bar.skill_level_6::after {
   content: "60%";
-  -webkit-transform: translateX(10px);
-          transform: translateX(10px);
+  left: 10px;
 }
 
 .about-me .about-me__inner .catagories .catagory .dropdown-content .tab_container.tab_0 .bar.skill_level_7::before {
@@ -513,8 +500,7 @@ h3 {
 
 .about-me .about-me__inner .catagories .catagory .dropdown-content .tab_container.tab_0 .bar.skill_level_7::after {
   content: "70%";
-  -webkit-transform: translateX(10px);
-          transform: translateX(10px);
+  left: 10px;
 }
 
 .about-me .about-me__inner .catagories .catagory .dropdown-content .tab_container.tab_0 .bar.skill_level_8::before {
@@ -523,8 +509,7 @@ h3 {
 
 .about-me .about-me__inner .catagories .catagory .dropdown-content .tab_container.tab_0 .bar.skill_level_8::after {
   content: "80%";
-  -webkit-transform: translateX(10px);
-          transform: translateX(10px);
+  left: 10px;
 }
 
 .about-me .about-me__inner .catagories .catagory .dropdown-content .tab_container.tab_0 .bar.skill_level_9::before {
@@ -533,8 +518,7 @@ h3 {
 
 .about-me .about-me__inner .catagories .catagory .dropdown-content .tab_container.tab_0 .bar.skill_level_9::after {
   content: "90%";
-  -webkit-transform: translateX(calc(-100% - 10px));
-          transform: translateX(calc(-100% - 10px));
+  left: calc( -2em - 10px);
 }
 
 .about-me .about-me__inner .catagories .catagory .dropdown-content .tab_container.tab_0 .bar.skill_level_10::before {
@@ -543,8 +527,7 @@ h3 {
 
 .about-me .about-me__inner .catagories .catagory .dropdown-content .tab_container.tab_0 .bar.skill_level_10::after {
   content: "100%";
-  -webkit-transform: translateX(calc(-100% - 10px));
-          transform: translateX(calc(-100% - 10px));
+  left: calc( -2.5em - 10px);
 }
 
 .about-me .about-me__inner .catagories .catagory .dropdown-content .tab_container.tab_0 .bar.openDropdown:before {
@@ -589,6 +572,13 @@ h3 {
 
 .about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open {
   overflow-y: scroll;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   /* #region ⮑ | DROPDOWN | PHYS | TAB2 | waterwheel simulation */
   /* #endregion__ | DROPDOWN | PHYS | TAB2 | waterwheel simulation */
 }
@@ -729,6 +719,41 @@ h3 {
   background-image: url("../img/programming.webp");
 }
 
+@media (min-width: 500px) {
+  .about-me .about-me__inner .catagories .catagory .dropdown-content {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .about-me .about-me__inner .catagories .catagory .dropdown-content .nav-list {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .about-me .about-me__inner .catagories .catagory .dropdown-content .nav-list .nav-item {
+    margin-top: 1em;
+    border-left: 1px solid #282828;
+    border-radius: 0 1em 1em 0;
+    min-height: 7em;
+  }
+  .about-me .about-me__inner .catagories .catagory .dropdown-content .nav-list .nav-item + .nav-item {
+    margin-left: 0;
+    margin-top: -0.8em;
+  }
+  .about-me .about-me__inner .catagories .catagory .dropdown-content .nav-list .nav-item.open {
+    border: 3px solid #689775;
+    border-left: 1px solid #282828;
+  }
+  .about-me .about-me__inner .catagories .catagory .dropdown-content .tab_container {
+    top: 1em;
+    left: 9em;
+  }
+}
+
 /* #region ⮑ | ABOUT-ME | wide-screens */
 @media (min-width: 900px) {
   .about-me > .about-me__inner .catagories {
@@ -755,27 +780,14 @@ h3 {
   }
   .about-me > .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open {
     overflow-y: hidden;
-    display: -ms-grid;
-    display: grid;
-        grid-template-areas: "description sim";
-    grid-column-gap: 2em;
-  }
-  .about-me > .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-description {
-    -ms-grid-row: 1;
-    -ms-grid-column: 1;
-    grid-area: description;
-  }
-  .about-me > .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-description .waterwheel-pic {
-    width: 60%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
   .about-me > .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-sim_container {
-    -ms-grid-row: 1;
-    -ms-grid-column: 2;
-    grid-area: sim;
-    width: 350px;
-  }
-  .about-me > .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-sim_container .canvases .canvas_1, .about-me > .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-sim_container .canvases .canvas_2 {
-    width: 350px;
+    min-width: 350px;
+    padding-left: 2em;
   }
 }
 

@@ -426,19 +426,7 @@ function draw_wheel(mn, thn, wn, thn_saved_data, wn_saved_data, al_saved_data, c
     l.strokeStyle = '#FBFAF5';
     l.stroke();
 
-
-    // diagram theta IC labels 
-    l.font = "20px Times"
-    l.fillStyle = bckgrnd;
-    l.textAlign = 'start';
-    // if (canvas_ID==0){
-    //     var tag = '\u03B8 \u003D \u0030'
-    // }else{
-    //     var tag = '\u03B8 \u003D 0.1'
-    // }
-    // l.fillText(tag, 10, 20);
-
-
+    // draw wheel cells
     for (i = 0; i<parms.num_cells; i++){
         var theta = thn + theta_offset;
         var R11 = Math.cos(theta);
@@ -497,10 +485,6 @@ function draw_wheel(mn, thn, wn, thn_saved_data, wn_saved_data, al_saved_data, c
     }
     l.drawImage(document.getElementById('faucet'), px(-0.075), py(base_y+H-0.011),sx(0.085), sy(0.085));
 
-
-
-
-
     // draw theta data
     var maxth = Math.max(...thn_saved_data)/pi;
     var n_pi_max = maxth;
@@ -508,7 +492,6 @@ function draw_wheel(mn, thn, wn, thn_saved_data, wn_saved_data, al_saved_data, c
     var n_pi_min = minth;
     if (n_pi_min > -1){n_pi_min=-1}
     if (n_pi_max < 1){n_pi_max=1}
-
 
     var grid_size = canvas[canvas.length-1].offsetWidth/40;
     var y_offset = grid_size/4;
@@ -520,14 +503,6 @@ function draw_wheel(mn, thn, wn, thn_saved_data, wn_saved_data, al_saved_data, c
         var canvas_width = canvas[canvas.length-1].offsetWidth;///-6; // account for padding
         var canvas_height = canvas[canvas.length-1].offsetHeight-4;
 
-        // x axis
-        // l.beginPath();
-        // l.lineWidth = 1.5;
-        // l.strokeStyle = "#FBFAF5";
-        // l.moveTo(grid_size*(y_offset-0.5),50)
-        // l.lineTo(canvas_width-grid_size+grid_size*0.5,canvas_height/2);
-        // l.stroke();
-
         //y axis
         l.beginPath();
         l.lineWidth = 1.5;
@@ -536,33 +511,25 @@ function draw_wheel(mn, thn, wn, thn_saved_data, wn_saved_data, al_saved_data, c
         l.lineTo(grid_size*y_offset,canvas_height);//canvas_height-grid_size);
         l.stroke();
 
+        // y-axis label
         l.font = Math.round(24*canvas[0].width/400).toString()+"px Times";
         l.fillStyle = "#FBFAF5";
         l.textAlign = 'start';//'\u2212'+
         l.fillText('\u03B8', 0, 3*grid_size);
-        // l.fillText(String(n_pi_min)+'\u03C0-', 3.5, canvas_height-1.15*grid_size);
-        // l.textAlign = 'start';
-        // l.fillText(String(n_pi_max)+'\u03C0+', 3.5, 1.9*grid_size);
-   
     }
 
     // Translate to the new origin. Now Y-axis of the canvas is opposite to the Y-axis of the graph. So the y-coordinate of each element will be negative of the actual
-
     l = canvas[canvas.length-1].getContext('2d');
     l.save();
     l.translate(y_offset*grid_size, canvas_height * n_pi_max/(n_pi_max+Math.abs(n_pi_min)));
 
-     // 
-     l.beginPath();
-     l.lineWidth = 1.5;
-     l.strokeStyle = "#FBFAF5";
-     l.moveTo(-0.5*grid_size,0)
-     l.lineTo(canvas_width-y_offset*grid_size-0.5,0);
-     l.stroke();
-
-
-
-
+    //x-axis
+    l.beginPath();
+    l.lineWidth = 1.5;
+    l.strokeStyle = "#FBFAF5";
+    l.moveTo(-0.5*grid_size,0)
+    l.lineTo(canvas_width-y_offset*grid_size-0.5,0);
+    l.stroke();
 
     var sc_thx = function(x) { return x*(Math.round(canvas_width/grid_size)-y_offset)*grid_size/prior_points_to_plot;}
     var sc_thy = function(y) { return -y*(canvas_height-grid_size)/((n_pi_max-n_pi_min)*pi);}
@@ -602,14 +569,11 @@ function draw_wheel(mn, thn, wn, thn_saved_data, wn_saved_data, al_saved_data, c
         }
     }
 
-
     l.restore();
-
-
 
 }
 
-    // translates matlab pos's (origin at center) to origin at bottom left corner
+    // translates matlab origin (center) to canvas origin (bottom left corner)
     function sx(x){
         return x = (x)*canvas[0].offsetWidth/lw_matlab;
     }
@@ -633,11 +597,8 @@ function draw_wheel(mn, thn, wn, thn_saved_data, wn_saved_data, al_saved_data, c
 
 
     function wrap_pi(x,x_min,x_max) {
-  
-        return (((x - x_min*pi) % (x_max*pi - x_min*pi)) + (x_max*pi - x_min*pi)) % (x_max*pi - x_min*pi) + x_min*pi;
-        
+        return (((x - x_min*pi) % (x_max*pi - x_min*pi)) + (x_max*pi - x_min*pi)) % (x_max*pi - x_min*pi) + x_min*pi; 
     }
-
 
     function wx_scale(x){
         return px(x*x_scale_factor);
@@ -645,7 +606,6 @@ function draw_wheel(mn, thn, wn, thn_saved_data, wn_saved_data, al_saved_data, c
     function ay_scale(x){
         return py(x*y_scale_factor);
     }
-
 
     function phase_scale_init(){
 
