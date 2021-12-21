@@ -1,0 +1,99 @@
+/*******************************************************************************
+ * General styling and variables
+******************************************************************************/
+
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+/* font parameters: */
+
+$ff-primary: 'Source Sans Pro', sans-serif;
+$ff-secondary: 'Source Code Pro', monospace;
+
+$fw-reg: 300;
+$fw-bold: 600;
+
+$clr-light: #fafaf1;
+$clr-accent: rgb(104, 151, 117);
+$clr-dark: rgb(40, 40, 40);
+$clr-midpt: rgb(145,145,141);
+
+$fs-h1: 3.5rem;
+$fs-h2: 2.25rem;
+$fs-h3: 1.25rem;
+$fs-body: 1rem;
+
+$bs-left: -0.25em  0.25em  0.75em rgba(0,0,0,0.25),
+        -0.125em 0.125em 0.25em rgba(0,0,0,0.15);
+$bs-right: 0.25em  0.25em  0.75em rgba(0,0,0,0.25),
+        0.125em 0.125em 0.25em rgba(0,0,0,0.15);
+$bs-light: 0px 0.5px 1px rgba(0, 0, 0, 0.1),
+    inset 0px 0.5px 0.5px rgba(255, 255, 255, 0.5),
+    0px 0px 0px 0.5px rgba(0, 0, 0, 0.12);
+
+/* Redifine font size if there's a big display */
+@media (min-width: 800px){
+    $fs-h1: 4.5rem;
+    $fs-h2: 3.75rem;
+    $fs-h3: 1.5rem;
+    $fs-body: 1.125rem;
+}
+
+/* General Styles */
+
+$expand_delay: 0.5s; // defines lenght of time to expand dropdown
+
+button:hover{
+    cursor: pointer;
+}
+
+html{
+    scroll-behavior: smooth;
+    height: 100%;
+}
+
+body {
+    background: $clr-dark;
+    font-family: $ff-primary;
+    font-size: $fs-body;
+    line-height: 1.6;
+    height: 100%;
+}
+
+img{
+    display: block; 
+    max-width: 100%;
+}
+
+
+/* ------ Typography ------ */
+
+h1,
+h2,
+h3 {
+    line-height: 1;
+    margin: 0;
+}
+
+h1 {font-size: $fs-h1}
+h2 {font-size: $fs-h2}
+h3 {font-size: $fs-h3}
+
+//dummy element for getting em unit size in jQuery (hidden from user)
+.hidden{
+    position: absolute;
+    left: 500vw;
+}
+.dummy-em{
+    height: 1em;
+}

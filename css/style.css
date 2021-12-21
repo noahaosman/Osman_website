@@ -1,5 +1,7 @@
 @charset "UTF-8";
-/* #region ⮑ | Variables & typography*/
+/*******************************************************************************
+ * General styling and variables
+******************************************************************************/
 *,
 *::before,
 *::after {
@@ -67,8 +69,9 @@ h3 {
   height: 1em;
 }
 
-/* #endregion__ | Variables & typography*/
-/* #region ⮑ | INTRODUCTION*/
+/*******************************************************************************
+ * Introduction styling
+******************************************************************************/
 .intro {
   background-color: #282828;
   background-image: url(../img/webvort_small.webp);
@@ -186,8 +189,9 @@ h3 {
   }
 }
 
-/* #endregion__ | INTRODUCTION*/
-/* #region ⮑ | ABOUT-ME */
+/*******************************************************************************
+ * Main body styling
+******************************************************************************/
 .about-me {
   width: 100%;
   padding-top: 80px;
@@ -297,7 +301,7 @@ h3 {
   border: none;
   color: #fafaf1;
   position: relative;
-  overflow-y: hidden;
+  overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -377,7 +381,7 @@ h3 {
   color: #282828;
   position: absolute;
   top: 9em;
-  width: calc(100% - 9em - 1em);
+  width: calc(100% - 2em);
   min-width: calc(340px - 2em);
   border-radius: 1em;
   padding: 2em;
@@ -584,7 +588,7 @@ h3 {
 }
 
 .about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-description .waterwheel-pic {
-  width: 50%;
+  width: 70%;
   margin: 1em auto;
 }
 
@@ -719,6 +723,7 @@ h3 {
   background-image: url("../img/programming.webp");
 }
 
+/* #region ⮑ | ABOUT-ME | >500px */
 @media (min-width: 500px) {
   .about-me .about-me__inner .catagories .catagory .dropdown-content {
     -webkit-box-pack: start;
@@ -749,12 +754,14 @@ h3 {
     border-left: 1px solid #282828;
   }
   .about-me .about-me__inner .catagories .catagory .dropdown-content .tab_container {
+    width: calc(100% - 9em - 1em);
     top: 1em;
     left: 9em;
   }
 }
 
-/* #region ⮑ | ABOUT-ME | wide-screens */
+/* #endregion__ | ABOUT-ME | >500px*/
+/* #region ⮑ | ABOUT-ME | >900px */
 @media (min-width: 900px) {
   .about-me > .about-me__inner .catagories {
     max-width: 1200px;
@@ -791,9 +798,10 @@ h3 {
   }
 }
 
-/* #endregion__ | ABOUT-ME | wide-screens*/
-/* #endregion__ | ABOUT-ME*/
-/* #region ⮑ | Footer ------------------- */
+/* #endregion__ | ABOUT-ME | >900px*/
+/*******************************************************************************
+ * Footer styling
+******************************************************************************/
 .footer {
   background-color: #fafaf1;
   color: #689775;
@@ -815,8 +823,18 @@ h3 {
 
 .footer .goodbye {
   font-size: 2.25rem;
-  margin-bottom: 1.5em;
   font-weight: 600;
+}
+
+.footer .icon {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1em;
+  margin-top: 0em;
+  width: 100px;
+  -webkit-filter: drop-shadow(0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15));
+          filter: drop-shadow(0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15));
 }
 
 .footer .footer__link:hover,
@@ -854,6 +872,4 @@ h3 {
   color: inherit;
   text-decoration: none;
 }
-
-/* #endregion__ */
 /*# sourceMappingURL=style.css.map */
