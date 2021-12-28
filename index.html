@@ -5,7 +5,7 @@
         <meta name="viewport" content = "width=device-width, initial-scale=1.0">
         <title>Noah Osman</title>
         <!-- <link rel="icon" href="img/code-solid.png"> -->
-        <link rel="icon" href="img/noah_icon.png">
+        <link rel="icon" href="img/icon_glasses.webp">
 
         <link rel="stylesheet"
         href = "https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
@@ -15,7 +15,7 @@
         <!-- <script src="https://kit.fontawesome.com/c492b9237f.js" crossorigin="anonymous"></script> -->
 
         <!-- Update these w your own fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:300,600|Source+Sans+Pro:300,600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:300,600|Source+Sans+Pro:400,600&display=swap" rel="stylesheet">
 
         <link rel="stylesheet" href="css/style.css">
         <script src="js/jquery-3.5.1.min.js"></script> 
@@ -45,15 +45,12 @@
                 <div class="catagory">
                     <button id="phys_btn" class="more-info" onclick="openDropdown('phys')"> 
                         <h2>computational<br>physicist</h2>
-                        <!-- <p class="catagory_blurb">Scientific computing has been the 
-                        </p> -->
-                        <p class="catagory_blurb">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                            Quisque enim leo, dapibus vestibulum consequat a, eleifend 
-                            eu est. Proin efficitur interdum aliquet. Aliquam eu sem 
-                            mauris. Aenean vulputate ligula sit amet volutpat convallis.
-                            Donec sodales nec mi eu commodo.
+                        <p class="catagory_blurb"> 
+                            I was first introduced to programming in one of my early undergraduate physics courses, and I immediately was hooked on the stuff. 
+                            Eight years later I continue to be inspired by the beauty of computational physics and numerical methods. 
+                            I am motivated to further advance the power computation has in revealing fundamental truths about our universe.
                         </p>
-                        <h3 class="phys more-info__text">more info<br><i id="phys_chevron" class="chevron fas fa-chevron-down"></i></h3>
+                        <h3 class="phys more-info__text"><br><i id="phys_chevron" class="chevron fas fa-chevron-down"></i></h3>
                     </button>
                     <div id="phys_info" class="phys_dropdown dropdown-content">
                         <div class="nav-list">
@@ -62,39 +59,58 @@
                             <button class="nav-item phys tab_2" onclick="openTab('phys','2')">Lorenz<br>chaotic<br>waterwheel</button>
                         </div>
                         <div id="phys_0" class="tab_container phys tab_0">
-                            <div class="bar skill_level_9" data-skill="Calculus"><div class="bar_border"></div></div>
-                            <div class="bar skill_level_7" data-skill="Linear Algebra"><div class="bar_border"></div></div>
-                            <div class="bar skill_level_8" data-skill="Data Analyis & Visualization"><div class="bar_border"></div></div>
+                            <!-- <div class="bar skill_level_9" data-skill="Calculus"><div class="bar_border"></div></div>
+                            <div class="bar skill_level_7" data-skill="Linear Algebra"><div class="bar_border"></div></div> -->
+                            <div class="bar skill_level_9" data-skill="Numerical Analysis"><div class="bar_border"></div></div>
+                            <div class="bar skill_level_8" data-skill="Data Visualization"><div class="bar_border"></div></div>
                             <div class="bar skill_level_8" data-skill="LaTeX"><div class="bar_border"></div></div>
                             <div class="bar skill_level_10" data-skill="Matlab"><div class="bar_border"></div></div>
                             <div class="bar skill_level_7" data-skill="Fortran"><div class="bar_border"></div></div>
                             <div class="bar skill_level_5" data-skill="C++"><div class="bar_border"></div></div>
                         </div>
                         <div id="phys_1" class="tab_container phys tab_1">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                Aliquam felis tellus, lobortis ac mollis sit amet, lacinia 
-                                et lorem. Proin porta ante et pellentesque tincidunt. 
-                                Phasellus dapibus lobortis metus non posuere. Pellentesque 
-                                ut pretium justo.</p>
+                            <p>My masters research was primarily focused around developing numerical methods for simulating fluid-structure interaction systems, where the dynamics of the fluid are coupled to the motion of an immersed structure
+                                These multiphysics systems are remarkably beautiful and complex — they exhibit a range of spatio-temporal scales and nonlinearities in the fluid and the structure (and the coupling between them).
+                            </p>
+                            <iframe height ="100%" width="100%" src="https://player.vimeo.com/video/660537790?h=020098b231&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"></iframe>
+                            <p> One of the key bottlenecks to simulation of these systems is the treatment of the stiff diffusive term. 
+                                In order to maintain numerical stability, this term is traditionally treated implicitly in time, resulting in a computationally expensive linear solve at each time step.
+                                In my master's thesis I addressed these challenges by instead treating the stiff diffusive term with a stabilized explicit method known as Runge-Kutta-Chebyshev (RKC).
+                                Because RKC is explicit, this method avoids the expensive linear solve associated with implicit methods while still retaining their inherit numerical stability. 
+                                You can read my thesis <a href="img/OSMAN-THESIS-2021.pdf" target=”_blank”><b>here</b></a> — keep an eye out for the forthcoming paper in the Journal of Computational Physics!
+                            </p>
                         </div>
                         <div id="phys_2" class="tab_container phys tab_2">
                             <div class="waterwheel-description">
-                                <p>Proin porta ante et pellentesque tincidunt. 
-                                Phasellus dapibus lobortis metus non posuere. Pellentesque 
-                                ut pretium justo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                Aliquam felis tellus, lobortis ac mollis sit amet, lacinia 
-                                et lorem. Proin porta ante et pellentesque tincidunt. 
-                                Phasellus dapibus lobortis metus non posuere. Pellentesque 
-                                ut pretium justo.</p>
+                                <p>The Malkus-Lorenz chaotic waterwheel is a simple mechanical system designed to demonstrate the unpredictability of chaotic systems.</p>
                                 <figure class="waterwheel-pic">
                                     <img src="img/waterwheel.webp" alt="experimental waterwheel at Illinois State University">
-                                    <figcaption>Waterwheel at Illinois State University (<a href="http://www.phy.ilstu.edu/research/chaotic_waterwheel.shtml">source</a>)</figcaption>
+                                    <figcaption>Waterwheel at Illinois State University (<a href="http://www.phy.ilstu.edu/research/chaotic_waterwheel.shtml" target=”_blank”>source</a>)</figcaption>
                                 </figure>
+                                <p>
+                                    For a subset of coefficients of axial friction the system is not chaotic. After a short transient phase the rotation of the wheel will fall into periodic oscillations that will remain steady for all time.
+                                    <br><br> However, for larger coefficients of axial friction the system falls into chaos; meaning the motion that will never converge to predictable periodic behavior. 
+                                    While the rotation of the wheel in time (plotted below, green curve) appears entirely random, there is a concealed stability in this motion. 
+                                    The orange curve plotted within the wheel is a phase space plot of angular acceleration vs angular velocity. 
+                                    For non-chaotic regimes a peanut-shaped curve arises. In the chaotic regime a butterfly-shaped curve known as the Lorenz strange attractor appears.
+                                </p>
+                                <figure class="waterwheel-pic attractors">
+                                    <img src="img/waterwheel_attractors.webp" alt="Strange attractors from experimental data">
+                                    <figcaption> Strange attractors seen in experimental data (left: non-chaotic, right: chaotic) (<a href="http://www.phy.ilstu.edu/research/waterwheel/DataArchive/ImageTable.html" target=”_blank”>source</a>)</figcaption>
+                                </figure>
+                                <p>
+                                    Under the direction of Dr. George Rutherford I designed and wrote a parallel computing simulation of the chaotic waterwheel at Illinois State University using MPI in C++. 
+                                     The code was built with the intention of resolving an observed discrepancy between experimental data and the theoretical behavior predicted by the accepted governing equations.
+                                     Attached here is a simplified version of that code written in JavaScript. Feel free to experiment with different braking coefficient value inputs! 
+                                     For this simulation the transition to chaos appears to happen at a braking coefficient of approximately 0.11.<br><br>
+                                </p>
+
+                               
                             </div>
                             <div class="waterwheel-sim_container">
                                     <div class="input_container">
                                         <label class="inp-label"for="C0">Braking<br>coefficient:  </label>
-                                        <input class="inp" type="text" id="input--C0" name="C0" oninput="check_C0_input()">
+                                        <input class="inp" type="text" id="input--C0" name="C0" value="0.08" oninput="check_C0_input()">
                                     </div>
                                         <!-- <input type="button" class="button-12" value="Run Simulation" id="button--runsim" onclick="init();"> -->
                                     <button class="button pauseplay" id="button--pausesim" onclick="pause_waterwheel();"><i class="fas fa-pause"></i></button>
@@ -114,13 +130,12 @@
                 <div class="catagory">
                     <button id="maker_btn" class="more-info" onclick="openDropdown('maker')"> 
                         <h2 class="maker_title">maker</h2>
-                        <p class="catagory_blurb">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Donec porta nisl feugiat justo rutrum aliquet. Nullam justo 
-                        urna, dignissim vel justo a, malesuada interdum libero. 
-                        Morbi sit amet mauris commodo nisi mattis condimentum vitae 
-                        sed sapien.
+                        <p class="catagory_blurb">I am an obsessive tinkerer. 
+                             Much of my childhood was spent at my dad's workbench jury rigging inventions out of parts pulled from the local dumpsters. 
+                             Thankfully, my methods have somewhat improved since then... or at the very least my projects no longer <i>start</i> as garbage.
+                             Check out some of my work below!
                         </p>
-                        <h3 class="maker more-info__text">more info<br><i id="maker_chevron" class="chevron fas fa-chevron-down"></i></h3>
+                        <h3 class="maker more-info__text"><br><i id="maker_chevron" class="chevron fas fa-chevron-down"></i></h3>
                     </button>
                     <div id="maker_info" class="maker_dropdown dropdown-content">
                         <div class="nav-list">
@@ -138,11 +153,26 @@
                             <div class="bar skill_level_4" data-skill="OpenCV"><div class="bar_border"></div></div>
                         </div>
                         <div id="maker_1" class="tab_container maker tab_1">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                Aliquam felis tellus, lobortis ac mollis sit amet, lacinia 
-                                et lorem. Proin porta ante et pellentesque tincidunt. 
-                                Phasellus dapibus lobortis metus non posuere. Pellentesque 
-                                ut pretium justo.</p>
+                            <p>This project was inspired by my infallible ability to lose at every chess match I play. It sits in the sweet spot between a Pavlovian-esque training device and just straight up cheating. 
+                                This fully 3D printed chessboard can sense piece positions, determine the optimal next move via an integrated chess-bot, and limit one of the players to only making that move through the use of TENS unit muscle contractions.
+                                If the player attempts to pick up the wrong piece, electrical pulses are applied to extension muscles in order to force the grip open. 
+                                If the player attempts to set a piece onto an incorrect tile, electrical pulses are applied to flexion muscles in order to force the grip to remain closed.
+                                In this way you can be guaranteed to win every chess match you play, while simultaneously ensuring that no one involved will have an semblance of fun.
+                            </p>
+                            <iframe height ="100%" width="100%" src="https://player.vimeo.com/video/651786028?h=4a936798d5&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"></iframe>
+                            
+                            <p>This is a self-actuated watergun was embedded with a facial-detection algorithm that can be programmed to automatically target specific people.
+                                The facial detection and 2-axis servo control were performed on a Raspberry Pi running openCV, which was housed inside an old empty bottle of laundry detergent
+                                (Ok, so maybe I was a <i>little</i> over confident in claiming my projects aren't made from garbage anymore)
+                            </p>
+                            <iframe height ="100%" width="100%" src="https://player.vimeo.com/video/651330187?h=e32b8ac1a4&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"></iframe>
+                            
+                            <p>I worked with a team of my friends at Illinois State University to build a model of the "Monkey and Hunter" thought experiment 
+                                (<a href="https://en.wikipedia.org/wiki/Monkey_and_hunter" target=”_blank”>see Wikipedia page</a>). 
+                                In short, due to some simple kinematics, a projectile aimed directly at a hanging object (e.g., a monkey) 
+                                will always collide if the projectile is fired at precisely the same instance when the object begins to fall.
+                            </p>
+                            <iframe height ="100%" width="100%" src="https://player.vimeo.com/video/651326884?h=7aa92896f4&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"></iframe>
                         </div>
                     </div>
                 </div>
@@ -151,10 +181,10 @@
                     <button id="web_btn" class="more-info" onclick="openDropdown('web')"> 
                         <h2>web<br>developer</h2>
                         <p class="catagory_blurb"> 
-                            Designing and programming this website has been my first real foray into front-end development. 
-                            I've had a ton of fun with it—I'm excited to learn more going forward!
+                            The design and programming of this website has been my first real foray into front-end development. 
+                            I've had a ton of fun with it and am excited to learn more going forward!
                         </p>
-                        <h3 class="web more-info__text">more info<br><i id="web_chevron" class="chevron fas fa-chevron-down"></i></h3>
+                        <h3 class="web more-info__text"><br><i id="web_chevron" class="chevron fas fa-chevron-down"></i></h3>
                     </button>
                     <div id="web_info" class="web_dropdown dropdown-content">
                         <div class="nav-list">

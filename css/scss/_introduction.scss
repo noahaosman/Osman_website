@@ -19,7 +19,10 @@
         z-index: 1;
         left: 0;
         right: 0;
+        width: min-content;
         margin-top: 10em;
+        margin-left: auto;
+        margin-right: auto;
         padding: 0 2em;
         .intro__title{
             background: $clr-accent;
@@ -28,6 +31,7 @@
             color: $clr-dark;
             margin-bottom: 0.1em;
             text-align: center;
+            padding: 0 0.5em;
         }
         .intro__subtitle{
             align-self: start;
@@ -50,6 +54,14 @@
         }
     }
     
+}
+
+@media (min-width: 440px){
+    .intro{
+        .nameplate_container{
+            white-space: nowrap;
+        }
+    }
 }
 
 @media (min-width: 750px){

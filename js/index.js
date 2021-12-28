@@ -1,5 +1,6 @@
 
 var waterwheel_running = false;
+check_C0_input()
 
 /* #region | make introduction scrolling pretty ---  */
 var oneEm = $('.dummy-em').innerHeight();
@@ -47,7 +48,7 @@ function openDropdown(catagory) {
         $('.dropdown-content.open').removeClass("open");
         
         // flip all open chevrons to down
-        $('.more-info__text.open').html('more info<br><i id="' + 'catagory' + '_chevron" class="chevron fas fa-chevron-down"></i>');
+        $('.more-info__text.open').html('<br><i id="' + 'catagory' + '_chevron" class="chevron fas fa-chevron-down"></i>');
         $('.more-info__text.open').removeClass('open');
 
         // expand the selected dropdown & flip chevron to up
@@ -73,7 +74,7 @@ function openDropdown(catagory) {
         $(dropdownID).removeClass("open"); // collapse selected dropdown
         $(dropdownID).addClass("slideClose");
         // flip chevron 
-        $('.more-info__text.' + catagory).html('more info<br><i id="' + 'catagory' + '_chevron" class="chevron fas fa-chevron-down"></i>');
+        $('.more-info__text.' + catagory).html('<br><i id="' + 'catagory' + '_chevron" class="chevron fas fa-chevron-down"></i>');
         $('.more-info__text.' + catagory).removeClass('open');
 
         // clear skill bars
@@ -123,7 +124,7 @@ $(window).resize(function () {
 function determine_maxBlurbLength() {
 
     var blurbs = $('.catagory_blurb');
-    if ($(window).outerWidth() > 900) {
+    if ($(window).outerWidth() >= 900) {
 
         var max_height = 0;
 
@@ -210,12 +211,8 @@ function check_C0_input() {
     inp_val = $('#input--C0').val();
 
     if (isNaN(inp_val) | inp_val == "") {
-        // $('#button--runsim').css("visibility","hidden")
-        // $('#button--runsim').css("opacity","0.5");
         $('#button--runsim').removeClass("useable");
     } else {
-        // $('#button--runsim').css("visibility","visible")
-        // $('#button--runsim').css("opacity","1");
         $('#button--runsim').addClass("useable");
         $('#button--runsim').html('Run');
         $('#button--runsim').prop('title', "start new simulation");

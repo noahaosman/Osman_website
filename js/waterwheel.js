@@ -7,10 +7,6 @@ var pi = Math.PI;
 var prior_points_to_plot = 1000;
 var perc_interior_to_plot = 0.75;
 var bckgrnd_clr = [40,40,40];
-var th0_saved_data = new Array(prior_points_to_plot).fill(0);
-var wn0_saved_data = new Array(prior_points_to_plot).fill(0);
-var al0_saved_data = new Array(prior_points_to_plot).fill(0);
-var counter = 0;
 var water_gap = 1;
 var x_scale_factor = 0;
 var y_scale_factor = 0;
@@ -43,9 +39,14 @@ var parms = new Object();
     parms.tol = Math.pow(10,-6);                // error tolerance for iteration
 
 function init(){
+    
+    // initialize data arays
+    th0_saved_data = new Array(prior_points_to_plot).fill(0);
+    wn0_saved_data = new Array(prior_points_to_plot).fill(0);
+    al0_saved_data = new Array(prior_points_to_plot).fill(0);
+    counter = 0;
 
     canvas = document.getElementsByTagName('canvas');
-
     canvas_width = canvas[0].offsetWidth;
     canvas_height = canvas[0].offsetHeight;
 
