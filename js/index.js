@@ -48,13 +48,17 @@ function openDropdown(catagory) {
         $('.dropdown-content.open').removeClass("open");
         
         // flip all open chevrons to down
-        $('.more-info__text.open').html('<br><i id="' + 'catagory' + '_chevron" class="chevron fas fa-chevron-down"></i>');
+        // $('.more-info__text.open').html('<br><i id="' + 'catagory' + '_chevron" class="chevron fas fa-chevron-down"></i>');
+        // $('.more-info__text.open').removeClass('open');
+        $('.chevron.open').removeClass('open');
         $('.more-info__text.open').removeClass('open');
 
         // expand the selected dropdown & flip chevron to up
         $(dropdownID).addClass("open");
-        $('.more-info__text.' + catagory).html(' <br><i id="' + 'catagory' + '_chevron" class="chevron fas fa-chevron-up"></i>');
+        // $('.more-info__text.' + catagory).html(' <br><i id="' + 'catagory' + '_chevron" class="chevron fas fa-chevron-up"></i>');
+        // $('.more-info__text.' + catagory).addClass('open');
         $('.more-info__text.' + catagory).addClass('open');
+        $('#'+catagory+'_chevron').addClass('open');
 
         // intialize the selected dropdown with an opened 0th tab
         // remove open class from all nav-item buttons & tab containers
@@ -74,8 +78,10 @@ function openDropdown(catagory) {
         $(dropdownID).removeClass("open"); // collapse selected dropdown
         $(dropdownID).addClass("slideClose");
         // flip chevron 
-        $('.more-info__text.' + catagory).html('<br><i id="' + 'catagory' + '_chevron" class="chevron fas fa-chevron-down"></i>');
+        // $('.more-info__text.' + catagory).html('<br><i id="' + 'catagory' + '_chevron" class="chevron fas fa-chevron-down"></i>');
+        // $('.more-info__text.' + catagory).removeClass('open');
         $('.more-info__text.' + catagory).removeClass('open');
+        $('#'+catagory+'_chevron').removeClass('open');
 
         // clear skill bars
         $('.tab_container.tab_0 .bar').removeClass("openDropdown");

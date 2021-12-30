@@ -7,13 +7,13 @@
     background-color: $clr-light;
     color: $clr-accent;
     text-align: center;
-    padding: 2.5em 0;
+    padding: 2.5em 0 1.5em;
     font-size: $fs-h3;
     font-weight: $fw-reg;
 
     .goodbye{
         font-size: $fs-h2;
-        // margin-bottom: 1.5em;
+        margin-top: 2em;
         font-weight: $fw-bold;
     }
 
@@ -30,7 +30,7 @@
 
     .footer__link:hover,
     .social-list__link:hover{
-        opacity: 0.7;
+        filter: brightness(0.75);
     }
     .footer__link:hover{
         text-decoration: underline;

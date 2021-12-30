@@ -45,11 +45,12 @@
                     <button id="phys_btn" class="more-info" onclick="openDropdown('phys')"> 
                         <h2>computational<br>physicist</h2>
                         <p class="catagory_blurb"> 
-                            I was first introduced to programming in one of my early undergraduate physics courses, and I immediately was hooked on the stuff. 
+                            I was first introduced to programming early in my undergraduate physics courses, and immediately I was hooked on the stuff. 
                             Eight years later I continue to be inspired by the beauty of computational physics and numerical methods. 
-                            I am motivated to further advance the power computation has in revealing fundamental truths about our universe.
+                            I am motivated to further advance the power of computation to reveal fundamental truths about our universe.
                         </p>
-                        <h3 class="phys more-info__text"><br><i id="phys_chevron" class="chevron fas fa-chevron-down"></i></h3>
+                        <!-- <h3 class="phys more-info__text"><br><i id="phys_chevron" class="chevron fas fa-chevron-down"></i></h3> -->
+                        <h3 class="phys more-info__text"><br><span id="phys_chevron" class="chevron"></span></h3>
                     </button>
                     <div id="phys_info" class="phys_dropdown dropdown-content">
                         <div class="nav-list">
@@ -68,21 +69,26 @@
                             <div class="bar skill_level_5" data-skill="C++"><div class="bar_border"></div></div>
                         </div>
                         <div id="phys_1" class="tab_container phys tab_1">
-                            <p>My masters research was primarily focused around developing numerical methods for simulating fluid-structure interaction systems, where the dynamics of the fluid are coupled to the motion of an immersed structure
-                                These multiphysics systems are remarkably beautiful and complex — they exhibit a range of spatio-temporal scales and nonlinearities in the fluid and the structure (and the coupling between them).
+                            <p>
+                                My masters research was focused on developing a numerical method for simulating fluid-structure interaction systems, i.e., 
+                                systems in which the dynamics of the fluid are coupled to the motion of an immersed structure.
+                                These multiphysics systems are remarkably beautiful and complex — they exhibit a range of spatio-temporal scales and nonlinearities in the fluid and the structure.
                             </p>
                             <!-- <img src="img/flapping_img.webp" alt="Figure showing FSI flag at different Reynolds numbers"> -->
                             <iframe height ="100%" width="100%" src="https://player.vimeo.com/video/660537790?h=020098b231&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"></iframe>
-                            <p> One of the key bottlenecks to simulation of these systems is the treatment of the stiff diffusive term. 
+                            <p> 
+                                One of the key bottlenecks when simulating these systems is in the treatment of the stiff diffusive term. 
                                 In order to maintain numerical stability, this term is traditionally treated implicitly in time, resulting in a computationally expensive linear solve at each time step.
-                                In my master's thesis I addressed these challenges by instead treating the stiff diffusive term with a stabilized explicit method known as Runge-Kutta-Chebyshev (RKC).
+                                In my master's thesis I addressed this challenge by instead treating the stiff diffusive term with a stabilized explicit method known as Runge-Kutta-Chebyshev (RKC).
                                 Because RKC is explicit, this method avoids the expensive linear solve associated with implicit methods while still retaining their inherit numerical stability. 
-                                You can read my thesis <a href="img/OSMAN-THESIS-2021.pdf" target=”_blank”><b>here</b></a> — and keep an eye out for a forthcoming paper in the Journal of Computational Physics!
+                                You can read my thesis <a href="img/OSMAN-THESIS-2021.pdf" target=”_blank”><b>here</b></a> — and keep an eye out for the forthcoming paper in the Journal of Computational Physics!
                             </p>
                         </div>
                         <div id="phys_2" class="tab_container phys tab_2">
                             <div class="waterwheel-description">
-                                <p>The Malkus-Lorenz chaotic waterwheel is a simple mechanical system designed to demonstrate the unpredictability of chaotic systems.</p>
+                                <p>
+                                    The Malkus-Lorenz chaotic waterwheel is a simple mechanical system designed to demonstrate the unpredictability of chaotic systems.
+                                </p>
                                 <figure class="waterwheel-pic">
                                     <img src="img/waterwheel.webp" alt="experimental waterwheel at Illinois State University">
                                     <figcaption>Waterwheel at Illinois State University (<a href="http://www.phy.ilstu.edu/research/chaotic_waterwheel.shtml" target=”_blank”>source</a>)</figcaption>
@@ -93,7 +99,7 @@
                                     <br> However, for larger coefficients of axial friction the system will fall into chaotic behavior — the motion of the wheel will never converge to predictable periodic behavior. 
                                     While the radial position in time (plotted in green in the attached simulation) appears entirely random, there is a concealed stability in this motion. 
                                     The orange curve plotted within the wheel is a phase space plot of angular acceleration vs angular velocity. 
-                                    For non-chaotic regimes a peanut-shaped curve arises, and in the chaotic regime a butterfly-shaped curve known as the Lorenz strange attractor appears.
+                                    For non-chaotic regimes a peanut-shaped curve arises; in the chaotic regime a butterfly-shaped curve known as the Lorenz strange attractor appears.
                                 </p>
                                 <figure class="waterwheel-pic attractors">
                                     <img src="img/waterwheel_attractors.webp" alt="Strange attractors from experimental data">
@@ -101,9 +107,9 @@
                                 </figure>
                                 <p>
                                     Under the direction of Dr. George Rutherford at Illinois State University I designed and wrote a parallelized simulation of the chaotic waterwheel using MPI in C++. 
-                                     The code was built with the intention of resolving an observed discrepancy between experimental data and the theoretical behavior predicted by the accepted governing equations.
-                                     Attached here is a simplified version of that code written in JavaScript. Please experiment with different braking coefficient value inputs! 
-                                     For this simulation the transition to chaos appears to happen at a coefficient of axial friction approximately equal to 0.11.<br><br>
+                                     The code was built with the intention of resolving an observed discrepancy between experimental data and the theoretical behavior predicted by the standard governing equations.
+                                     The simulation attached here is a simplified version of that C++ code that I re-wrote in JavaScript. Please have fun experimenting with different braking coefficient value inputs! 
+                                     For this simulation the transition to chaos appears to happen at a coefficient of axial friction of ~0.11.<br><br>
                                 </p>
 
                                
@@ -136,7 +142,8 @@
                              Thankfully, my methods have somewhat improved since then... or at the very least my projects no longer <i>start</i> as garbage.
                              Check out some of my work below!
                         </p>
-                        <h3 class="maker more-info__text"><br><i id="maker_chevron" class="chevron fas fa-chevron-down"></i></h3>
+                        <!-- <h3 class="maker more-info__text"><br><i id="maker_chevron" class="chevron fas fa-chevron-down"></i></h3> -->
+                        <h3 class="maker more-info__text"><br><span id="maker_chevron" class="chevron"></span></h3>
                     </button>
                     <div id="maker_info" class="maker_dropdown dropdown-content">
                         <div class="nav-list">
@@ -154,17 +161,17 @@
                             <div class="bar skill_level_4" data-skill="OpenCV"><div class="bar_border"></div></div>
                         </div>
                         <div id="maker_1" class="tab_container maker tab_1">
-                            <p>This project was inspired by my infallible ability to lose at every chess match I play. The project sits somewhere in the sweet spot between Pavlovian-esque training device and just straight up cheating. 
-                                This fully 3D printed chessboard can sense piece positions, determine the optimal next move via an integrated chess-bot, and limit one of the players into only making that move through the use of TENS unit muscle contractions.
+                            <p>This project was inspired by my infallible ability to lose at every chess match I play. The project sits somewhere in the sweet spot between Pavlovian training device and just straight up cheating. 
+                                This fully 3D printed chessboard can sense piece positions, determine the optimal next move via an integrated chess-bot, and limit one of the players into only making that pre-determined move through the use of TENS unit muscle contractions.
                                 If the player attempts to pick up the wrong piece, electrical pulses are applied to extension muscles in order to force their grip open. 
                                 If the player attempts to set a piece onto an incorrect tile, electrical pulses are applied to flexion muscles to force their grip closed.
-                                In this way you can be guaranteed to win at every chess match you play, while simultaneously ensuring that no one involved has an semblance of fun.
+                                In this way you can be guaranteed to win every chess match you play, while simultaneously ensuring that no one involved has any semblance of fun.
                             </p>
                             <iframe height ="100%" width="100%" src="https://player.vimeo.com/video/651786028?h=4a936798d5&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"></iframe>
                             
-                            <p>This is a self-actuated watergun was embedded with a facial-detection algorithm that can be programmed to automatically target specific people.
-                                The facial detection and 2-axis servo control were computed on a Raspberry Pi running openCV, which was housed inside an old bottle of laundry detergent
-                                (Ok, so maybe <i>some</i> of my projects are still made from garbage)
+                            <p>This self-actuated watergun was embedded with a facial-detection algorithm that can be programmed to automatically target specific people.
+                                The facial detection and 2-axis servo control were computed on a Raspberry Pi running openCV, which was housed inside of an old laundry detergent bottle
+                                (Ok, so maybe <i>some</i> of my projects are still made from garbage).
                             </p>
                             <iframe height ="100%" width="100%" src="https://player.vimeo.com/video/651330187?h=e32b8ac1a4&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"></iframe>
                             
@@ -172,7 +179,7 @@
                                 (<a href="https://en.wikipedia.org/wiki/Monkey_and_hunter" target=”_blank”>see Wikipedia page</a>). 
                                 In short, due to some basic kinematics a projectile aimed directly at a hanging object (e.g., a particularly unlucky monkey) 
                                 will always collide with that object if the projectile is fired at precisely the same instance that the object begins to fall.
-                                <br>A solenoid was used to suspend the monkey in place, and a Bluetooth signal sent from the projectile launcher to an Arduino was used to trigger its release.
+                                A solenoid was used to suspend the monkey in place, and a Bluetooth signal sent from the projectile launcher to an Arduino was used to trigger its release.
                             </p>
                             <iframe height ="100%" width="100%" src="https://player.vimeo.com/video/651326884?h=7aa92896f4&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"></iframe>
                         </div>
@@ -186,7 +193,8 @@
                             The design and programming of this website has been my first real foray into front-end development. 
                             I've had a ton of fun with it and am excited to learn more going forward!
                         </p>
-                        <h3 class="web more-info__text"><br><i id="web_chevron" class="chevron fas fa-chevron-down"></i></h3>
+                        <!-- <h3 class="web more-info__text"><br><i id="web_chevron" class="chevron fas fa-chevron-down"></i></h3> -->
+                        <h3 class="web more-info__text"><br><span id="web_chevron" class="chevron"></span></h3>
                     </button>
                     <div id="web_info" class="web_dropdown dropdown-content">
                         <div class="nav-list">

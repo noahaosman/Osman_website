@@ -97,3 +97,43 @@ h3 {font-size: $fs-h3}
 .dummy-em{
     height: 1em;
 }
+
+
+$chevron_width: 12px;
+$chevron_height: 3px;
+.chevron{
+    position: relative;
+    // top: calc(0.707107 * #{$chevron_width} - 3px);
+    &::before, &::after{
+        content: '';
+        position: absolute;
+        display: inline-block;
+        background: $clr-dark;
+        width: $chevron_width;
+        height: $chevron_height;
+        border-radius: calc(0.5*#{$chevron_height});
+        transition: transform calc(0.5*#{$expand_delay}) ease-in-out;
+    }
+    &::before{
+        left: calc( -#{$chevron_width} + 0.353553*#{$chevron_height} + 0.292893*#{$chevron_width});
+        transform: rotate(45deg); 
+        transform-origin: center left;
+    }
+    &::after{
+        left: calc( -0.353553*#{$chevron_height} - 0.292893*#{$chevron_width} );
+        transform: rotate(-45deg);
+        transform-origin: center right;
+    }
+    &.open{
+        &::before{
+            background: $clr-accent;
+            transform: rotate(-45deg); 
+            transform-origin: center left;
+        }
+        &::after{
+            background: $clr-accent;
+            transform: rotate(45deg);
+            transform-origin: center right;
+        }
+    }
+}

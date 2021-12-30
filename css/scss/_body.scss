@@ -49,16 +49,14 @@
                     }
                     background-color: $clr-light;
                     padding: 0 15%;
-                    .more-info__text{
+                    .more-info__text::before{
+                        display: block;
+                        content: 'more info';
+                        margin-bottom: -$chevron_width;
+                    }
+                    .more-info__text:not(.open){
                         &:before{
-                            content: 'more info';
-                            opacity: 0;
-                        }
-                        transition: opacity 0s;
-                        opacity: 1;
-                        .fa-chevron-down{
-                            opacity: 0.25;
-                            color: $clr-dark;
+                            opacity: 1;
                         }
                     }
                     .more-info__text.open{
@@ -69,13 +67,11 @@
                         }
                     }
                     &:hover{
-                        .more-info__text:not(.open)::before{
-                            transition: opacity 0.25s ease-in-out;
-                            opacity: 1;
-                        }
-                        .fa-chevron-down{
-                            transition: opacity 0.25s ease-in-out;
-                            opacity: 1;
+                        .more-info__text:not(.open){
+                            &:before, .chevron{
+                                transition: opacity 0.25s ease-in-out;
+                                opacity: 1;
+                            }
                         }
                     }
                 }
@@ -144,8 +140,12 @@
                                 z-index: 5;
                                 border: 3px solid $clr-accent;
                                 border-top: 1px solid $clr-dark;
-                                font-size: calc( 1.05*#{$fs-body} );
-                                font-weight: $fw-bold;
+                            }
+                            &:hover{
+                                z-index: 6;
+                                // font-weight: $fw-bold;
+                                transform: scale(1.05) translateY(0.175em);
+                                transition: transform 200ms ease-in-out;
                             }
                         }
                     }
@@ -305,6 +305,9 @@
 
                     .tab_container.phys.tab_1.open{
                         overflow-y: auto;
+                        p{
+                            text-align: left;
+                        }
                         iframe{
                             width: 100%;
                             max-width: 700px;
@@ -354,7 +357,7 @@
                             .input_container{
                                 grid-area: input;
                                 width: 100px;
-                                margin: 0 auto 0.5em;
+                                margin: auto auto 0.5em;
                                 color: $clr-dark;
                                 text-align: center;
                                 .inp{
@@ -505,6 +508,10 @@
                                     border: 3px solid $clr-accent;
                                     border-left: 1px solid $clr-dark;
                                 }
+                                &:hover{
+                                    transform: scale(1.05) translateX(0.175em);
+                                    transition: transform 200ms ease-in-out;
+                                }
                             }
                         }
                         .tab_container{
@@ -537,6 +544,14 @@
             column-gap: 3em;
             .catagory{
                 .more-info{
+                    .more-info__text:not(.open){
+                        &:before{
+                            opacity:0;
+                        }
+                        .chevron{
+                            opacity:.25;
+                        }
+                    }
                     padding: 0;
                     min-width: calc(250px-4em);
                     .maker_title{
