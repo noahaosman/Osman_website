@@ -2,6 +2,36 @@
 var waterwheel_running = false;
 check_C0_input()
 
+
+/* #region | navigation links */
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelectorAll('.nav__link')
+// opens menu tab when hamburger is clicked
+navToggle.addEventListener('click', () => {
+    document.body.classList.toggle('nav-open');
+});
+// closes menu tab when an option is clicked
+// navLinks.forEach(link => {
+//     link.addEventListener('click', () => {
+        // document.body.classList.remove('nav-open');
+//     })
+// });
+// closes menu tab if clicking somewhere else on the page
+$(document).ready(function () {
+    $(document).click(function (event) {
+        var clickover = $(event.target);
+        var _opened = $("body").hasClass("nav-open");
+        if (_opened === true && !clickover.hasClass("nav-toggle") && !clickover.hasClass("hamburger") && !clickover.hasClass("nav__list") ) {
+            document.body.classList.remove('nav-open');
+            // console.log("cLoSe")
+        }
+        // console.log(clickover.attr("class").split(/\s+/))
+    });
+});
+/* #endregion */
+
+
+
 /* #region | make introduction scrolling pretty ---  */
 var oneEm = $('.dummy-em').innerHeight();
 $(window).scroll(function () {
@@ -16,8 +46,9 @@ $(window).scroll(function () {
 
     $("#nameplate").css({
         'opacity': (height - 1.1 * scrollTop) / height,
-        'margin-top': (height - 2 * scrollTop) / height * (10 * oneEm)
+        'margin-top': (height - 2 * scrollTop) / height * (5 * oneEm)
     });
+
 });
 /* #endregion */
 
@@ -29,7 +60,7 @@ function openDropdown(catagory) {
 
     var dropdownID = '#' + catagory + '_info';
     var buttonID = '#' + catagory + '_chevron';
-    
+
     pauseWithUpdate();
 
     $('.dropdown-content').removeClass("holdClose");
@@ -42,11 +73,11 @@ function openDropdown(catagory) {
         if ($(window).outerWidth() > 900) {
             $('.dropdown-content').removeClass("slideClose");
             $('.dropdown-content.open').addClass("holdClose");
-        }else{
+        } else {
             $('.dropdown-content').addClass("slideClose");
         }
         $('.dropdown-content.open').removeClass("open");
-        
+
         // flip all open chevrons to down
         // $('.more-info__text.open').html('<br><i id="' + 'catagory' + '_chevron" class="chevron fas fa-chevron-down"></i>');
         // $('.more-info__text.open').removeClass('open');
@@ -58,7 +89,7 @@ function openDropdown(catagory) {
         // $('.more-info__text.' + catagory).html(' <br><i id="' + 'catagory' + '_chevron" class="chevron fas fa-chevron-up"></i>');
         // $('.more-info__text.' + catagory).addClass('open');
         $('.more-info__text.' + catagory).addClass('open');
-        $('#'+catagory+'_chevron').addClass('open');
+        $('#' + catagory + '_chevron').addClass('open');
 
         // intialize the selected dropdown with an opened 0th tab
         // remove open class from all nav-item buttons & tab containers
@@ -71,7 +102,7 @@ function openDropdown(catagory) {
 
         // clear skill bars, init for opened catagory
         $('.tab_container.tab_0 .bar').removeClass("openDropdown");
-        $('.tab_container.tab_0.'+catagory+' .bar').addClass("openDropdown");
+        $('.tab_container.tab_0.' + catagory + ' .bar').addClass("openDropdown");
 
     } else {
         // if open, collapse
@@ -81,7 +112,7 @@ function openDropdown(catagory) {
         // $('.more-info__text.' + catagory).html('<br><i id="' + 'catagory' + '_chevron" class="chevron fas fa-chevron-down"></i>');
         // $('.more-info__text.' + catagory).removeClass('open');
         $('.more-info__text.' + catagory).removeClass('open');
-        $('#'+catagory+'_chevron').removeClass('open');
+        $('#' + catagory + '_chevron').removeClass('open');
 
         // clear skill bars
         $('.tab_container.tab_0 .bar').removeClass("openDropdown");
@@ -184,9 +215,9 @@ function determine_maxBlurbLength() {
 
 /* #region  | waterwheel UI functions */
 
-function pauseWithUpdate(){
+function pauseWithUpdate() {
     // if waterwheel tab was open & running, pause the simulation
-    if ( $('.tab_container.phys.tab_2').hasClass('open') & $('#button--pausesim > .fas').hasClass("fa-pause") ){
+    if ($('.tab_container.phys.tab_2').hasClass('open') & $('#button--pausesim > .fas').hasClass("fa-pause")) {
         pause_waterwheel();
     }
 }
@@ -194,17 +225,17 @@ function pauseWithUpdate(){
 
 function pause_waterwheel() {
 
-    if (waterwheel_running){
-        if ( $('#button--pausesim').hasClass("useable") ) {
+    if (waterwheel_running) {
+        if ($('#button--pausesim').hasClass("useable")) {
             $('#button--pausesim > .fas').toggleClass("fa-play");
             $('#button--pausesim > .fas').toggleClass("fa-pause");
             $('#button--pausesim').prop('title', "resume simulation");
         }
-        if ( $('#button--pausesim > .fas').hasClass("fa-pause") ){
+        if ($('#button--pausesim > .fas').hasClass("fa-pause")) {
             move();
             $('#button--pausesim').prop('title', "pause simulation");
         }
-    }   
+    }
 
 }
 

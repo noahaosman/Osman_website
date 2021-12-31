@@ -43,6 +43,7 @@
         .catagories{
             .catagory{
                 text-align: center;
+                &:not(:first-child){margin-top: 10em;}
                 .more-info{
                     > * {
                         margin: 1em 0;
@@ -211,76 +212,19 @@
                                     position: relative;
                                     opacity: 1;
                                 }
-                                &.skill_level_1::before{
-                                    width: calc( 0.1*100%);
+
+                                @for $i from 1 through 10{
+                                    &.skill_level_#{$i}::before{
+                                        width: calc( #{$i} * 0.1 * 100%);
+                                    }
+                                    &.skill_level_#{$i}::after{
+                                        content: "#{$i * 10}%";
+                                        left: 10px;
+                                    }
                                 }
-                                &.skill_level_1::after{
-                                    content: "10%";
-                                    left: 10px;
-                                }
-                                &.skill_level_2::before{
-                                    width: calc( 0.2*100%);
-                                }
-                                &.skill_level_2::after{
-                                    content: "20%";
-                                    left: 10px;
-                                }
-                                &.skill_level_3::before{
-                                    width: calc( 0.3*100%);
-                                }
-                                &.skill_level_3::after{
-                                    content: "30%";
-                                    left: 10px;
-                                }
-                                &.skill_level_4::before{
-                                    width: calc( 0.4*100%);
-                                }
-                                &.skill_level_4::after{
-                                    content: "40%";
-                                    left: 10px;
-                                }
-                                &.skill_level_5::before{
-                                    width: calc( 0.5*100%);
-                                }
-                                &.skill_level_5::after{
-                                    content: "50%";
-                                    left: 10px;
-                                }
-                                &.skill_level_6::before{
-                                    width: calc( 0.6*100%);
-                                }
-                                &.skill_level_6::after{
-                                    content: "60%";
-                                    left: 10px;
-                                }
-                                &.skill_level_7::before{
-                                    width: calc( 0.7*100%);
-                                }
-                                &.skill_level_7::after{
-                                    content: "70%";
-                                    left: 10px;
-                                }
-                                &.skill_level_8::before{
-                                    width: calc( 0.8*100%);
-                                }
-                                &.skill_level_8::after{
-                                    content: "80%";
-                                    left: 10px;
-                                }
-                                &.skill_level_9::before{
-                                    width: calc( 0.9*100%);
-                                }
-                                &.skill_level_9::after{
-                                    content: "90%";
-                                    left: calc( -2em - 10px );
-                                }
-                                &.skill_level_10::before{
-                                    width: calc( 1.0*100%);
-                                }
-                                &.skill_level_10::after{
-                                    content: "100%";
-                                    left: calc( -2.5em - 10px );
-                                }
+                                &.skill_level_9::after{left: calc( -2em - 10px )}
+                                &.skill_level_10::after{left: calc( -2.5em - 10px )}
+
                                 &.openDropdown:before{
                                     animation: load calc( 1.5s + 0.75*#{$expand_delay} ) 0s cubic-bezier(.24,-0.4,.35,1);
                                 }
@@ -301,7 +245,7 @@
                 }
 
                 .phys_dropdown{
-                    background-image: url("../img/background_CompPhys.webp");
+                    background-image: url("../assets/img/background_CompPhys.webp");
 
                     .tab_container.phys.tab_1.open{
                         overflow-y: auto;
@@ -438,7 +382,7 @@
                     /* #endregion__ | DROPDOWN | PHYS | TAB2 */
                 }
                 .maker_dropdown{
-                    background-image: url("../img/sodler.webp");
+                    background-image: url("../assets/img/sodler.webp");
                     #maker_1{
                         overflow-y: scroll;
                         p{
@@ -463,7 +407,7 @@
                     }
                 }
                 .web_dropdown{
-                    background-image: url("../img/programming.webp");
+                    background-image: url("../assets/img/programming_mirror.webp");
                 }
 
                 &:after{
@@ -543,6 +487,7 @@
             grid-template-columns: repeat(3, 1fr);
             column-gap: 3em;
             .catagory{
+                &:not(:first-child){margin-top: 0em;}
                 .more-info{
                     .more-info__text:not(.open){
                         &:before{
