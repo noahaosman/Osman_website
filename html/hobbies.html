@@ -35,12 +35,277 @@
             </nav>
         </header>
 
-        <!-- used in jquery to get size of an em unit -->
-        <div class="hidden dummy-em"></div>
+        <!-- About me -->
+        <section class="about-me" id="home">
+            <div class="about-me__inner hobbies">
+                <div class="about-me__title">
+                    <h1>Some of my hobbies<br></h1>
+                    <h3 class="hobbies_subtitle">
+                        <i>The clearest way into the Universe is through a forest wilderness.</i>
+                        <br>
+                        <p class="hobbies_subtitle--source">— John Muir</p>
+                    </h3>
+                </div>
 
-        <section>
-            <p style="text-align: center;">This page will hold hobbies stuff. </p>
-        </section>
+                
+
+                <div class="catagories">
+    
+                    <div class="catagory">
+                        <button id="phys_btn" class="more-info" onclick="openDropdown('phys')"> 
+                            <h2>Rock<br>climbing</h2>
+                            <p class="catagory_blurb"> 
+                                Curabitur rhoncus massa ut risus venenatis, ac auctor arcu imperdiet. Nulla id risus interdum, dignissim odio sed, vehicula nibh. Aliquam eget convallis nunc. Donec tincidunt, nisi non cursus cursus, massa nisl cursus ligula, nec accumsan nisl neque varius nunc. Sed et faucibus felis, at feugiat nisl. Maecenas aliquam quam et tortor dapibus tempor. Nunc a ornare quam. Etiam id nibh eget nunc mattis molestie.
+                            </p>
+                            <!-- <h3 class="phys more-info__text"><br><i id="phys_chevron" class="chevron fas fa-chevron-down"></i></h3> -->
+                            <h3 class="phys more-info__text"><br><span id="phys_chevron" class="chevron"></span></h3>
+                        </button>
+                        <div id="phys_info" class="phys_dropdown dropdown-content">
+                            <div class="photo">
+                                <a href="../assets/img/gallery/climb/climb1.jpeg">
+                                    <img src="../assets/img/gallery/climb/climb1.jpeg" 
+                                    alt="alt text here"
+                                    class="photo_card">
+                                </a>
+                            </div>
+                            <div class="photo">
+                                <a href="../assets/img/gallery/climb/climb2.jpeg">
+                                    <img src="../assets/img/gallery/climb/climb2.jpeg" 
+                                    alt="alt text here"
+                                    class="photo_card">
+                                </a>
+                            </div>
+                            <div class="photo">
+                                <a href="../assets/img/gallery/climb/climb3.jpeg">
+                                    <img src="../assets/img/gallery/climb/climb3.jpeg" 
+                                    alt="alt text here"
+                                    class="photo_card">
+                                </a>
+                            </div>
+                            <div class="photo">
+                                <a href="../assets/img/gallery/climb/climb4.jpeg">
+                                    <img src="../assets/img/gallery/climb/climb4.jpeg" 
+                                    alt="alt text here"
+                                    class="photo_card">
+                                </a>
+                            </div>
+                            <div class="photo">
+                                <a href="../assets/img/gallery/climb/climb5.jpeg">
+                                    <img src="../assets/img/gallery/climb/climb5.jpeg" 
+                                    alt="alt text here"
+                                    class="photo_card">
+                                </a>
+                            </div>
+                            <div class="photo">
+                                <a href="../assets/img/gallery/climb/climb6.jpeg">
+                                    <img src="../assets/img/gallery/climb/climb6.jpeg" 
+                                    alt="alt text here"
+                                    class="photo_card">
+                                </a>
+                            </div>
+                            <div class="photo">
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="catagory">
+                        <button id="maker_btn" class="more-info" onclick="openDropdown('maker')"> 
+                            <h2 class="maker_title">Hiking</h2>
+                            <p class="catagory_blurb">
+                                Vivamus egestas urna et erat luctus congue. Etiam cursus erat vel augue laoreet, non pharetra ex feugiat. Ut maximus magna at congue pulvinar. Aliquam cursus fringilla scelerisque. Proin interdum, sapien et tempor sodales, urna arcu fermentum libero, et elementum dui justo vitae sem. Etiam nec lobortis risus, non pretium odio. Nam mauris nulla, sagittis sed turpis ac, gravida iaculis augue.
+                            </p>
+                            <!-- <h3 class="maker more-info__text"><br><i id="maker_chevron" class="chevron fas fa-chevron-down"></i></h3> -->
+                            <h3 class="maker more-info__text"><br><span id="maker_chevron" class="chevron"></span></h3>
+                        </button>
+                        <div id="maker_info" class="maker_dropdown dropdown-content">
+                            <div class="photo">
+                                <a href="../assets/img/gallery/hike/hike1.jpeg">
+                                    <img src="../assets/img/gallery/hike/hike1.jpeg" 
+                                    alt="alt text here"
+                                    class="photo_card">
+                                </a>
+                            </div>
+                            <div class="photo">
+                                <a href="../assets/img/gallery/hike/hike2.jpeg">
+                                    <img src="../assets/img/gallery/hike/hike2.jpeg" 
+                                    alt="alt text here"
+                                    class="photo_card">
+                                </a>
+                            </div>
+                            <div class="photo">
+                                <a href="../assets/img/gallery/hike/hike3.jpeg">
+                                    <img src="../assets/img/gallery/hike/hike3.jpeg" 
+                                    alt="alt text here"
+                                    class="photo_card">
+                                </a>
+                            </div>
+                            <div class="photo">
+                                <a href="../assets/img/gallery/hike/hike4.jpeg">
+                                    <img src="../assets/img/gallery/hike/hike4.jpeg" 
+                                    alt="alt text here"
+                                    class="photo_card">
+                                </a>
+                            </div>
+                            <div class="photo">
+                                <a href="../assets/img/gallery/hike/hike5.jpeg">
+                                    <img src="../assets/img/gallery/hike/hike5.jpeg" 
+                                    alt="alt text here"
+                                    class="photo_card">
+                                </a>
+                            </div>
+                            <div class="photo">
+                                <a href="../assets/img/gallery/hike/hike6.jpeg">
+                                    <img src="../assets/img/gallery/hike/hike6.jpeg" 
+                                    alt="alt text here"
+                                    class="photo_card">
+                                </a>
+                            </div>
+                            <div class="photo">
+                                <a href="../assets/img/gallery/hike/hike7.jpeg">
+                                    <img src="../assets/img/gallery/hike/hike7.jpeg" 
+                                    alt="alt text here"
+                                    class="photo_card">
+                                </a>
+                            </div>
+                            <div class="photo">
+                                <a href="../assets/img/gallery/hike/hike8.jpeg">
+                                    <img src="../assets/img/gallery/hike/hike8.jpeg" 
+                                    alt="alt text here"
+                                    class="photo_card">
+                                </a>
+                            </div>
+                            <div class="photo">
+                                <a href="../assets/img/gallery/hike/hike9.jpeg">
+                                    <img src="../assets/img/gallery/hike/hike9.jpeg" 
+                                    alt="alt text here"
+                                    class="photo_card">
+                                </a>
+                            </div>
+                            <div class="photo">
+                                <a href="../assets/img/gallery/hike/hike10.jpeg">
+                                    <img src="../assets/img/gallery/hike/hike10.jpeg" 
+                                    alt="alt text here"
+                                    class="photo_card">
+                                </a>
+                            </div>
+                            <div class="photo">
+                                <a href="../assets/img/gallery/hike/hike11.jpeg">
+                                    <img src="../assets/img/gallery/hike/hike11.jpeg" 
+                                    alt="alt text here"
+                                    class="photo_card">
+                                </a>
+                            </div>
+                            <div class="photo">
+                                <a href="../assets/img/gallery/hike/hike12.jpeg">
+                                    <img src="../assets/img/gallery/hike/hike12.jpeg" 
+                                    alt="alt text here"
+                                    class="photo_card">
+                                </a>
+                            </div>
+                            <div class="photo">
+                                <a href="../assets/img/gallery/hike/hike13.jpeg">
+                                    <img src="../assets/img/gallery/hike/hike13.jpeg" 
+                                    alt="alt text here"
+                                    class="photo_card">
+                                </a>
+                            </div>
+                            <div class="photo">
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="catagory">
+                        <button id="web_btn" class="more-info" onclick="openDropdown('web')"> 
+                            <h2>Bicycle<br>touring</h2>
+                            <p class="catagory_blurb"> 
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque posuere nulla orci, nec auctor nulla laoreet in. Phasellus pretium non ante quis mollis. Sed quis tempus ante, eget sodales purus. Integer tempor massa neque, eget maximus metus sodales eu. Etiam nec nisl ac nibh accumsan ultrices. Maecenas malesuada efficitur ipsum. Sed euismod sed nulla id condimentum. Nullam interdum sem arcu, laoreet iaculis elit laoreet eget.
+                            </p>
+                            <!-- <h3 class="web more-info__text"><br><i id="web_chevron" class="chevron fas fa-chevron-down"></i></h3> -->
+                            <h3 class="web more-info__text"><br><span id="web_chevron" class="chevron"></span></h3>
+                        </button>
+                        <div id="web_info" class="web_dropdown dropdown-content">
+                            <div class="photo">
+                                <a href="../assets/img/gallery/bike/bike1.jpeg">
+                                    <img src="../assets/img/gallery/bike/bike1.jpeg" 
+                                    alt="alt text here"
+                                    class="photo_card">
+                                </a>
+                            </div>
+                            <div class="photo">
+                                <a href="../assets/img/gallery/bike/bike2.jpeg">
+                                    <img src="../assets/img/gallery/bike/bike2.jpeg" 
+                                    alt="alt text here"
+                                    class="photo_card">
+                                </a>
+                            </div>
+                            <div class="photo">
+                                <a href="../assets/img/gallery/bike/bike3.jpeg">
+                                    <img src="../assets/img/gallery/bike/bike3.jpeg" 
+                                    alt="alt text here"
+                                    class="photo_card">
+                                </a>
+                            </div>
+                            <div class="photo">
+                                <a href="../assets/img/gallery/bike/bike4.jpeg">
+                                    <img src="../assets/img/gallery/bike/bike4.jpeg" 
+                                    alt="alt text here"
+                                    class="photo_card">
+                                </a>
+                            </div>
+                            <div class="photo">
+                                <a href="../assets/img/gallery/bike/bike5.jpeg">
+                                    <img src="../assets/img/gallery/bike/bike5.jpeg" 
+                                    alt="alt text here"
+                                    class="photo_card">
+                                </a>
+                            </div>
+                            <div class="photo">
+                                <a href="../assets/img/gallery/bike/bike6.jpeg">
+                                    <img src="../assets/img/gallery/bike/bike6.jpeg" 
+                                    alt="alt text here"
+                                    class="photo_card">
+                                </a>
+                            </div>
+                            <div class="photo">
+                                <a href="../assets/img/gallery/bike/bike7.jpeg">
+                                    <img src="../assets/img/gallery/bike/bike7.jpeg" 
+                                    alt="alt text here"
+                                    class="photo_card">
+                                </a>
+                            </div>
+                            <div class="photo">
+                                <a href="../assets/img/gallery/bike/bike8.jpeg">
+                                    <img src="../assets/img/gallery/bike/bike8.jpeg" 
+                                    alt="alt text here"
+                                    class="photo_card">
+                                </a>
+                            </div>
+                            <div class="photo">
+                                <a href="../assets/img/gallery/bike/bike9.jpeg">
+                                    <img src="../assets/img/gallery/bike/bike9.jpeg" 
+                                    alt="alt text here"
+                                    class="photo_card">
+                                </a>
+                            </div>
+                            <div class="photo">
+                                <a href="../assets/img/gallery/bike/bike10.jpeg">
+                                    <img src="../assets/img/gallery/bike/bike10.jpeg" 
+                                    alt="alt text here"
+                                    class="photo_card">
+                                </a>
+                            </div>
+                            <div class="photo">
+                            </div>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+            </section>
+
+            <footer class="footer">
+
+            </footer>
         
         <script src="../js/index.js"></script>
     </body>

@@ -398,11 +398,14 @@ header .nav .nav__list .nav__link:hover {
 .about-me .about-me__inner {
   background-color: #fafaf1;
   /* #region ⮑ | blur the boundary line */
-  -webkit-box-shadow: 0px -2px 2px #282828, 0px -4px 4px #282828, 0px -8px 8px #282828, 0px -12px 12px #282828, 0px -20px 20px #282828, 0px -40px 40px #282828, inset 0px 2px 2px -2px #282828, inset 0px 4px 4px -4px #282828, inset 0px 8px 8px -8px #282828, inset 0px 12px 12px -12px #282828, inset 0px 20px 20px -20px #282828, inset 0px 40px 40px -40px #282828;
-          box-shadow: 0px -2px 2px #282828, 0px -4px 4px #282828, 0px -8px 8px #282828, 0px -12px 12px #282828, 0px -20px 20px #282828, 0px -40px 40px #282828, inset 0px 2px 2px -2px #282828, inset 0px 4px 4px -4px #282828, inset 0px 8px 8px -8px #282828, inset 0px 12px 12px -12px #282828, inset 0px 20px 20px -20px #282828, inset 0px 40px 40px -40px #282828;
   /* #endregion__ | blur the boundary line*/
   position: relative;
   z-index: 3;
+}
+
+.about-me .about-me__inner.work {
+  -webkit-box-shadow: 0px -2px 2px #282828, 0px -4px 4px #282828, 0px -8px 8px #282828, 0px -12px 12px #282828, 0px -20px 20px #282828, 0px -40px 40px #282828, inset 0px 2px 2px -2px #282828, inset 0px 4px 4px -4px #282828, inset 0px 8px 8px -8px #282828, inset 0px 12px 12px -12px #282828, inset 0px 20px 20px -20px #282828, inset 0px 40px 40px -40px #282828;
+          box-shadow: 0px -2px 2px #282828, 0px -4px 4px #282828, 0px -8px 8px #282828, 0px -12px 12px #282828, 0px -20px 20px #282828, 0px -40px 40px #282828, inset 0px 2px 2px -2px #282828, inset 0px 4px 4px -4px #282828, inset 0px 8px 8px -8px #282828, inset 0px 12px 12px -12px #282828, inset 0px 20px 20px -20px #282828, inset 0px 40px 40px -40px #282828;
 }
 
 .about-me .about-me__inner .about-me__title {
@@ -426,7 +429,7 @@ header .nav .nav__list .nav__link:hover {
 }
 
 .about-me .about-me__inner .catagories .catagory:not(:first-child) {
-  margin-top: 10em;
+  margin-top: 1em;
 }
 
 .about-me .about-me__inner .catagories .catagory .more-info {
@@ -1193,6 +1196,88 @@ header .nav .nav__list .nav__link:hover {
   background-color: #fafaf1;
 }
 
+.hobbies .about-me__inner.hobbies .about-me__title .hobbies_subtitle {
+  font-size: 1rem;
+  color: #282828;
+  font-weight: 400;
+  margin-top: 1.5em;
+}
+
+.hobbies .about-me__inner.hobbies .about-me__title .hobbies_subtitle .hobbies_subtitle--source {
+  font-size: calc(0.9*1rem);
+  margin-top: 0.4em;
+  margin-bottom: 2em;
+}
+
+.hobbies .about-me__inner.hobbies .catagories .catagory .dropdown-content {
+  background-image: none;
+  background-color: #282828;
+  overflow-y: scroll;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.hobbies .about-me__inner.hobbies .catagories .catagory .dropdown-content .photo {
+  height: 40vh;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  padding: 1em 1em;
+}
+
+.hobbies .about-me__inner.hobbies .catagories .catagory .dropdown-content .photo img {
+  max-height: 100%;
+  min-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  vertical-align: bottom;
+  border-radius: 0.25em;
+  -webkit-box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.75), 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.55), -0.25em 0.25em 0.75em rgba(0, 0, 0, 0.75), -0.125em 0.125em 0.25em rgba(0, 0, 0, 0.55);
+          box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.75), 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.55), -0.25em 0.25em 0.75em rgba(0, 0, 0, 0.75), -0.125em 0.125em 0.25em rgba(0, 0, 0, 0.55);
+}
+
+.hobbies .about-me__inner.hobbies .catagories .catagory .dropdown-content .photo:last-child {
+  -webkit-box-flex: 10;
+      -ms-flex-positive: 10;
+          flex-grow: 10;
+}
+
+@media (max-aspect-ratio: 1 / 1) {
+  .hobbies .about-me__inner.hobbies .catagories .catagory .dropdown-content .photo {
+    height: 30vh;
+  }
+}
+
+@media (max-height: 480px) {
+  .hobbies .about-me__inner.hobbies .catagories .catagory .dropdown-content {
+    padding: 0 50%;
+  }
+  .hobbies .about-me__inner.hobbies .catagories .catagory .dropdown-content .photo {
+    height: 80vh;
+  }
+}
+
+@media (max-aspect-ratio: 1 / 1) and (max-width: 480px) {
+  .hobbies .about-me__inner.hobbies .catagories .catagory .dropdown-content {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .hobbies .about-me__inner.hobbies .catagories .catagory .dropdown-content .photo {
+    height: auto;
+    width: 100%;
+  }
+  .hobbies .about-me__inner.hobbies .catagories .catagory .dropdown-content .photo img {
+    width: 100%;
+    max-height: 75vh;
+    min-width: 0;
+  }
+}
+
 .pdfcontainer {
   display: block;
   margin-top: 4em;
@@ -1201,18 +1286,29 @@ header .nav .nav__list .nav__link:hover {
 }
 
 .DEIcontainer {
-  margin: auto;
-  margin-top: 10%;
-  width: 80%;
-  padding: 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.DEIcontainer .DEIborder {
+  margin: 3em auto;
+  width: calc(100% - 7em);
+  max-width: 800px;
+  padding: 2em 2%;
   border: 3px solid #282828;
 }
 
-.DEIcontainer .DEItitle {
+.DEIcontainer .DEIborder .DEItitle {
   text-align: center;
 }
 
-.DEIcontainer .DEItitle:after {
+.DEIcontainer .DEIborder .DEItitle:after {
   content: '';
   display: block;
   width: 200px;
@@ -1222,7 +1318,7 @@ header .nav .nav__list .nav__link:hover {
   opacity: 1;
 }
 
-.DEIcontainer .DEItext {
+.DEIcontainer .DEIborder .DEItext {
   margin: auto;
   margin-top: 1em;
   padding: 1em;
