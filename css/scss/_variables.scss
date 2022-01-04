@@ -98,9 +98,8 @@ h3 {font-size: $fs-h3}
     height: 1em;
 }
 
-
 $chevron_width: 12px;
-$chevron_height: 3px;
+$chevron_height: 2px;
 .chevron{
     position: relative;
     // top: calc(0.707107 * #{$chevron_width} - 3px);

@@ -13,7 +13,7 @@ navToggle.addEventListener('click', () => {
 // closes menu tab when an option is clicked
 // navLinks.forEach(link => {
 //     link.addEventListener('click', () => {
-        // document.body.classList.remove('nav-open');
+// document.body.classList.remove('nav-open');
 //     })
 // });
 // closes menu tab if clicking somewhere else on the page
@@ -21,7 +21,7 @@ $(document).ready(function () {
     $(document).click(function (event) {
         var clickover = $(event.target);
         var _opened = $("body").hasClass("nav-open");
-        if (_opened === true && !clickover.hasClass("nav-toggle") && !clickover.hasClass("hamburger") && !clickover.hasClass("nav__list") ) {
+        if (_opened === true && !clickover.hasClass("nav-toggle") && !clickover.hasClass("hamburger") && !clickover.hasClass("nav__list")) {
             document.body.classList.remove('nav-open');
             // console.log("cLoSe")
         }

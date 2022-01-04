@@ -79,8 +79,8 @@ h3 {
   display: inline-block;
   background: #282828;
   width: 12px;
-  height: 3px;
-  border-radius: calc(0.5*3px);
+  height: 2px;
+  border-radius: calc(0.5*2px);
   -webkit-transition: -webkit-transform calc(0.5*0.5s) ease-in-out;
   transition: -webkit-transform calc(0.5*0.5s) ease-in-out;
   transition: transform calc(0.5*0.5s) ease-in-out;
@@ -88,7 +88,7 @@ h3 {
 }
 
 .chevron::before {
-  left: calc( -12px + 0.353553*3px + 0.292893*12px);
+  left: calc( -12px + 0.353553*2px + 0.292893*12px);
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
   -webkit-transform-origin: center left;
@@ -96,7 +96,7 @@ h3 {
 }
 
 .chevron::after {
-  left: calc( -0.353553*3px - 0.292893*12px);
+  left: calc( -0.353553*2px - 0.292893*12px);
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
   -webkit-transform-origin: center right;
@@ -1207,6 +1207,10 @@ header .nav .nav__list .nav__link:hover {
   font-size: calc(0.9*1rem);
   margin-top: 0.4em;
   margin-bottom: 2em;
+}
+
+.hobbies .about-me__inner.hobbies .catagories .catagory .more-info .more-info__text::before {
+  content: 'see photos';
 }
 
 .hobbies .about-me__inner.hobbies .catagories .catagory .dropdown-content {

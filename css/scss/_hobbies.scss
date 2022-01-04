@@ -16,33 +16,9 @@
 
         }
         .catagories .catagory{
-            // .dropdown-content{
-            //     overflow-y: scroll;
-            //     background-image: none;
-            //     background-color: $clr-dark;
-            //     display: flex;
-            //     justify-content: center;
-            //     flex-wrap: wrap;
-            //     .photo{
-            //         // flex: 0 0 33%;
-            //         flex-basis: auto;
-            //         grid-auto-flow: row dense;
-            //         max-width: 33%;
-            //         position: relative;
-            //         width: 100%;
-            //         min-width: 300px;
-            //         padding: 0 1em;
-            //         margin: 2em 0em;
-            //         img{
-            //             border-radius: 0.25em;
-            //             box-shadow: 
-            //                 0.25em  0.25em  0.75em rgba(0,0,0,0.75),
-            //                 0.125em 0.125em 0.25em rgba(0,0,0,0.55),
-            //                 -0.25em  0.25em  0.75em rgba(0,0,0,0.75),
-            //                 -0.125em 0.125em 0.25em rgba(0,0,0,0.55);
-            //         }
-            //     }
-            // }
+            .more-info .more-info__text::before{
+                content: 'see photos';
+            }
             .dropdown-content{
                 background-image: none;
                 background-color: $clr-dark;
