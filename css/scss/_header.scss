@@ -1,6 +1,6 @@
 
 
-/* #region | header */
+// /* #region | header */
 
 
 header{
@@ -8,25 +8,45 @@ header{
     justify-content: space-between;
     padding: 0;
     background-color: $clr-light;
+
+    .logo{
+        justify-self: flex-start;
+        align-self: center;
+        list-style: none;
+        display: block;
+        position: static;
+        background: transparent;
+        color: $clr-dark;
+        font-weight: $fw-reg;
+        font-size: $fs-h3;
+        text-decoration: none;
+        padding-left: 1em;
+        padding-top: 1em;
+        &:hover{
+            cursor: pointer;
+            color: $clr-accent;
+            transition: color 200ms ease-in-out;
+        }
+    }
+
     .nav-toggle{
         padding: 0.5em;
         background: transparent;
-        // background-color: $clr-light;
         width: 2em;
         border: 0;
         cursor: pointer;
-        position: fixed;
+        // position: fixed;
+        position: absolute;
         right: 1em;
-        top: 1em;//1em;
+        top: 2.5em;//1em;
         z-index: 1000;
-        mix-blend-mode: difference;
         .hamburger{
             display: block;
             position: relative;
             &, &:before, &:after{
                 content: '';
                 position: absolute;
-                background: $clr-light;
+                background: $clr-dark;
                 left: 0;
                 right: 0;
                 width: 2em;
@@ -39,12 +59,13 @@ header{
         }
     }
     .nav{
-        position: fixed;
+        // position: fixed;
+        position: absolute;
         white-space: nowrap;
         background: $clr-dark;
         opacity: 0.95;
         color: $clr-light;
-        top: 0;
+        top: 1.8em;
         bottom: 70%;
         left: 0;
         right: 0;
@@ -65,7 +86,7 @@ header{
             margin: 0;
             .nav__link{
                 color: inherit;
-                font-weight: $fw-bold;
+                font-weight: $fw-reg;
                 font-size: $fs-h3;
                 text-decoration: none;
                 &:hover{
@@ -75,6 +96,33 @@ header{
             }
         }
     }
+
+    &.home{
+        background-color: $clr-dark;
+        .logo{
+            color: $clr-light;
+        }
+        .nav-toggle{
+            .hamburger{
+                &, &:before, &:after{
+                    background: $clr-light;
+                }
+            }
+        }
+        .nav{
+            color: $clr-light;
+            .nav__list{
+                .nav__item{
+                    &+.nav__item{
+                        &:before{
+                            color: $clr-light;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 }
 
 .nav-open header{
@@ -82,7 +130,8 @@ header{
         transform: translateX( calc(100% - 200px) );
     }
     .nav-toggle{
-        position: fixed;
+        // position: fixed;
+        position: absolute;
         mix-blend-mode: normal;
         .hamburger{
             transform: rotate(0.625turn);
@@ -96,6 +145,80 @@ header{
             }
         }
     }
+
 }
 
-/* #endregion */
+@media (min-width: 900px){
+
+    header{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        padding: 0;
+        background-color: $clr-light;
+    
+        .logo{
+            justify-self: flex-start;
+        }
+    
+        .nav-toggle{
+            display: none;
+        }
+
+        .nav{
+            width: min-content;
+            justify-self: flex-end;
+            align-self: center;
+            display: block;
+            position: static;
+            background: transparent;
+            color: $clr-dark;
+            z-index: 100;
+            transform: translateX(0%);
+            transition: transform 0s ease-in-out;
+            .nav__list {
+                display: flex;
+                max-height: 100px;
+                flex-direction: row;
+                align-content: space-evenly;
+                padding: 0;
+                padding-top: 1em;
+                padding-right: 2em;
+                // margin: 0;
+                .nav__item{
+                    color: inherit;
+                    font-weight: $fw-reg;
+                    font-size: $fs-h3;
+                    text-decoration: none;
+                    &+.nav__item{
+                        &:before{
+                            content: '|';
+                            margin-right: 1em;
+                            color: $clr-dark;
+                        }
+                    }
+                    &:not(:last-child){
+                        padding-right: 1em;
+                    }
+                    &:hover{
+                        cursor: pointer;
+                        color: $clr-accent;
+                        transition: color 200ms ease-in-out;
+                    }
+                }
+            }
+        }
+
+    }
+    
+    .nav-open header{
+        .nav{
+            transform: translateX(0%);
+            transition: transform 0s ease-in-out;
+        }
+    }
+
+}
+
+
+// /* #endregion */

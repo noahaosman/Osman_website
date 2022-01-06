@@ -15,7 +15,8 @@
             &:after{
                 content:'';
                 display: block;
-                width: 200px;
+                width: calc(100% - 2em);
+                max-width: 200px;
                 height: 1px;
                 margin: 1em auto 1em;
                 background: $clr-dark;

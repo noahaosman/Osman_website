@@ -24,6 +24,7 @@ button:hover {
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
   height: 100%;
 }
 
@@ -119,7 +120,6 @@ h3 {
           transform-origin: center right;
 }
 
-/* #region | header */
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -131,17 +131,40 @@ header {
   background-color: #fafaf1;
 }
 
+header .logo {
+  justify-self: flex-start;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  list-style: none;
+  display: block;
+  position: static;
+  background: transparent;
+  color: #282828;
+  font-weight: 400;
+  font-size: 1.25rem;
+  text-decoration: none;
+  padding-left: 1em;
+  padding-top: 1em;
+}
+
+header .logo:hover {
+  cursor: pointer;
+  color: #689775;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
 header .nav-toggle {
   padding: 0.5em;
   background: transparent;
   width: 2em;
   border: 0;
   cursor: pointer;
-  position: fixed;
+  position: absolute;
   right: 1em;
-  top: 1em;
+  top: 2.5em;
   z-index: 1000;
-  mix-blend-mode: difference;
 }
 
 header .nav-toggle .hamburger {
@@ -152,7 +175,7 @@ header .nav-toggle .hamburger {
 header .nav-toggle .hamburger, header .nav-toggle .hamburger:before, header .nav-toggle .hamburger:after {
   content: '';
   position: absolute;
-  background: #fafaf1;
+  background: #282828;
   left: 0;
   right: 0;
   width: 2em;
@@ -173,12 +196,12 @@ header .nav-toggle .hamburger:after {
 }
 
 header .nav {
-  position: fixed;
+  position: absolute;
   white-space: nowrap;
   background: #282828;
   opacity: 0.95;
   color: #fafaf1;
-  top: 0;
+  top: 1.8em;
   bottom: 70%;
   left: 0;
   right: 0;
@@ -216,7 +239,7 @@ header .nav .nav__list {
 
 header .nav .nav__list .nav__link {
   color: inherit;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 1.25rem;
   text-decoration: none;
 }
@@ -227,13 +250,33 @@ header .nav .nav__list .nav__link:hover {
   transition: color 200ms ease-in-out;
 }
 
+header.home {
+  background-color: #282828;
+}
+
+header.home .logo {
+  color: #fafaf1;
+}
+
+header.home .nav-toggle .hamburger, header.home .nav-toggle .hamburger:before, header.home .nav-toggle .hamburger:after {
+  background: #fafaf1;
+}
+
+header.home .nav {
+  color: #fafaf1;
+}
+
+header.home .nav .nav__list .nav__item + .nav__item:before {
+  color: #fafaf1;
+}
+
 .nav-open header .nav {
   -webkit-transform: translateX(calc(100% - 200px));
           transform: translateX(calc(100% - 200px));
 }
 
 .nav-open header .nav-toggle {
-  position: fixed;
+  position: absolute;
   mix-blend-mode: normal;
 }
 
@@ -253,7 +296,92 @@ header .nav .nav__list .nav__link:hover {
   opacity: 0;
 }
 
-/* #endregion */
+@media (min-width: 900px) {
+  header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    padding: 0;
+    background-color: #fafaf1;
+  }
+  header .logo {
+    justify-self: flex-start;
+  }
+  header .nav-toggle {
+    display: none;
+  }
+  header .nav {
+    width: -webkit-min-content;
+    width: -moz-min-content;
+    width: min-content;
+    justify-self: flex-end;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    display: block;
+    position: static;
+    background: transparent;
+    color: #282828;
+    z-index: 100;
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+    -webkit-transition: -webkit-transform 0s ease-in-out;
+    transition: -webkit-transform 0s ease-in-out;
+    transition: transform 0s ease-in-out;
+    transition: transform 0s ease-in-out, -webkit-transform 0s ease-in-out;
+  }
+  header .nav .nav__list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    max-height: 100px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-line-pack: space-evenly;
+        align-content: space-evenly;
+    padding: 0;
+    padding-top: 1em;
+    padding-right: 2em;
+  }
+  header .nav .nav__list .nav__item {
+    color: inherit;
+    font-weight: 400;
+    font-size: 1.25rem;
+    text-decoration: none;
+  }
+  header .nav .nav__list .nav__item + .nav__item:before {
+    content: '|';
+    margin-right: 1em;
+    color: #282828;
+  }
+  header .nav .nav__list .nav__item:not(:last-child) {
+    padding-right: 1em;
+  }
+  header .nav .nav__list .nav__item:hover {
+    cursor: pointer;
+    color: #689775;
+    -webkit-transition: color 200ms ease-in-out;
+    transition: color 200ms ease-in-out;
+  }
+  .nav-open header .nav {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+    -webkit-transition: -webkit-transform 0s ease-in-out;
+    transition: -webkit-transform 0s ease-in-out;
+    transition: transform 0s ease-in-out;
+    transition: transform 0s ease-in-out, -webkit-transform 0s ease-in-out;
+  }
+}
+
 /*******************************************************************************
  * Introduction styling
 ******************************************************************************/
@@ -315,6 +443,24 @@ header .nav .nav__list .nav__link:hover {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.intro .chevron_down {
+  position: absolute;
+  width: 100px;
+  height: 50px;
+  left: calc( 50% - 50px);
+  bottom: 20px;
+  background: #282828;
+  color: #fafaf1;
+  font-size: 30px;
+  text-align: center;
+}
+
+.intro .chevron_down:hover {
+  color: #689775;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 @media (min-width: 440px) {
@@ -458,6 +604,12 @@ header .nav .nav__list .nav__link:hover {
 
 .about-me .about-me__inner .catagories .catagory .more-info .more-info__text.open:before {
   opacity: 0;
+}
+
+.about-me .about-me__inner .catagories .catagory .more-info:hover .catagory_title {
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+  -webkit-transition: text-shadow 250ms ease-in-out;
+  transition: text-shadow 250ms ease-in-out;
 }
 
 .about-me .about-me__inner .catagories .catagory .more-info:hover .more-info__text:not(.open):before, .about-me .about-me__inner .catagories .catagory .more-info:hover .more-info__text:not(.open) .chevron {
@@ -1004,7 +1156,7 @@ header .nav .nav__list .nav__link:hover {
   width: 50%;
   max-width: 300px;
   height: 1px;
-  margin: 0 auto;
+  margin: 1em auto 0;
   background: #282828;
   opacity: 0.5;
 }
@@ -1315,7 +1467,8 @@ header .nav .nav__list .nav__link:hover {
 .DEIcontainer .DEIborder .DEItitle:after {
   content: '';
   display: block;
-  width: 200px;
+  width: calc(100% - 2em);
+  max-width: 200px;
   height: 1px;
   margin: 1em auto 1em;
   background: #282828;

@@ -48,6 +48,10 @@ $(window).scroll(function () {
         'opacity': (height - 1.1 * scrollTop) / height,
         'margin-top': (height - 2 * scrollTop) / height * (5 * oneEm)
     });
+    $(".chevron_down").css({
+        'opacity': (height - 3 * scrollTop) / height
+    });
+
 
 });
 /* #endregion */
