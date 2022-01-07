@@ -144,8 +144,9 @@ header .logo {
   font-weight: 400;
   font-size: 1.25rem;
   text-decoration: none;
-  padding-left: 1em;
+  padding-left: 2em;
   padding-top: 1em;
+  white-space: nowrap;
 }
 
 header .logo:hover {
@@ -163,7 +164,7 @@ header .nav-toggle {
   cursor: pointer;
   position: absolute;
   right: 1em;
-  top: 2.5em;
+  top: 1.75em;
   z-index: 1000;
 }
 
@@ -178,8 +179,8 @@ header .nav-toggle .hamburger, header .nav-toggle .hamburger:before, header .nav
   background: #282828;
   left: 0;
   right: 0;
-  width: 2em;
-  height: 3px;
+  width: 1.5em;
+  height: 2px;
   border-radius: 1em;
   -webkit-transition: -webkit-transform 400ms ease-in-out;
   transition: -webkit-transform 400ms ease-in-out;
@@ -199,20 +200,24 @@ header .nav {
   position: absolute;
   white-space: nowrap;
   background: #282828;
-  opacity: 0.95;
+  opacity: 0.9;
   color: #fafaf1;
-  top: 1.8em;
-  bottom: 70%;
-  left: 0;
+  top: 1em;
+  height: 15em;
+  left: 100vw;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
   right: 0;
   z-index: 100;
   border-radius: 1em;
-  -webkit-transform: translateX(100%);
-          transform: translateX(100%);
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
   -webkit-transition: -webkit-transform 250ms cubic-bezier(0.5, 0, 0.5, 1);
   transition: -webkit-transform 250ms cubic-bezier(0.5, 0, 0.5, 1);
   transition: transform 250ms cubic-bezier(0.5, 0, 0.5, 1);
   transition: transform 250ms cubic-bezier(0.5, 0, 0.5, 1), -webkit-transform 250ms cubic-bezier(0.5, 0, 0.5, 1);
+  padding-top: calc(1em + 4px);
 }
 
 header .nav .nav__list {
@@ -232,8 +237,8 @@ header .nav .nav__list {
       -ms-flex-align: center;
           align-items: center;
   padding-right: calc(100% - 200px);
-  padding-left: 0;
-  padding-top: 1em;
+  padding-left: 1.5em;
+  padding-right: 3em;
   margin: 0;
 }
 
@@ -271,8 +276,8 @@ header.home .nav .nav__list .nav__item + .nav__item:before {
 }
 
 .nav-open header .nav {
-  -webkit-transform: translateX(calc(100% - 200px));
-          transform: translateX(calc(100% - 200px));
+  -webkit-transform: translateX(calc( -100% + 1em));
+          transform: translateX(calc( -100% + 1em));
 }
 
 .nav-open header .nav-toggle {
@@ -321,6 +326,9 @@ header.home .nav .nav__list .nav__item + .nav__item:before {
     width: -webkit-min-content;
     width: -moz-min-content;
     width: min-content;
+    height: -webkit-min-content;
+    height: -moz-min-content;
+    height: min-content;
     justify-self: flex-end;
     -ms-flex-item-align: center;
         -ms-grid-row-align: center;
@@ -349,7 +357,6 @@ header.home .nav .nav__list .nav__item + .nav__item:before {
     -ms-flex-line-pack: space-evenly;
         align-content: space-evenly;
     padding: 0;
-    padding-top: 1em;
     padding-right: 2em;
   }
   header .nav .nav__list .nav__item {

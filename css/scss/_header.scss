@@ -20,8 +20,9 @@ header{
         font-weight: $fw-reg;
         font-size: $fs-h3;
         text-decoration: none;
-        padding-left: 1em;
+        padding-left: 2em;
         padding-top: 1em;
+        white-space: nowrap;
         &:hover{
             cursor: pointer;
             color: $clr-accent;
@@ -38,7 +39,7 @@ header{
         // position: fixed;
         position: absolute;
         right: 1em;
-        top: 2.5em;//1em;
+        top: 1.75em;//1em;
         z-index: 1000;
         .hamburger{
             display: block;
@@ -49,8 +50,8 @@ header{
                 background: $clr-dark;
                 left: 0;
                 right: 0;
-                width: 2em;
-                height: 3px;
+                width: 1.5em;
+                height: 2px;
                 border-radius: 1em;
                 transition: transform 400ms ease-in-out;
             }
@@ -63,16 +64,19 @@ header{
         position: absolute;
         white-space: nowrap;
         background: $clr-dark;
-        opacity: 0.95;
+        opacity: 0.9;
         color: $clr-light;
-        top: 1.8em;
-        bottom: 70%;
-        left: 0;
+        top: 1em;
+        // bottom: 70%;
+        height: 15em;
+        left: 100vw;
+        width: min-content;
         right: 0;
         z-index: 100;
         border-radius: 1em;
-        transform: translateX(100%);
+        transform: translateX(0%);
         transition: transform 250ms cubic-bezier(0.5,0,0.5,1);
+        padding-top: calc(1em + 4px); //not sure where the 4 px come from, but it is necessary for things to align
         .nav__list {
             list-style: none;
             display: flex;
@@ -81,8 +85,9 @@ header{
             justify-content: space-evenly;
             align-items: center;
             padding-right: calc(100% - 200px);
-            padding-left: 0;
-            padding-top: 1em;
+            padding-left: 1.5em;
+            padding-right: 3em;
+            // padding-top: 1em;
             margin: 0;
             .nav__link{
                 color: inherit;
@@ -127,7 +132,7 @@ header{
 
 .nav-open header{
     .nav{
-        transform: translateX( calc(100% - 200px) );
+        transform: translateX( calc( -100% + 1em) );
     }
     .nav-toggle{
         // position: fixed;
@@ -167,6 +172,7 @@ header{
 
         .nav{
             width: min-content;
+            height: min-content;
             justify-self: flex-end;
             align-self: center;
             display: block;
@@ -182,7 +188,7 @@ header{
                 flex-direction: row;
                 align-content: space-evenly;
                 padding: 0;
-                padding-top: 1em;
+                // padding-top: 1em;
                 padding-right: 2em;
                 // margin: 0;
                 .nav__item{
