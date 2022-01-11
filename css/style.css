@@ -614,9 +614,10 @@ header.home .nav .nav__list .nav__item + .nav__item:before {
 }
 
 .about-me .about-me__inner .catagories .catagory .more-info:hover .catagory_title {
-  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
-  -webkit-transition: text-shadow 250ms ease-in-out;
-  transition: text-shadow 250ms ease-in-out;
+  opacity: 0.75;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+  -webkit-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
 }
 
 .about-me .about-me__inner .catagories .catagory .more-info:hover .more-info__text:not(.open):before, .about-me .about-me__inner .catagories .catagory .more-info:hover .more-info__text:not(.open) .chevron {
@@ -1098,28 +1099,43 @@ header.home .nav .nav__list .nav__item + .nav__item:before {
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: plot;
+  width: 100%;
+  max-height: 100%;
+  aspect-ratio: 3/4;
+  margin: 0 auto;
 }
 
 .about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-sim_container .canvases .canvas_1 {
-  width: 100%;
-  max-width: 400px;
-  min-width: 200px;
+  display: block;
+  max-width: 100%;
+  max-height: 80%;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
   aspect-ratio: 1/1;
   background-color: #282828;
-  display: block;
   margin: 0 auto;
   border: 2px #282828 solid;
   border-bottom: none;
 }
 
 .about-me .about-me__inner .catagories .catagory .phys_dropdown .tab_container.phys.tab_2.open .waterwheel-sim_container .canvases .canvas_2 {
-  width: 100%;
-  max-width: 400px;
-  min-width: 200px;
+  display: block;
+  max-width: 100%;
+  max-height: 20%;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
   aspect-ratio: 4/1;
   background-color: #282828;
   border: 2px #282828 solid;
-  margin: auto;
+  margin: 0 auto;
   bottom: 3px;
 }
 
@@ -1489,5 +1505,186 @@ header.home .nav .nav__list .nav__item + .nav__item:before {
   font-weight: 400;
   font-size: 1.25rem;
   text-align: center;
+}
+
+.waterwheel_fullpage {
+  background-color: #fafaf1;
+}
+
+.waterwheel_fullpage .waterwheel-sim_container {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "input runButton playpause" "plot plot plot";
+  -ms-grid-columns: 50% 25% 25%;
+      grid-template-columns: 50% 25% 25%;
+  -ms-grid-rows: 7em calc(100% - 7em);
+      grid-template-rows: 7em calc(100% - 7em);
+  height: calc(100vh - 2em);
+  width: calc(100vw - 2em);
+  margin: 1em auto;
+}
+
+.waterwheel_fullpage .waterwheel-sim_container .input_container {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: input;
+  width: 100px;
+  margin: auto auto 0.5em auto;
+  padding-left: 1em;
+  color: #282828;
+  text-align: center;
+}
+
+.waterwheel_fullpage .waterwheel-sim_container .input_container .inp {
+  width: 80%;
+}
+
+.waterwheel_fullpage .waterwheel-sim_container input, .waterwheel_fullpage .waterwheel-sim_container textarea {
+  padding: 0.2em;
+  margin-bottom: 0em;
+  border-radius: 0.3em;
+  border: 1px solid gray;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.waterwheel_fullpage .waterwheel-sim_container .button {
+  opacity: 0.5;
+  margin: auto;
+  margin-bottom: 0.5em;
+  width: 3.5em;
+  height: 3em;
+  padding: 2px 10px;
+  border-radius: 0.3em;
+  border: none;
+  font-weight: 600;
+  background: #91918d;
+  -webkit-box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), inset 0px 0.5px 0.5px rgba(255, 255, 255, 0.5), 0px 0px 0px 0.5px rgba(0, 0, 0, 0.12);
+          box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), inset 0px 0.5px 0.5px rgba(255, 255, 255, 0.5), 0px 0px 0px 0.5px rgba(0, 0, 0, 0.12);
+  color: #fafaf1;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+}
+
+.waterwheel_fullpage .waterwheel-sim_container .button.run {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: runButton;
+  margin-right: calc(1em + 5px);
+}
+
+.waterwheel_fullpage .waterwheel-sim_container .button.pauseplay {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: playpause;
+  margin-left: calc(-1em + 5px);
+}
+
+.waterwheel_fullpage .waterwheel-sim_container .button:not(.useable):hover {
+  cursor: not-allowed;
+}
+
+.waterwheel_fullpage .waterwheel-sim_container .button.useable:active {
+  background: #689775;
+}
+
+.waterwheel_fullpage .waterwheel-sim_container .button.useable {
+  opacity: 1;
+}
+
+.waterwheel_fullpage .waterwheel-sim_container .canvases {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: plot;
+  width: 100%;
+  max-height: 100%;
+  aspect-ratio: 3/4;
+  margin: auto;
+  margin-top: 0;
+}
+
+.waterwheel_fullpage .waterwheel-sim_container .canvases .canvas_1 {
+  display: block;
+  max-width: 100%;
+  max-height: 80%;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  aspect-ratio: 1/1;
+  background-color: #282828;
+  margin: 0 auto;
+  border: 2px #282828 solid;
+  border-bottom: none;
+}
+
+.waterwheel_fullpage .waterwheel-sim_container .canvases .canvas_2 {
+  display: block;
+  max-width: 100%;
+  max-height: 20%;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  aspect-ratio: 4/1;
+  background-color: #282828;
+  border: 2px #282828 solid;
+  margin: 0 auto;
+  bottom: 3px;
+}
+
+@media (min-width: 800px) {
+  .waterwheel_fullpage .waterwheel-sim_container {
+    display: -ms-grid;
+    display: grid;
+        grid-template-areas: "input input plot" "runButton playpause plot";
+    -ms-grid-columns: 15% 15% 70%;
+        grid-template-columns: 15% 15% 70%;
+    max-width: 1000px;
+    padding: 1em;
+  }
+  .waterwheel_fullpage .waterwheel-sim_container .input_container {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: input;
+    margin: auto auto;
+    margin-top: 2em;
+    color: #282828;
+    text-align: center;
+  }
+  .waterwheel_fullpage .waterwheel-sim_container .input_container br {
+    display: none;
+  }
+  .waterwheel_fullpage .waterwheel-sim_container .input_container .inp {
+    width: 100%;
+  }
+  .waterwheel_fullpage .waterwheel-sim_container input, .waterwheel_fullpage .waterwheel-sim_container textarea {
+    padding: 0.2em;
+    margin-bottom: 0em;
+    border-radius: 0.3em;
+    border: 1px solid gray;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .waterwheel_fullpage .waterwheel-sim_container .button {
+    margin-top: 2em;
+  }
+  .waterwheel_fullpage .waterwheel-sim_container .button.run {
+    margin-right: 10px;
+  }
+  .waterwheel_fullpage .waterwheel-sim_container .button.pauseplay {
+    margin-left: 10px;
+  }
 }
 /*# sourceMappingURL=style.css.map */

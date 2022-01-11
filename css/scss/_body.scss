@@ -70,8 +70,9 @@
                     }
                     &:hover{
                         .catagory_title{
-                            text-shadow:  2px 4px 3px rgba(0,0,0,0.3);
-                            transition: text-shadow 250ms ease-in-out;
+                            opacity: 0.75;
+                            text-shadow:  2px 2px 3px rgba(0,0,0,0.3);
+                            transition: all 250ms ease-in-out;
                         }
                         .more-info__text:not(.open){
                             &:before, .chevron{
@@ -357,27 +358,58 @@
                                 }
                               }
 
+                            // .canvases{
+                            //     grid-area: plot;
+                            //     .canvas_1{
+                            //         width: 100%;
+                            //         max-width: 400px;
+                            //         min-width: 200px;
+                            //         aspect-ratio: 1/1;
+                            //         background-color: $clr-dark;
+                            //         display: block;
+                            //         margin:0 auto;
+                            //         border: 2px $clr-dark solid;
+                            //         border-bottom: none;
+                            //     }
+                            //     .canvas_2{   
+                            //         width: 100%;
+                            //         max-width: 400px; 
+                            //         min-width: 200px;
+                            //         aspect-ratio: 4/1;
+                            //         background-color: $clr-dark;
+                            //         border: 2px $clr-dark solid;
+                            //         margin: auto;
+                            //         bottom: 3px;
+                            //     }
+                            // }
                             .canvases{
-                                grid-area: plot;
+                                grid-area: plot;            
+                                width: 100%;
+                                max-height: 100%;
+                                aspect-ratio: 3/4;
+                                margin: 0 auto;
                                 .canvas_1{
-                                    width: 100%;
-                                    max-width: 400px;
-                                    min-width: 200px;
+                                    display: block;
+                                    max-width: 100%;
+                                    max-height: 80%;
+                                    width: max-content;
+                                    height: max-content;
                                     aspect-ratio: 1/1;
                                     background-color: $clr-dark;
-                                    display: block;
                                     margin:0 auto;
                                     border: 2px $clr-dark solid;
                                     border-bottom: none;
                                 }
-                                .canvas_2{   
-                                    width: 100%;
-                                    max-width: 400px; 
-                                    min-width: 200px;
+                                .canvas_2{
+                                    display: block;
+                                    max-width: 100%;
+                                    max-height: 20%;
+                                    width: max-content;
+                                    height: max-content;
                                     aspect-ratio: 4/1;
                                     background-color: $clr-dark;
                                     border: 2px $clr-dark solid;
-                                    margin: auto;
+                                    margin:0 auto;
                                     bottom: 3px;
                                 }
                             }

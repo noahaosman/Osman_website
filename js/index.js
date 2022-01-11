@@ -155,7 +155,7 @@ $(window).resize(function () {
     determine_maxBlurbLength();
 
     //redraw waterwheel if that's open
-    if ($('.tab_container.phys.tab_2').hasClass("openTab")) {
+    if ($('.tab_container.phys.tab_2').hasClass("open")) {
         if (!waterwheel_running) {
             init();
         }
@@ -218,6 +218,16 @@ function determine_maxBlurbLength() {
 
 
 /* #region  | waterwheel UI functions */
+
+// run wheel if return is pressed in input field
+const input_field = document.querySelectorAll('.inp')
+input_field.addEventListener("keydown", function (e) {
+    console.log(e)
+    if (e.code === "Enter") {  //checks whether the pressed key is "Enter"
+        init();
+    }
+});
+
 
 function pauseWithUpdate() {
     // if waterwheel tab was open & running, pause the simulation

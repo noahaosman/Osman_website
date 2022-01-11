@@ -1,0 +1,158 @@
+.waterwheel_fullpage{
+
+    background-color: $clr-light;
+
+    .waterwheel-sim_container{
+
+        display: grid;
+        grid-template-areas: 
+            "input runButton playpause"
+            "plot plot plot";
+        grid-template-columns: 50% 25% 25%;
+        grid-template-rows: 7em calc(100% - 7em);
+        height: calc(100vh - 2em);
+        width: calc(100vw - 2em);
+        margin: 1em auto;
+        // overflow: scroll;
+
+        .input_container{
+            grid-area: input;
+            width: 100px;
+            margin: auto auto 0.5em auto;
+            padding-left: 1em;
+            color: $clr-dark;
+            text-align: center;
+            .inp{
+                width:80%;
+            }
+        }
+
+        input, textarea {
+            padding: 0.2em;
+            margin-bottom: 0em;
+            border-radius: 0.3em;
+            border: 1px solid gray;
+            box-sizing: border-box;
+        }
+
+        .button{
+            opacity: 0.5;
+            margin: auto;
+            &.run{
+                grid-area: runButton;
+                margin-right: calc(1em + 5px);
+            }
+            &.pauseplay{
+                grid-area: playpause;
+                margin-left: calc(-1em + 5px);
+            }
+            margin-bottom: 0.5em;
+            width: 3.5em;
+            height: 3em;
+            padding: 2px 10px;
+            border-radius: 0.3em;
+            border: none;
+            font-weight: $fw-bold;
+            background: $clr-midpt;
+            box-shadow: $bs-light;
+            color: $clr-light;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+            user-select: none;
+            touch-action: manipulation;
+            &:not(.useable):hover{
+                cursor: not-allowed;
+            }
+            &.useable:active{
+                background: $clr-accent;
+            }
+            &.useable{
+                opacity: 1;
+            }
+        }
+
+        .canvases{
+            grid-area: plot;
+            width: 100%;
+            max-height: 100%;
+            aspect-ratio: 3/4;
+            margin: auto;
+            margin-top: 0;
+            .canvas_1{
+                display: block;
+                max-width: 100%;
+                max-height: 80%;
+                width: max-content;
+                height: max-content;
+                aspect-ratio: 1/1;
+                background-color: $clr-dark;
+                margin:0 auto;
+                border: 2px $clr-dark solid;
+                border-bottom: none;
+            }
+            .canvas_2{
+                display: block;
+                max-width: 100%;
+                max-height: 20%;
+                width: max-content;
+                height: max-content;
+                aspect-ratio: 4/1;
+                background-color: $clr-dark;
+                border: 2px $clr-dark solid;
+                margin:0 auto;
+                bottom: 3px;
+            }
+        }
+    } 
+
+}
+
+
+@media (min-width: 800px){
+
+    .waterwheel_fullpage{
+    
+        .waterwheel-sim_container{
+
+            display: grid;
+            grid-template-areas: 
+                "input input plot"
+                "runButton playpause plot";
+            grid-template-columns: 15% 15% 70%;
+            max-width: 1000px;
+            padding: 1em;
+
+            .input_container{
+                grid-area: input;
+                margin: auto auto;
+                margin-top: 2em;
+                color: $clr-dark;
+                text-align: center;
+                br{
+                    display: none;
+                }
+                .inp{
+                    width:100%;
+                }
+            }
+    
+            input, textarea {
+                padding: 0.2em;
+                margin-bottom: 0em;
+                border-radius: 0.3em;
+                border: 1px solid gray;
+                box-sizing: border-box;
+            }
+    
+            .button{
+                &.run{
+                    margin-right: 10px;
+                }
+                &.pauseplay{
+                    margin-left: 10px;
+                }
+                margin-top: 2em;
+            }
+        }
+    }
+
+}

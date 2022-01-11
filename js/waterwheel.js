@@ -39,16 +39,11 @@ var parms = new Object();
     parms.tol = Math.pow(10,-6);                // error tolerance for iteration
 
 function init(){
-    
     // initialize data arays
     th0_saved_data = new Array(prior_points_to_plot).fill(0);
     wn0_saved_data = new Array(prior_points_to_plot).fill(0);
     al0_saved_data = new Array(prior_points_to_plot).fill(0);
     counter = 0;
-
-    canvas = document.getElementsByTagName('canvas');
-    canvas_width = canvas[0].offsetWidth;
-    canvas_height = canvas[0].offsetHeight;
 
     // read button input, leave as undefined and give an alert if invalid input
     var C0_in = document.getElementById("input--C0").value;
@@ -375,13 +370,23 @@ function advance(mn, thn, wn) {
 // draw a frame
 function draw_wheel(mn, thn, wn, thn_saved_data, wn_saved_data, al_saved_data, canvas_ID) {
 
+    canvas = document.getElementsByTagName('canvas');
     l = canvas[canvas_ID].getContext('2d');
 
 
-    for (var i=1; i<=canvas.length; i++){
-        canvas[i-1].width = $('.canvas_'+i.toString()).width();
-        canvas[i-1].height = $('.canvas_'+i.toString()).height();
-    }
+    // for (var i=1; i<=canvas.length; i++){
+    //     console.log($('.canvas_'+i.toString()).width());
+
+    //     canvas[i-1].width = $('.canvas_'+i.toString()).width();
+    //     canvas[i-1].height = $('.canvas_'+i.toString()).height();
+    // }
+
+    console.log($('.canvases').width());
+
+    canvas[0].width = $('.canvases').width();
+    canvas[1].width = $('.canvases').width();
+    canvas[0].height = 0.8 * $('.canvases').height();
+    canvas[1].height = 0.2 * $('.canvases').height();
 
 
     var bckgrnd =  "rgb("+bckgrnd_clr[0]+","+bckgrnd_clr[1]+","+bckgrnd_clr[2]+")";
@@ -392,7 +397,7 @@ function draw_wheel(mn, thn, wn, thn_saved_data, wn_saved_data, al_saved_data, c
     var theta_offset = pi/2;
 
     // clear the specified pixels within the given rectangle
-    l.clearRect(0, 0, canvas[0].offsetWidth, canvas[0].offsetHeight);
+    // l.clearRect(0, 0, canvas[0].offsetWidth, canvas[0].offsetHeight);
 
 
     // draw a phase space plot in the center
@@ -502,7 +507,7 @@ function draw_wheel(mn, thn, wn, thn_saved_data, wn_saved_data, al_saved_data, c
         l.clearRect(0, 0, canvas[canvas.length-1].offsetWidth, canvas[canvas.length-1].offsetHeight);
 
         var canvas_width = canvas[canvas.length-1].offsetWidth;///-6; // account for padding
-        var canvas_height = canvas[canvas.length-1].offsetHeight-4;
+        var canvas_height = canvas[canvas.length-1].offsetHeight+4;
 
         //y axis
         l.beginPath();
@@ -513,7 +518,7 @@ function draw_wheel(mn, thn, wn, thn_saved_data, wn_saved_data, al_saved_data, c
         l.stroke();
 
         // y-axis label
-        l.font = Math.round(24*canvas[0].width/400).toString()+"px Times";
+        l.font = Math.round(24*canvas_width/400).toString()+"px Times";
         l.fillStyle = "#FBFAF5";
         l.textAlign = 'start';//'\u2212'+
         l.fillText('\u03B8', 0, 3*grid_size);
